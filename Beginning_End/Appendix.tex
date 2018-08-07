@@ -1,0 +1,443 @@
+\appendix
+
+\chapter{}
+
+\section{General conventions and definitions}
+
+In this appendix we introduce the general notations and conventions used in the thesis. 
+
+\subsection{Metric and units}
+
+We use the following convention for Minkowski metric:
+
+\begin{equation}
+(\eta_{\mu\nu}) = \mathrm{diag}[1,-1,-1,-1] \: .
+\label{metric}
+\end{equation}
+
+As for the unit system, we use natural units, where both the speed of light $c$ and the reduced Planck constant $\hbar$ are set equal to one.
+
+\subsection{Gamma matrices}
+\label{gamma_matrices}
+
+Gamma matrices appear in the Dirac Lagrangian: $\Lag_D [\bar \psi, \psi] = \bar \psi (i \gamma^{\mu} D_{\mu} -m \id) \psi$, and fulfil the following relations:
+
+\begin{itemize}
+\item Clifford algebra: $\qty \big{\gamma^{\mu}, \gamma^{\nu}} = 2 \id \eta^{\mu \nu}$
+\item Relation with the hermitian conjugate: $\gamma^{\mu} = \gamma^0 (\gamma^{\mu})^{\dagger} \gamma^0$ \: .
+\end{itemize}
+%
+As a consequence, the following equations hold:
+\begin{itemize}
+\item $(\gamma^0)^2 = \id$, $(\gamma^i)^2 = - \id$, $i= 1,2,3$
+\item $(\gamma^0)^{\dagger} = \gamma^0$, $(\gamma^i)^{\dagger} = -\gamma^i$, $i= 1,2,3$
+\item $\qty \big{\gamma^{\mu}, \gamma^{\nu}} = 0$ if $\mu \neq \nu$ \: .
+\end{itemize}
+
+$\gamma_5$ is defined by: $\gamma_5 = i \gamma^0 \gamma^1 \gamma^2 \gamma^3$, and it has the following properties: $(\gamma_5)^2=\id$, $(\gamma_5)^{\dagger} = \gamma_5$, $\qty \big{\gamma_5, \gamma^{\mu}} = 0$. There exist multiple representations of the gamma matrices, and physical results do not depend on the choice of the representation. In this thesis we use the chiral representation:
+
+\begin{equation}
+\gamma^0 = 
+\begin{pmatrix}
+0 & \id_{2 \times 2} \\
+\id_{2 \times 2} & 0
+\end{pmatrix}
+\: ,
+\qquad
+\gamma^i = 
+\begin{pmatrix}
+0 & \sigma^i \\
+-\sigma^i & 0
+\end{pmatrix}
+\: ,
+\qquad
+\gamma_5 = 
+\begin{pmatrix}
+-\id_{2 \times 2} & 0 \\
+0  & \id_{2 \times 2}
+\end{pmatrix}
+\: ,
+\end{equation}
+%
+where $\sigma^i$, $i=1,2,3$, are the Pauli matrices.
+
+Gamma matrices are involved in the definition of the Lorentz group representation acting on Dirac spinors. In particular, the generators of Lorentz transformations are defined by: $J^{\mu \nu} = -i/4 [\gamma^{\mu},\gamma^{\nu}]$. Moreover, the parity transformation of a Dirac spinor is defined by:
+
+\begin{equation}
+\psi(\textbf x, t) \to \psi'(\textbf x, t) = \gamma^0 \psi(-\textbf x, t) \: ,
+\end{equation}
+%
+and the transformation under charge conjugation by:
+
+\begin{equation}
+\psi(x) \to \psi^C(x) = C \bar \psi(x)^T \: ,
+\end{equation}
+%
+where the charge conjugation operator is $C = i \gamma^2 \gamma^0$.
+
+$\gamma_5$ appears in the definition of the chirality projectors:
+
+\begin{equation}
+P_L = \frac{\id - \gamma_5}{2} \: , \qquad P_R = \frac{\id + \gamma_5}{2} \: ,
+\end{equation}
+%
+which have the following properties: $P_{R,L}^2 = P_{R,L}$, $P_R P_L = P_L P_R = 0$, $P_L + P_R = \id$, and are used to define left- and right-handed spinors:
+
+\begin{equation}
+\psi(x) = \psi_L(x)+ \psi_R(x) \: , \qquad\psi_L(x) = P_L \psi(x) \: , \qquad \psi_R(x) = P_R \psi(x) \: .
+\end{equation}
+%
+The Dirac Lagrangian can be rewritten in terms of left- and right-handed Dirac spinors as follows:
+
+\begin{equation}
+\Lag_D = \bar \psi_L (i \gamma^{\mu} D_{\mu}) \psi_L + \bar \psi_R (i \gamma^{\mu} D_{\mu}) \psi_R -m (\bar\psi_L \psi_R + \bar\psi_R \psi_L) \: .
+\end{equation}
+
+The Dirac Lagrangian in Euclidean space is: $\Lag_D^E [\bar \psi, \psi] = \bar \psi (\gamma_{\mu}^E D_{\mu} + m \id) \psi$, where the relation between Minkowskian and Euclidean gamma matrices is:
+
+\begin{equation}
+\gamma_0^E = \gamma_0 \: , \qquad \gamma_i^E = i \gamma_i = -i \gamma^i \: .
+\end{equation}
+%
+Euclidean gamma matrices have the following properties: 
+
+\begin{itemize}
+\item $\qty \big{\gamma_{\mu}^E, \gamma_{\nu}^E} = 2 \id \delta_{\mu \nu} \Rightarrow (\gamma_{\mu}^E)^2 = \id$
+\item $(\gamma_{\mu}^E)^{\dagger} = \gamma_{\mu}^E$
+\end{itemize}
+
+Euclidean $\gamma_5$ is defined by: $\gamma_5^E =  \gamma_1^E \gamma_2^E \gamma_3^E \gamma_0^E$, and has analogue properties to Minkowskian $\gamma_5$: $(\gamma_5^E)^2=\id$, $(\gamma_5^E)^{\dagger} = \gamma_5^E$, $\qty \big{\gamma_5^E, \gamma_{\mu}^E} = 0$.
+
+Euclidean gamma matrices in the chiral representation are given by:
+
+\begin{equation}
+\gamma_0^E = 
+\begin{pmatrix}
+0 & \id_{2 \times 2} \\
+\id_{2 \times 2} & 0
+\end{pmatrix}
+\: ,
+\qquad
+\gamma_i^E = 
+\begin{pmatrix}
+0 & -i \sigma^i \\
+i \sigma^i & 0
+\end{pmatrix}
+\: ,
+\qquad
+\gamma_5^E = 
+\begin{pmatrix}
+\id_{2 \times 2} & 0 \\
+0  & -\id_{2 \times 2}
+\end{pmatrix}
+\: .
+\end{equation}
+
+In this thesis we always omit the superscript $E$ in gamma matrices, and we implicitly assume that every time we discuss a lattice model, which requires the Euclidean version of the action, gamma matrices assume their Euclidean form.
+
+\subsection{Algebra of SU(N) generators}
+
+\section{Lattice Fourier transforms}
+\label{Fourier}
+
+In this appendix we define Fourier transforms on the lattice. The lattice $\Lambda$ is defined as: 
+
+\begin{equation}
+\Lambda = \set{x_{\mu} = n_{\mu} a  \mid  n_{\mu}  = 0, \dots, L_{\mu} -1, \; \mu = 0, \dots, 3 } \; ,
+\end{equation}
+%
+where $a$ is the lattice spacing and $L_{ \mu}$ the number of lattice points in direction $\mu$. The total number of lattice points $V$ is given by: $V = \prod_{\mu=0}^3 L_{\mu}$.
+
+We consider a function $f(x)$ defined on the lattice, and we define its Fourier transform as:
+
+\begin{equation}
+\begin{split}
+&f(x) = \frac{1}{\sqrt V} \sum_{p \in \tilde\Lambda} \tilde f(p) e^{i p \cdot x}\\
+&\tilde f(p) = \frac{1}{\sqrt V} \sum_{x \in \Lambda}  f(x) e^{-i p \cdot x}
+\end{split}
+\end{equation}
+%
+where $\tilde\Lambda$ denotes the momentum space. Since the space-time has a finite volume, the momenta belong to a discrete set. Specifically, if periodic boundary conditions are imposed in direction $\mu$, i.e. $f(x+aL_{\mu} \hat\mu) = f(x)$, then $p_{\mu}$ takes values in the discrete set $\set{p_{\mu} = \frac{2\pi}{a L_{\mu}} k_{\mu} \mid k_{\mu} \in \mathbb{Z}}$. While in the case of anti-periodic boundary conditions, $f(x+aL_{\mu} \hat\mu) = -f(x)$, $p_{\mu}$ belongs to $\set{p_{\mu} = \frac{2\pi}{a L_{\mu}} (\frac{1}{2} + k_{\mu}) \mid k_{\mu} \in \mathbb{Z}}$. Moreover, since the coordinates $x_{\mu}$ of each lattice point are represented by integer numbers of lattice spacings, the momenta are periodic: $\tilde f(p) = \tilde f(p + \frac{2\pi}{a}\hat\mu)$. Therefore, the momentum space is defined as:
+
+\begin{equation}
+\tilde\Lambda = \set{p_{\mu} = \frac{2 \pi}{a L_{\mu}}(k_{\mu} + \theta_{\mu})  \mid  k_{\mu} = -\frac{L_{\mu}}{2} + 1, \dots, \frac{L_{\mu}}{2}, \; \mu = 0, \dots, 3 } \: ,
+\end{equation}
+%
+where $\theta_{\mu} = 0$ corresponds to periodic boundary conditions in direction $\mu$, and $\theta_{\mu} = 1/2$ to anti-periodic ones.
+
+The lattice delta functions are defined as:
+
+\begin{equation}
+\begin{split}
+& \delta(x-x') =  \delta_{n_0,n'_0} \delta_{n_1,n'_1} \delta_{n_2,n'_2} \delta_{n_3,n'_3} = \frac{1}{V} \sum_{p \in \tilde\Lambda}
+e^{i p \cdot (x - x')} \\
+& \delta(p-p') =  \delta_{k_0,k'_0}\delta_{k_1,k'_1} \delta_{k_2,k'_2} \delta_{k_3,k'_3} = \frac{1}{V} \sum_{x \in \Lambda} 
+e^{i (p - p') \cdot x } \: .
+\end{split}
+\end{equation}
+
+\section{Hybrid Monte Carlo and the detailed balance relation}
+\label{HMC_db}
+
+In this appendix we show that the HMC algorithm respects the detailed balance relation \ref{detailed_bal}. We consider a scalar field theory with action $S[\phi]$. According to equation \ref{O_HMC}, the expectation value of an observable $O$ is given by:
+
+\begin{equation}
+\langle O \rangle = \frac{\int \prod_{x} \mathrm{d} \phi(x) \mathrm{d} \pi(x) \: O[\phi] e^{-H[\pi,\phi] }}{\int \prod_{x} \mathrm{d} \phi(x) \mathrm{d} \pi(x) \: e^{-H[\pi,\phi]}} \: ,
+\end{equation}
+%
+where the Hamiltonian is defined by: $H[\pi,\phi] =  \frac{1}{2} \sum_x \pi(x)^2 + S[\phi]$.
+
+ The HMC algorithm consists of the following steps:
+
+\begin{itemize}
+\item The momenta $\pi(x)$ are extracted from a Gaussian distribution, with probability $P[\pi(x)] \propto \exp[-\pi(x)^2/2]$. This way an initial configuration of the momenta is defined
+\item Starting from the initial configuration $(\pi, \phi)$, the system evolves to a new state $(\pi',\phi')$ along a molecular dynamics trajectory which is a numerical solution of Hamilton's equations \ref{Hamilton_eq}
+\item The final configuration $(\pi',\phi')$ is accepted or rejected in a Metropolis step, according to the transition probability 
+\begin{equation}
+W_M(\pi, \phi \to \pi' \phi') = \min \biggl[ 1, \frac{e^{-H[\pi',\phi']}}{e^{-H[\pi,\phi]}} \biggr] \: .
+\end{equation}
+\end{itemize}
+
+We denote by $W_{\mathrm{md}}(\pi,\phi \to \pi',\phi')$ the probability of evolving from the state $(\pi,\phi)$ to $(\pi',\phi')$ along the molecular dynamics trajectory.  We stress however that molecular dynamics is a deterministic process, and, given an initial state, all the following states in the trajectory are uniquely determined.
+
+We further assume that the numerical integrator generating the molecular dynamics trajectory fulfils the following conditions:
+
+\begin{itemize}
+\item Preservation of the integration measure: $ \prod_{x} \mathrm{d} \phi(x) \mathrm{d} \pi(x) =  \prod_{x} \mathrm{d} \phi'(x) \mathrm{d} \pi'(x)$
+\item Reversibility: $W_{\mathrm{md}}(\pi,\phi \to \pi',\phi') = W_{\mathrm{md}}(-\pi',\phi' \to -\pi,\phi )$\: .
+\end{itemize}
+
+
+The probability to evolve from a scalar field configuration $\phi$ to $\phi'$ in one HMC step is given by:
+
+\begin{equation}
+W(\phi \to \phi') = \int \prod_{x} \mathrm{d} \pi(x) \mathrm{d} \pi'(x)  W_M(\pi,\phi \to \pi',\phi') W_{\mathrm{md}}(\pi,\phi \to \pi',\phi') e^{-\sum_x \pi(x)^2 /2} \: .
+\label{proof1}
+\end{equation}
+%
+We rewrite Metropolis transition probability as follows:
+
+\begin{equation}
+\begin{split}
+W_M(\pi,\phi \to \pi',\phi') & = \min \biggl[ 1, \frac{e^{-H[\pi',\phi']}}{e^{-H[\pi,\phi]}} \biggr] = 
+ \frac{e^{-H[\pi',\phi']}}{e^{-H[\pi,\phi]}} \min \biggl[ 1, \frac{e^{-H[\pi,\phi]}}{e^{-H[\pi',\phi']}} \biggr]  = \\
+& = \exp \biggl[ - \frac{1}{2} \sum_x \pi'(x)^2 - S[\phi'] +  \frac{1}{2} \sum_x \pi(x)^2 + S[\phi] \biggr]  W_M(\pi',\phi' \to \pi,\phi) \: ,
+\end{split}
+\end{equation}
+%
+and we insert this expression in equation \ref{proof1}:
+
+\begin{equation}
+\begin{split}
+W(\phi \to \phi') = & \int \prod_{x} \mathrm{d} \pi(x) \mathrm{d} \pi'(x) W_M(\pi',\phi' \to \pi,\phi)  W_{\mathrm{md}}(\pi,\phi \to \pi',\phi') \times \\
+&  \exp \biggl[- \frac{1}{2} \sum_x \pi'(x)^2 - S[\phi'] + S[\phi] \biggr]  \:  .  
+\end{split}
+\end{equation}
+
+We now use the  reversibility of the molecular dynamics trajectory, together with the fact that $W_M(\pi,\phi \to \pi',\phi')$ is quadratic in $\pi$ and $\pi'$:
+
+\begin{equation}
+\begin{split}
+W(\phi \to \phi') = & \exp \bigl[ - S[\phi'] + S[\phi] \bigr] \int \prod_{x} \mathrm{d} \pi(x) \mathrm{d} \pi'(x) W_M(-\pi',\phi' \to -\pi,\phi) \times \\
+& W_{\mathrm{md}}(-\pi',\phi' \to -\pi,\phi) \exp \bigl[ -\sum_x \pi'(x)^2 /2 \bigr] = \\
+= &  \exp \bigl[ - S[\phi'] + S[\phi] \bigr] W(\phi' \to \phi) \: ,
+\end{split}
+\label{proof2}
+\end{equation}
+%
+where in the last step we used the fact that the integration measure $ \int \prod_{x} \mathrm{d} \pi(x) \mathrm{d} \pi'(x)$ and the factor $\exp \bigl[ -\sum_x \pi'(x)^2 /2 \bigr]$ are invariant under a change of sign of $\pi$ and $\pi'$. The detailed balance relation follows directly from equation \ref{proof2}:
+
+\begin{equation}
+\exp \bigl[ -  S[\phi] \bigr]W(\phi \to \phi') =\exp \bigl[ - S[\phi'] \bigr] W(\phi' \to \phi) \: .
+\end{equation}
+
+In the above proof we used explicitly the reversibility of the molecular dynamics process. The preservation of the integration measure $ \prod_{x} \mathrm{d} \phi(x) \mathrm{d} \pi(x) =  \prod_{x} \mathrm{d} \phi'(x) \mathrm{d} \pi'(x)$ is also required, because it ensures that in the path integral  $\int \prod_{x} \mathrm{d} \phi(x) \mathrm{d} \pi(x) \: e^{-H[\pi,\phi]}$ each configuration is actually weighted by $e^{-H[\pi,\phi]}$, without the appearance of an extra Jacobian determinant. (????????????????????????????)
+
+
+\section{Scalar quartic potential in an SU(2) gauge theory}
+\label{app_quartic_potential}
+
+We consider a theory of gauge-interacting scalars in the fundamental representation of the gauge group SU(2). We discuss which terms are allowed by colour and flavour symmetries in the quartic potential.
+
+\subsection{Single scalar field}
+
+
+We first consider the case of one single scalar field $\phi$. A gauge transformation is given by:
+%
+\begin{equation}
+\phi \to \phi' = U \phi
+\end{equation}
+%
+where $U \in$ SU(2)=Sp(2) is characterised by: 
+%
+\begin{equation}
+\begin{cases}
+U^{\dagger}U = \id \\
+U^{T}\epsilon U = \epsilon
+\end{cases} \: ,
+\end{equation}
+%
+$\epsilon$ being the two-dimensional antisymmetric tensor:
+%
+\begin{equation}
+\epsilon =
+\begin{pmatrix}
+0 & 1 \\
+-1 & 0
+\end{pmatrix} \, .
+\end{equation}
+%
+We can construct a field $\tilde{\phi}=-\epsilon \phi^*$ which transforms in the same way as $\phi$ under a gauge transformation:  $\tilde{\phi} \to \tilde{\phi}' = U \tilde{\phi}$.
+%
+We define a matrix $S$
+
+\begin{equation}
+S = (\phi, \tilde{\phi})
+\label{S1}
+\end{equation}
+%
+which transforms as: $S \to S'= US$.
+The relation $\tilde{\phi}=-\epsilon \phi^*$ is translated in a relation between $S$ and $S^*$:
+
+\begin{equation}
+S^* = - \epsilon S E \, ,
+\label{constraint}
+\end{equation}
+%
+where
+%
+\begin{equation}
+E =
+\begin{pmatrix}
+0 & 1 \\
+-1 & 0
+\end{pmatrix} \, .
+\end{equation}
+%
+Eq.~\ref{constraint} can be verified as follows: we write the entries of $S$ as $S_{ia}$, where $i = 1,2$ is the colour index and $a = 1,2$ is the flavour index, then we have $S_{i1} = \phi_i$, $S_{i2} = - \epsilon_{ij} \phi^*_j = - \epsilon_{ij} S^*_{j1}$. It follows that:
+
+\begin{equation}
+\begin{split}
+& (\epsilon S E)_{i1} = \epsilon_{ij} S_{ja} E_{a1} = - \epsilon_{ij} S_{j2} = -\epsilon_{ij} (- \epsilon_{jk} S_{k1}^*) = -\delta_{ik}S_{k1}^* = -S_{i1}^* \\
+& (\epsilon S E)_{i2} = \epsilon_{ij} S_{ja} E_{a2} = \epsilon_{ij} S_{j1} = - S_{i2}^*
+\end{split} \: .
+\end{equation}
+%
+The kinetic term of the scalar Lagrangian is expressed in terms of $S$ as follows:
+
+\begin{equation}
+\mathcal{L}_{kin} = \frac{1}{2} \mathrm{Tr} \bigl[ (D_{\mu}S)^{\dagger} (D^{\mu}S) \bigr] \, .
+\label{kin}
+\end{equation}
+%
+Given a matrix $M \in$ U(2) we define a flavour transformation
+
+\begin{equation}
+S \to S' = SM \: ,
+\end{equation}
+%
+and we work out the conditions under which it is a symmetry of the kinetic term \ref{kin}. If we require $S'^* = - \epsilon S' E$, it follows that $M$ must fulfil the following constraint:
+
+\begin{equation}
+EM^* = ME \: ,
+\end{equation}
+%
+which, together with the fact that M is a unitary matrix, implies:
+
+\begin{equation}
+E=MEM^T \, .
+\end{equation}
+%
+The flavour symmetry group is therefore Sp(2)=SU(2).
+
+The possible terms which are quartic in the field $\phi$ and symmetric under colour and flavour transformations are the following:
+
+\begin{equation}
+\begin{split}
+& \bigl( \mathrm{Tr} \bigl[ S^{\dagger} S \bigr] \bigr)^2 \\
+& \mathrm{Tr} \bigl[ S^{\dagger} S S^{\dagger} S\bigr] \\
+&  \bigl( \mathrm{Tr} \bigl[ S^T \epsilon S E \bigr] \bigr)^2 \\
+& \mathrm{Tr} \bigl[ S^T \epsilon S E S^T \epsilon S E\bigr] \\
+\end{split} \: .
+\label{quartic}
+\end{equation}
+%
+The last two terms in \ref{quartic} can be shown to be equal to the first ones by applying equation \ref{constraint}:
+
+\begin{equation}
+\begin{split}
+\bigl( \mathrm{Tr} \bigl[ S^T \epsilon S E \bigr] \bigr)^2  &=   \bigl( \mathrm{Tr} \bigl[ S^T (-S^*) \bigr] \bigr)^2 =  \bigl( - \mathrm{Tr} \bigl[ (S^{\dagger} S)^* \bigr] \bigr)^2 \\
+ & = \bigl(  \mathrm{Tr} \bigl[ (S^{\dagger} S) \bigr] \bigr)^2 
+ \end{split} \: ,
+ \label{proof1}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\mathrm{Tr} \bigl[ S^T \epsilon S E S^T \epsilon S E\bigr]  & = \mathrm{Tr} \bigl[ S^T (-S^*) S^T (-S^*) \bigr] = \mathrm{Tr} \bigl[ (S^{\dagger} S)^* (S^{\dagger} S)^*) \bigr] \\
+& =\mathrm{Tr} \bigl[ S^{\dagger} S S^{\dagger} S\bigr] \, .
+\end{split}
+\label{proof2}
+\end{equation}
+%
+The first and the second term in equation \ref{quartic} are not linearly independent when only one scalar field is present. To show this we start by explicitly writing $S^{\dagger} S$:
+
+\begin{equation}
+\begin{split}
+& S^{\dagger} S = 
+\begin{pmatrix}
+\phi^{\dagger}\phi  & \phi^{\dagger} \tilde{\phi} \\
+\tilde{\phi}^{\dagger} \phi & \tilde{\phi}^{\dagger} \tilde{\phi} \\
+\end{pmatrix} \\
+& \phi^{\dagger} \tilde{\phi} = - \phi^*_i \epsilon_{ij} \phi^*_j = 0 \\
+& \tilde{\phi}^{\dagger} \phi = - \epsilon_{ij} \phi_j\phi_i = 0 \\
+& \tilde{\phi}^{\dagger} \tilde{\phi} = - \epsilon_{ij} \phi_j (- \epsilon_{ik} \phi^*_k) = \delta_{jk} \phi_j \phi^*_k = \phi^{\dagger} \phi \\
+\end{split}
+\quad \Rightarrow  S^{\dagger} S = \phi^{\dagger} \phi \, \id \: .
+\end{equation}
+%
+It follows that: $(\mathrm{Tr} [S^{\dagger} S])^2 = 4 (\phi^{\dagger} \phi)^2$, $\mathrm{Tr}[S^{\dagger} S S^{\dagger} S]= 2 (\phi^{\dagger} \phi)^2$.
+In conclusion, the most general quartic potential for one single scalar field $\phi$ is given by:
+
+\begin{equation}
+V = \lambda (\mathrm{Tr} [S^{\dagger} S])^2  \, .
+\end{equation}
+
+
+
+
+\subsection{Multiple scalar fields}
+
+In the case of $N_S$ scalar fields $\phi_1$, $\phi_2$, $\dots \, \phi_{N_S}$ we define the $2 \times 2N_S$ matrix $S$ as:
+
+\begin{equation}
+S = (\phi_1, \tilde{\phi}_1, \dots, \phi_{N_S}, \tilde{\phi}_{N_S}) \, .
+\end{equation}
+%
+A gauge transformation is expressed as:
+\begin{equation}
+S \to S'=US \, , \quad \mathrm{with}  \quad U \in \mathrm{SU(2)} \, .
+\end{equation}
+%
+$S$ and $S^*$ are related to each other by: 
+\begin{equation}
+S^* = - \epsilon S E
+\label{constraintN}
+\end{equation}
+%
+where, in this case:
+\begin{equation}
+E = \mathrm{diag}(\epsilon, \dots, \epsilon) \, .
+\end{equation}
+%
+The kinetic term is expressed as: $\mathcal{L}_{kin} = \frac{1}{2} \mathrm{Tr} \bigl[ (D_{\mu}S)^{\dagger} (D^{\mu}S) \bigr]$.
+The constraint \ref{constraintN} restricts flavour transformation to be: $S \to S' = SM$, with $M \in$ Sp(2$N_S$).
+Given these definitions, the same arguments of equations~\ref{quartic}, \ref{proof1}, \ref{proof2} apply, to show that the most general quartic potential for $N_S$ scalar fields is:
+
+\begin{equation}
+V = \lambda_1 \bigl( \mathrm{Tr} \bigl[ S^{\dagger} S \bigr] \bigr)^2 + \lambda_2 \mathrm{Tr} \bigl[ S^{\dagger} S S^{\dagger} S\bigr] \, .
+\end{equation}
+
+
+
+

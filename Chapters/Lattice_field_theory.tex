@@ -1,0 +1,707 @@
+\chapter{Lattice field theory}
+
+\emph{(Something about the fact that in the strong coupling case we cannot apply perturbation theory. It depends on what I will write in the general introduction)}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Quantum field theory and statistical mechanics}
+\label{QFT-SM}
+
+We can build a non-perturbative tool for quantum field theory by exploiting the strong similarity between quantum field theory and statistical mechanics. This gives us the possibility of applying Monte Carlo simulations, an intrinsically non-perturbative method, to quantum field theory.
+
+In the path-integral formulation of quantum field theory, the generating functional of correlation functions is defined as:
+
+\begin{equation}
+Z[J] = \int \D \phi \exp \biggl[ i \int \dx \: \bigl( \Lag[\phi] + J(x)\phi(x) \bigr) \biggr] \: ,
+\label{QFT_generator}
+\end{equation}
+%
+where $\phi$ generically represents the field content of the theory, $\Lag$ is the Lagrangian and $J(x)$ is an external source field. $n$-point functions are obtained by applying the functional derivative $\delta / \delta J(x)$ to $Z[J]$ as follows:
+
+\begin{equation}
+\begin{split}
+\bra{0} \mathrm T \phi(x_1) \dots \phi(x_n) \ket{0} = & \frac{1}{Z[0]} \prod_{i=1}^n \biggl( -i \frac{\delta}{\delta J(x_i)} \biggr) Z[J] \biggr\vert_{J=0} = \\
+& = \frac{1}{Z[0]} \int \D \phi \: \phi(x_1) \dots \phi(x_n) \exp \biggl[ i \int \dx \: \Lag[\phi] \biggr] \; ,
+\end{split}
+\label{np_function}
+\end{equation}
+%
+where $\ket{0}$ represents the vacuum state and T the time-ordered product.
+By performing a Wick rotation, we can make the generating functional \ref{QFT_generator} to be formally equal to the partition function of a statistical mechanical model.
+
+As a concrete example, we consider a complex scalar field theory, with action:
+
+\begin{equation}
+S[\phi,\phi^*] = \int \dx \: \Lag[\phi,\phi^*] = \int \dx \bigl( \partial_{\mu} \phi^* \partial^{\mu} \phi - m^2 \abs{\phi}^2 -\lambda \abs{\phi}^4 \bigr) \; ,
+\end{equation}
+%
+and generating functional:
+
+\begin{equation}
+Z[J,J^*] = \int \D \phi \D \phi^* \exp \biggl[ i S[\phi,\phi^*] + i \int \dx \: J^*(x) \phi(x) + i \int \dx \: \phi^*(x) J(x) \biggr] \; .
+\label{scalar_gen_functional}
+\end{equation}
+%
+After performing a Wick rotation ($x^0 = -i x^0_E$, $x^i = x^i_E$), the following changes occur:
+
+\begin{equation}
+\begin{split}
+& i\dx =  \dx_E \\
+& \partial_{\mu} \phi^* \partial^{\mu} \phi = - \delta_{\mu\nu} \partial^{\mu}_E \phi^* \partial^{\nu}_E \phi \; .
+\end{split}
+\end{equation}
+%
+We define the Euclidean action as:
+
+\begin{equation}
+S_E[\phi,\phi^*] = \int \dx_E \bigl( \delta_{\mu\nu} \partial^{\mu}_E \phi^* \partial^{\nu}_E \phi + m^2 \abs{\phi}^2 + \lambda \abs{\phi}^4  \bigr) \; ,
+\end{equation}
+%
+and we find that the generating functional
+
+\begin{equation}
+Z[J,J^*] = \int \D \phi \D \phi^* \exp \biggl[ - \biggl( S_E[\phi,\phi^*] - \int \dx_E J(x_E) \phi(x_E) - \int \dx_E J^*(x_E) \phi^*(x_E) \biggr) \biggr] 
+\end{equation}
+%
+is now formally equal to the partition function of a statistical mechanical system.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Monte Carlo simulations}
+
+In statistical mechanics, the probability for a system in thermal equilibrium to be found in the microscopical configuration $\phi$ is given by:
+
+\begin{equation}
+P[\phi] = \frac{e^{-H[\phi]/k_B T}}{Z} \; ,
+\end{equation}
+%
+$Z=\sum_{\phi} \exp[-H[\phi]/k_B T]$ being the partition function, $H[\phi]$ the total energy of the system in the configuration $\phi$, $k_B$ the Boltzmann constant and $T$ the temperature. Monte Carlo simulations are a numerical method for generating configurations distributed according to the probability distribution $P[\phi]$.
+
+In the previous section, we argued that a quantum field theory, defined by the action $
+S[\phi]$, is equivalent to a statistical mechanical model with partition function
+
+\begin{equation}
+Z = \int \D \phi \: e^{- S_E[\phi]}
+\end{equation}
+%
+(here for simplicity we consider the case of zero external source). We can apply the Monte Carlo method for generating configurations distributed according to:
+
+\begin{equation}
+P[\phi] = \frac{e^{-S_E[\phi]}}{Z} \: .
+\label{Boltz_dist}
+\end{equation}
+
+
+Once we have an ensemble of such configurations, $n$-point functions are calculated by averaging products of fields over the configurations:
+
+\begin{equation}
+\frac{1}{Z} \int \D \phi \: \phi(x_1) \dots \phi(x_n) e^{ -S_E[\phi]} \longrightarrow \frac{1}{N}\sum_{i=1}^N \phi_i(x_1) \dots \phi_i(x_n) \; ,
+\label{n_point_f}
+\end{equation}
+%
+where $\phi_i(x_j)$ is the value of the field $\phi$ at the space-time point $x_j$, in the $i$-th configuration. 
+
+
+In order to construct a Monte Carlo simulation, we consider a stochastic process generating a sequence of configurations.  We start from an initial configuration $\phi_0$ at "Monte-Carlo time" (MC-time) $t = 0$, and move to a new configuration $\phi_1$ with transition probability $W(\phi_0 \to \phi_1)$. The following normalisation condition holds for the transition probability $W$:
+
+\begin{equation}
+\sum_{\phi'} W(\phi \to \phi') = 1 \; .
+\label{prob_norm}
+\end{equation}
+%
+We repeat this procedure many times, thus generating a sequence of configurations. The probability $P[\phi; t]$ of being in the configuration $\phi$ at MC-time $t$ fulfils the following condition:
+
+\begin{equation}
+P[\phi; t] = \sum_{\phi'} P[\phi'; t-1] W(\phi' \to \phi) \; .
+\label{prob_evolution}
+\end{equation}
+
+We want the stochastic process to have the Boltzmann distribution $P_B[\phi] = \exp[-S_E[\phi]]/Z$ as an attractive fixed point. This means that, after some thermalisation time $t_T$, the probability distribution stops changing with MC-time, and it equals the Boltzmann distribution: $P[\phi; t>t_T] = P_B[\phi]$. If we are able to build such a stochastic process, then we can obtain an ensemble of Boltzmann-distributed configurations on which we can apply equation \ref{n_point_f} for calculating $n$-point functions.
+
+It follows from equation \ref{prob_evolution} that, if $P_B$ is a fixed point of the stochastic process, then:
+
+\begin{equation}
+P_B[\phi] = \sum_{\phi'} P_B[\phi'] W(\phi' \to \phi) \; .
+\label{fixed_p}
+\end{equation}
+%
+We define the detailed-balance relation as:
+
+\begin{equation}
+P_B[\phi] W(\phi \to \phi') = P_B[\phi'] W(\phi' \to \phi) \; ;
+\label{detailed_bal}
+\end{equation}
+%
+this relation implies the fixed-point condition \ref{fixed_p} (this can be shown by summing equation \ref{detailed_bal} over $\phi'$, and using the normalisation condition \ref{prob_norm}), and it is easier to verify in a specific stochastic process. A process satisfying the detailed balance relation can be parametrised as follows:
+
+\begin{equation}
+W(\phi \to \phi') = F\biggl(\frac{P_B[\phi']}{P_B[\phi]} \biggr) \; ,
+\label{F1}
+\end{equation}
+%
+where $F$ is a generic function satisfying the functional equation
+
+\begin{equation}
+\frac{F(z)}{F(1/z)} = z \; .
+\label{F2}
+\end{equation}
+%
+There are many possible choices for the function $F$, each of whom defines a viable algorithm for a Monte Carlo simulation. One of the most widely used is $F(z) = \min [1,z]$, leading to the transition probability:
+
+\begin{equation}
+W(\phi \to \phi') = \min\biggl[1, \frac{P_B[\phi']}{P_B[\phi]}\biggl] = \min\bigl[1,e^{-(S_E[\phi'] - S_E[\phi])}\bigr] \; .
+\label{Metropolis}
+\end{equation}
+%
+This particular implementation of the Monte Carlo method is known as Metropolis algorithm \cite{Metropolis:1953am}.
+
+The stochastic process described above can be implemented numerically. To make this possible, we must define the theory on a lattice of finite volume, so that each field configuration is represented by a discrete and finite set of real numbers. Specifically, one configuration is completely defined by the value of each field at each point of the discretised space-time.  In section \ref{Lattice_action} we will discuss the definition of a gauge theory on a space-time lattice.
+
+To conclude, Monte Carlo simulations are a powerful non-perturbative method for studying quantum field theories. The price to be paid is the introduction of different sources of error that must be carefully treated: discretisation errors, finite-volume effects and statistical errors due to conducting the analysis on a finite set of configurations. 
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Lattice action}
+\label{Lattice_action}
+
+As previously pointed out, in order to apply the Monte Carlo method to a quantum field theory, we must first define the theory on a discretised space-time. In this section we discuss the lattice discretisation of a gauge theory coupled to fermions.
+
+We define the discretised space-time as the set of points:
+
+\begin{equation}
+\Lambda = \set{x_{\mu} = n_{\mu} a  \mid  n_{\mu} = 0, \dots, L_{\mu} -1, \; \mu = 0, \dots, 3 } \; ,
+\end{equation}
+%
+where $a$ is the lattice spacing and $L_{ \mu}$ the number of lattice points in direction $\mu$. We denote by $\hat \mu$ the unit vector in direction $\mu$. As discussed in section \ref{QFT-SM}, we are interested in defining the theory on a Euclidean space-time . However, for some purposes (such as measuring masses via the exponential falloff of correlators) it is useful to maintain the notion of time direction on the lattice. We consider $\mu = 0$ as time direction, i.e. the one that must be Wick-rotated in order to analytically continue the Euclidean theory to Minkowski space.
+
+When we define a quantum field theory on a lattice with a finite number of points, the functional integral becomes the product of a finite number of ordinary integrals. For example, in the case of a real scalar field theory we have:
+
+\begin{equation}
+\int \D \phi \to \int_{-\infty}^{\infty} \prod_{x \in \Lambda} \mathrm{d} \phi_x \: ,
+\end{equation}
+%
+where $\phi_x$ is the value of the field $\phi$ at the lattice point $x$.
+
+\subsection{Gauge action}
+
+We consider a theory with SU(N) gauge symmetry, whose continuum action is defined in equations (?)(?).  In order to define a discretised version of this theory, we assign to each link on the lattice $\Lambda$ an element of the gauge group:
+
+\begin{equation}
+U_ {\mu}(x) = \exp\biggl[i a  g A^b_{\mu}(x) T^b \biggr] \in \mathrm{SU(N)} \; ,
+\label{link_var}
+\end{equation}
+%
+where $T^b$, $b \in  [1, \dots, \mathrm{N}^2 -1]$, are the generators of the fundamental representation  of  SU(N) and $g$ is the gauge coupling. The following relation holds for the link variables $U_{\mu}$:
+
+\begin{equation}
+U_{-\mu}(x)  = U_{\mu}(x - a\hat\mu)^{\dagger} \; .
+\end{equation}
+
+We define a gauge transformation by assigning to each lattice site an independent element of the gauge group, $\Omega(x) \in \mathrm{SU(N)}$,  and transforming the  link variables as follows:
+
+\begin{equation}
+U_ {\mu}(x) \to  U_{\mu}'(x) = \Omega(x) U_{\mu}(x) \Omega(x+  a \hat \mu)^{\dagger} \; .
+\label{lattice_GT}
+\end{equation}
+
+The  Wilson plaquette action \cite{Wilson:1974sk} is the first proposed lattice discretisation of the  Yang-Mills action. It is defined as:
+
+\begin{equation}
+S_W[U] =  \frac{2 \mathrm N}{g^2} \sum_{x \in \Lambda}  \sum_{\mu < \nu} \biggl[  1 - \frac{1}{\mathrm{N}} \re \tr  [U_{\mu \nu}] \biggr] \; ,
+\end{equation}
+%
+where the plaquette $U_{\mu \nu}$ is the ordered product of the link variables around an elementary loop on the lattice:
+
+\begin{equation}
+U_{\mu \nu}(x)  = U_{\mu}(x) U_{\nu}(x + a\hat\mu) U_{\mu}(x+\hat\nu)^{\dagger} U_{\nu}(x) ^{\dagger}   \; .
+\label{plaquette}
+\end{equation}
+%
+$S_W[U]$ is invariant under the gauge transformation \ref{lattice_GT}, and, in the limit $a \to 0$, it reduces to the Euclidean Yang-Mills action.
+This can be shown by expanding the link variables \ref{link_var} in powers of $a$, and by making use of the Baker-Campbell-Hausdorff formula for expanding the products of link variables:
+
+\begin{equation}
+e^A e^B = e^{A+B+\frac{1}{2}[A,B] + \dots}
+\end{equation}
+%
+where $A$  and $B$ are generic matrices, and we are omitting higher powers of the matrices in the right-hand side. Moreover, we can relate a finite difference on the lattice to a continuum derivative as follows:
+
+\begin{equation}
+A_{\mu}(x + a \hat \nu) - A_{\mu}(x) = a \: \partial_{\nu} A_{\mu}(x) + \mathcal{O}(a^2) \; .
+\end{equation}
+%
+We find:
+
+\begin{equation}
+S_W[U] = \frac{a^4}{2} \sum_{x \in \Lambda} \sum_{\mu, \nu} \tr [F_{\mu \nu}(x)^2]  + \mathcal O(a^2) \underset{a \to 0, V \to \infty}{\longrightarrow} \frac{1}{4} \int \dx \: (F_{\mu \nu}^a)^2 = S_{YM}^E[A]\; ,
+\end{equation}
+%
+where $V = \prod_{\mu = 0}^3L_{\mu}$ is the total number of lattice points, $\mu$ and $\nu$ are Euclidean indices, and $F_{\mu \nu}$ is the field strength tensor, as defined in equation (?).
+
+It must be noticed that, as we discretise the Yang-Mills action, the Poincaré symmetry of the continuum theory is reduced to the smaller group of symmetries of an hypercubic lattice. However, the discretised action that we defined has the remarkable property of being exactly gauge invariant even at finite lattice spacing.
+
+
+
+\subsection{Fermion action}
+\label{fermion_action}
+
+The continuum Dirac action in Euclidean space is defined by:
+
+\begin{equation}
+S_D^E[\psi, \bar \psi, A] = \int \dx  \: \bar \psi (\slashed D + m \id) \psi = \int \dx \: \bar \psi \bigl[ \gamma_{\mu}^E(\partial_{\mu} + i g A_{\mu}) + m \id \bigr] \psi \: ,
+\end{equation}
+%
+where $\id$ is the identity matrix in Dirac space, and $\gamma_{\mu}^E$ are the Euclidean gamma matrices, related to the Minkowskian ones by: $\gamma_0^E = \gamma_0$, $\gamma_j^E = - i \gamma^j$ ($j = 1,2,3$). In the following we will omit the superscript $E$, and it will be understood that, whenever we are discussing a lattice model, gamma matrices assume their Euclidean form.
+
+We start by discretising in the most naive way the free-fermion action. We define the forward and backward lattice derivatives as:
+
+\begin{equation}
+\begin{split}
+&\nabla_{\mu} \psi(x) = \frac{ \psi(x+a\hat\mu) - \psi(x) }{a} \\
+&\nabla^*_{\mu} \psi(x) = \frac{ \psi(x) - \psi(x - a\hat\mu)  }{a}\: ,
+\end{split}
+\end{equation}
+%
+and we use the symmetrised combination:
+
+\begin{equation}
+\frac{1}{2} \bigl( \nabla_{\mu} + \nabla^*_{\mu} \bigr) \psi(x) = \frac{ \psi(x+a\hat\mu) - \psi(x -  a\hat\mu)}{2a}
+\end{equation}
+%
+in the definition of the lattice fermion action, which is:
+
+\begin{equation}
+S_F [\psi,\bar\psi] = a^4 \sum_{x \in \Lambda} \bar \psi(x) \biggl[ \sum_{\mu = 0}^3 \gamma_{\mu} \biggl( \frac{\psi(x+a\hat\mu) - \psi(x - a\hat\mu)}{2a} \biggr) + m\id\psi(x) \biggr] \: .
+\label{naive_fermions}
+\end{equation}
+%
+We rewrite equation \ref{naive_fermions} in the more compact form:
+
+\begin{equation}
+S_F [\psi,\bar\psi] = a^4 \sum_{x,y \in \Lambda } \bar \psi(x) D(x \vert y) \psi(y) \: ,
+\end{equation}
+%
+where the Dirac operator $D(x\vert y)$ is defined as:
+
+\begin{equation}
+D(x \vert y) = \sum_{\mu = 0}^3  \gamma_{\mu} \frac{\delta_{y,x+a\hat\mu} - \delta_{y,x-a\hat\mu}}{2a} + m \id \delta_{x,y} \: .
+\end{equation}
+
+
+This formulation  of the lattice fermion action leads to the problem known as fermion doubling. In order to explicitly show what the problem is, we consider the Fourier transform of the Dirac operator:
+
+\begin{equation}
+\tilde D(p \vert q) = \frac{1}{V} \sum_{x,y \in \Lambda} e^{-ip \cdot x} D( x \vert y) e^{i q \cdot y } = \delta(p-q) \tilde D(q)
+\end{equation}
+%
+where
+
+\begin{equation}
+\tilde D(q) = \frac{i}{a} \sum_{\mu} \gamma_{\mu} \sin (q_{\mu} a) + m \id \: .
+\label{naive_f_mom_space}
+\end{equation}
+%
+ See appendix \ref{Fourier} for the definition of Fourier transforms on the lattice.
+
+By inverting  the operator in equation \ref{naive_f_mom_space} and transforming back to coordinate space, we obtain the fermion propagator:
+
+\begin{equation}
+\langle \psi(x) \bar \psi(y) \rangle = D^{-1}(x \vert y) = \int_{-\frac{\pi}{a}}^{\frac{\pi}{a}} \frac{\mathrm{d}^4 q}{(2 \pi)^4} e^{iq\cdot (x-y)}  \frac{m \id -i/a \sum_{\mu} \gamma_{\mu} \sin (q_{\mu} a)}{m^2 + \sum_{\mu}  \sin^2(q_{\mu}a)/a^2} \: .
+\label{naive_prop}
+\end{equation}
+%
+Here for simplicity we consider the infinite-volume limit, where lattice momenta have a continuum spectrum. In the limit $a \to 0$, the dominant contributions to the integral \ref{naive_prop} arise from momentum ranges where
+
+\begin{equation}
+\frac{1}{a} \sin(q_{\mu}a) \sim 0 \: .
+\end{equation}
+%
+This happens around $q = (0,0,0,0), (\pi/a,0,0,0), \dots , (\pi/a,\pi/a,\pi/a,\pi/a)$. Of all these contributions, only the one arising from the integration around $q = (0,0,0,0)$ corresponds to the continuum propagator
+
+\begin{equation}
+\langle \psi(x) \bar \psi(y) \rangle_{\mathrm{cont}} = \int_{-\infty}^{\infty} \frac{\mathrm{d}^4 q}{(2 \pi)^4} e^{iq\cdot (x-y)}  \frac{m \id -i/a \sum_{\mu} \gamma_{\mu} q_{\mu}}{m^2 +  q^2} \: ,
+\end{equation}
+%
+while the other fifteen contributions have no continuum analogue, and are not defined in the continuum limit. These are lattice artefacts known as doublers.  
+
+%Physical states correspond to poles of the propagator in the energy variable $E = -i q_0$. If a certain $\tilde q$ is a pole of equation \ref{naive_prop} in the sense defined above, then other 15 four-momentum vectors correspond to a pole at the same value of the mass. The 16 poles of equation \ref{naive_prop} can be expressed as: $\tilde q + q^{(\pi)}$, where $q^{(\pi)}_{\mu} = \alpha_{\mu}$ and $\alpha_{\mu}$ can assume the values 0 or $\pi/a$. The lattice theory contains more states than the continuum theory, due to the symmetry of $\sum_{\mu}  \sin^2(q_{\mu}a)$ under $q_{\mu} \to q_{\mu} + \pi/a$.
+
+One of the possible solutions to the doubling problem is to add an extra term to the Dirac operator, known as Wilson term \cite{Wilson:1975id}. The Wilson-Dirac operator in momentum space is defined by:
+
+\begin{equation}
+\tilde D(q) = \frac{i}{a} \sum_{\mu} \gamma_{\mu} \sin (q_{\mu} a) + m \id + \id \frac{1}{a} \sum_{\mu} \bigl( 1 - \cos(q_{\mu}a) \bigr) \: , 
+\end{equation}
+%
+leading to the fermion propagator:
+
+\begin{equation}
+\langle \psi(x) \bar \psi(y) \rangle = \int_{-\frac{\pi}{a}}^{\frac{\pi}{a}} \frac{\mathrm{d}^4 q}{(2 \pi)^4} e^{iq\cdot (x-y)}  \frac{\bigl[ m + a^{-1} \sum_{\mu}\bigl( 1 - \cos(q_{\mu}a) \bigr)\bigr] \id                                                                           - i a^{-1} \sum_{\mu} \sin(q_{\mu}a)}{\bigl[m + a^{-1}\sum_{\mu} \bigl(1 - \cos(q_{\mu}a) \bigr) \bigr]^2  + a^{-2}\sum_{\mu} \sin^2(q_{\mu}a) } \: .
+\label{Wilson_prop}
+\end{equation}
+%
+We define $q^{(\pi)}$ as a momentum vector with $n_{\pi}$ components equal to $\pi/a$ and the other $4-n_{\pi}$ components equal to zero.
+In the vicinity of $q^{(\pi)}$, the denominator in equation \ref{Wilson_prop} is given by:
+
+\begin{equation}
+\biggl[m + \frac{1}{a}\sum_{\mu} \bigl(1 - \cos(q_{\mu}a) \bigr) \biggr]^2  + \frac{1}{a^2}\sum_{\mu} \sin^2(q_{\mu}a) \underset{q \sim q^{(\pi)}}{\sim}
+\biggl[m + \frac{2 n_{\pi}}{a} \biggr]^2  +\frac{1}{a^2}\sum_{\mu} \sin^2(q_{\mu}a) \: .
+\end{equation}
+%
+This expression is finite in the $a \to 0$ limit only if $n_{\pi} = 0$, otherwise it diverges. Thus the contributions from the doublers are eliminated. The price to be paid is that the Wilson fermion action is not chirally symmetric in the limit $m \to 0$. 
+
+
+%Let us consider a pole of this propagator, $\tilde q$, such that $\tilde q_{\mu} a \simeq 0$. The poles $\tilde q + q^{(\pi)}$ correspond now to different masses: $m^{(\pi)} = m + 2 n^{(\pi)}/a$, where $n^{(\pi)}$ is the number of components of $q^{(\pi)}$ equal to $\pi/a$. In particular, $\tilde q$ corresponds to mass $m$, and all the other states have a mass which becomes infinite in the limit $a \to 0$. The doublers thus decouple, and the theory contains the correct number of states.
+
+The Wilson term $\tilde D_W (q) = \id a^{-1} \sum_{\mu}\bigl( 1 - \cos(q_{\mu}a) \bigr)$ has the following  form in coordinate space:
+
+\begin{equation}
+D_W(x \vert y) = -\id  a \sum_{\mu} \frac{\delta_{y,x+a\hat\mu} -2 \delta_{x,y} + \delta_{y,x-a\hat\mu}}{2a^2} \underset{a \to 0} \to - \id\frac{a}{2} \partial_{\mu}\partial_{\mu} \: .
+\label{Wilson_term}
+\end{equation}
+%
+Equation \ref{Wilson_term} shows that $D_W$ is a discretisation of the Laplace operator $\partial_{\mu}\partial_{\mu}$, multiplied by a factor $a$, which makes it clear that the Wilson term goes to zero in the limit of vanishing lattice spacing.
+
+
+We now introduce the gauge interaction by inserting link variables in the products of neighbouring fermion fields:
+
+\begin{equation}
+\begin{split}
+& \bar \psi(x) \psi(x + a \hat\mu) \to \bar \psi(x) U_{\mu}(x) \psi(x + a \hat\mu)\\
+& \bar \psi(x) \psi(x - a \hat\mu) \to \bar \psi(x) U_{-\mu}(x) \psi(x - a \hat\mu) = \bar \psi(x) U_{\mu}^{\dagger}(x - a\hat\mu) \psi(x - a \hat\mu) \: .
+\end{split}
+\label{g_inv_prod}
+\end{equation}
+%
+Now the fermion fields carry a colour index  along with the Dirac index, and they transform as: 
+
+\begin{equation}
+\begin{split}
+&\psi(x) \to \Omega(x) \psi(x) \\
+&\bar\psi(x) \to \bar\psi(x) \Omega^{\dagger}(x)
+\end{split}
+\end{equation}
+%
+under the gauge transformation \ref{lattice_GT}, which shows that the products defined in equation \ref{g_inv_prod} are gauge invariant.
+
+To conclude, the interacting Wilson-Dirac operator is given by:
+
+\begin{equation}
+D(x \vert y) = \biggl( m + \frac{4}{a}  \biggr)\id \times \id_C   \delta_{x,y} - \frac{1}{2a}  \biggr[ \sum_{\mu}(\id-\gamma_{\mu}) U_{\mu}(x) \delta_{y,x+a\hat\mu} + \sum_{\mu}(\id+\gamma_{\mu}) U_{\mu}^{\dagger}(x -a \hat\mu) \delta_{y,x-a\hat\mu} \biggl] \: .
+\label{Wilson-Dirac}
+\end{equation}
+%
+where $\id_C$ represents the identity matrix in colour space.
+
+\bigskip
+
+We have thus defined Wilson's formulation of a lattice gauge theory coupled to fermions. The action is given by:
+
+\begin{equation}
+S[U,\psi^{(i)}, \bar\psi^{(i)}] =  \frac{2 \mathrm N}{g^2} \sum_{x \in \Lambda}  \sum_{\mu < \nu} \bigr[  1 - \frac{1}{\mathrm{N}} \re \tr  [U_{\mu \nu}] \bigl ] + \sum_{i=1}^{N_f} a^4 \sum_{x,y \in \Lambda} \bar\psi^{(i)}(x) D^{(i)}(x \vert y)\psi^{(i)}(y) \: ,
+\label{lattice_action}
+\end{equation}
+%
+where $U_{\mu\nu}$ is the plaquette, defined in equation \ref{plaquette}, $D(x \vert y)$ is the Wilson-Dirac operator defined in equation \ref{Wilson-Dirac}, and $N_f$ is the number of fermion flavours.
+The partition function of this model is:
+
+\begin{equation}
+Z = \int  \prod_{x \in \Lambda} \biggr[ \prod_{\mu} \mathrm{d} U_{\mu}(x) \biggr] \biggl[ \prod_i \mathrm{d} \psi^{(i)}(x) \mathrm{d} \bar \psi^{(i)}(x) \biggr] e^{-S[U,\psi^{(i)}, \bar\psi^{(i)}]} \: ,
+\label{partition_function}
+\end{equation}
+%
+where $\mathrm{d} U_{\mu}(x)$ is the Haar measure for the integration over the gauge group.
+
+The action \ref{lattice_action} is not  a unique choice. There exist other formulations, which for example have smaller discretisation errors, or implement a lattice version of chiral symmetry in the fermion action. For the study described in this thesis, Wilson's formulation \ref{lattice_action} is used.
+
+
+
+\subsection{Pseudofermions}
+
+Fermion fields are represented in the path integral formalism by anticommuting Grassmann variables. Unfortunately, it is not possible to define Grassmann variables on a computer. This problem can be solved by using following trick: the Gaussian integral over the fermion fields is explicitly calculated:
+
+\begin{equation}
+\int \prod_{x \in \Lambda}  \mathrm{d} \psi(x) \mathrm{d} \bar \psi(x) \exp \biggl[-\sum_{x,y \in \Lambda} \bar\psi(x) D(x \vert y)\psi(y) \biggr] = \det[-D] \: ,
+\end{equation}
+%
+and then the fermionic determinant $\det[-D]$ is rewritten as an integral over new bosonic variables, known as pseudofermions. 
+
+But first of all it must be shown that the fermions' contribution to the partition function is real and nonnegative.
+The minus sign inside the determinant is actually irrelevant, since it simply provides an overall factor $(-1)^N$ in front of the path integral, where $N$ is the dimension of the matrix $D$. If $\det[D]$ is a nonnegative real number in each gauge configuration, then it can  be seen as a part of the Boltzmann weight in the partition function
+
+\begin{equation}
+Z = \int \prod_{x \in \Lambda} \biggl[ \prod_{\mu} \mathrm{d} U_{\mu}(x) \biggr] \det[D] e^{-S_W[U]} \: ,
+\end{equation}
+%
+otherwise it cannot be interpreted as probability density. 
+
+The Wilson-Dirac operator is $\gamma_5$-hermitian: $\gamma_5 D = D^{\dagger} \gamma_5$. We  can use this property for defining an hermitian operator:
+
+\begin{equation}
+Q = \gamma_5 D \: ,
+\end{equation}
+% 
+ whose determinant is a real number. Since $\det[ \gamma_5] = 1$,  the determinants of $D$ and $Q$ are equal, implying that the determinant of the Wilson-Dirac operator is real. But this does not guarantee that $\det[D]$ is nonnegative.
+
+A possible strategy for ensuring the positivity of the integrand in the partition function is to have couples of mass-degenerate fermion fields in the theory. Two mass-degenerate fermions are coupled to identical Dirac operators, and contribute to the partition function with a factor $\det[D]^2 \geq 0$. 
+
+We can now define the lattice fermion action in terms of pseudofermion fields.We consider a theory with two mass-degenerate fermions, and we rewrite the fermionic contribution as an integral over bosonic degrees of freedom, $\phi$ and $\phi^{\dagger}$:
+
+\begin{equation}
+\det[D]^2 = \det[Q]^2 = \det[Q^2] = \pi^{-N} \int \prod_{x \in \Lambda} \mathrm{d} \phi(x) \mathrm{d} \phi^{\dagger}(x) \exp \biggl[ 
+-\sum_{x,y \in \Lambda} \phi^{\dagger}(x) Q^{-2} (x \vert y) \phi(y) \biggr] \: .
+\end{equation}
+%
+The factor $\pi^{-N}$ can be neglected, since it is an overall factor in the path integral. The lattice action can now be expressed as a function of bosonic variables:
+
+\begin{equation}
+S[U,\phi,\phi^{\dagger}] = \frac{2 \mathrm N}{g^2} \sum_{x \in \Lambda}  \sum_{\mu < \nu} \bigr[  1 - \frac{1}{\mathrm{N}} \re \tr  [U_{\mu \nu}] \bigl ] +  a^4 \sum_{x,y \in \Lambda} \phi^{\dagger}(x) Q^{-2}(x \vert y)\phi(y) \: ,
+\label{lattice_action_psf}
+\end{equation}
+%
+and is suitable for the implementation of a Monte Carlo simulation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Hybrid Monte Carlo}
+
+The lattice action \ref{lattice_action_psf} is highly nonlocal, due to the inverse $Q$ operator in the pseudofermion term. It may be inefficient in this case to use algorithms based on local updates  of the configurations. By local update we mean that just one or a few link variables are changed when generating a new configuration. 
+
+For example, we imagine to update the gauge field by changing the value of one link variable, and then to accept or reject the new configuration according to Metropolis transition probability \ref{Metropolis}. Even though only one link variable has been changed, the variation of the action appearing in equation \ref{Metropolis} depends on all the link variables in the lattice. With this method, subsequent configurations are highly correlated to each other, and at the same time each Metropolis step is computationally expensive.
+
+In this case it is a better solution to change all the link variables at once. The Hybrid Monte Carlo (HMC) algorithm is based on the idea of updating the configurations via a molecular dynamics evolution, in such a way that all the link variables are changed, but at the same time the change in the action is very small, so that the new configuration is very likely to be accepted in a Metropolis step.
+In this section we describe the general idea behind the HMC method by using a scalar field theory as a concrete example. In section \ref{Forces} we will give the details for the application of the method to a gauge theory coupled to fermions and scalars.
+
+We consider a scalar field theory, with action $S[\phi]$, and we write the expectation value of an observable $O$ as:
+
+\begin{equation}
+\langle O \rangle = \frac{\int \prod_{x} \mathrm{d} \phi(x) \: O[\phi] \exp[-S[\phi]]}{\int \prod_{x} \mathrm{d} \phi(x) \: \exp[-S[\phi]]} = \frac{\int \prod_{x} \mathrm{d} \phi(x) \mathrm{d} \pi(x) \: O[\phi] \exp[ - \frac{1}{2} \sum_y \pi(y)^2 -S[\phi]]}{\int \prod_{x}  \mathrm{d} \phi(x) \mathrm{d} \pi(x) \: \exp[ - \frac{1}{2} \sum_y \pi(y)^2 -S[\phi]]} \: ,
+\label{O_HMC}
+\end{equation}
+%
+where in the last step we multiplied both numerator and denominator by the factor $\int \prod_x \mathrm{d} \pi(x) \exp[ - \frac{1}{2} \sum_y \pi(y)^2]$. We interpret $H[\pi,\phi] =  \frac{1}{2} \sum_x \pi(x)^2 + S[\phi]$ as an Hamiltonian, whose Hamilton's equations are given by:
+
+\begin{equation}
+\begin{split}
+& \dot \pi(x) = - \frac{\partial H}{\partial \phi(x)} = - \frac{\partial S}{\partial \phi(x)}\\
+& \dot \phi(x) = \frac{\partial H}{\partial \pi(x)} = \pi(x) \: ,
+\label{Hamilton_eq} 
+\end{split}
+\end{equation}
+%
+where the dot denotes the derivative with respect to molecular-dynamics time. If we were able to exactly solve these equations, we would have a trajectory in configuration space characterised by a constant value of the Hamiltonian.
+
+The HMC method is based on solving numerically Hamilton's equations \ref{Hamilton_eq}, thus generating a molecular dynamics trajectory. The system is let evolve for a finite number of steps of the numerical integrator and the final configuration is accepted or rejected in a Metropolis step, with acceptance probability 
+
+\begin{equation}
+W_M(\pi, \phi \to \pi' \phi') = \min \biggl[ 1, \frac{e^{-H[\pi',\phi']}}{e^{-H[\pi,\phi]}} \biggr] \: .
+\end{equation}
+%
+In appendix \ref{HMC_db} we show that, when the numerical integrator meets certain requirements, the algorithm  described above respects the detailed balance relation \ref{detailed_bal}.
+
+To conclude, the HMC algorithm is very useful for simulating gauge theories coupled to dynamical fermions. It reduces the correlation between subsequent configurations in the Monte Carlo evolution, and at the same time the acceptance can be kept high by tuning the parameters of the numerical integrator.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Mass measurements on the lattice}
+\label{mass_measurements}
+
+Among the many interesting observables that can be measured on the lattice, there is the energy spectrum of the theory. The energy levels can be measured from the study of correlation functions. 
+
+We define the correlation function in Euclidean time of two generic operators $A$ and $B$ as:
+
+\begin{equation}
+C_{AB}(t) = \langle A(t) B(0) \rangle = \frac{1}{Z} \tr \biggl[ e^{-(T-t)\hat H} A(0) e^{-t \hat H} B(0) \biggr] \: ,
+\label{corr_1}
+\end{equation}
+%
+where the partition function $Z$ is expressed in the operator formalism as:
+
+\begin{equation}
+Z = \tr \biggl[ e^{-T \hat H} \biggr] \: .
+\label{corr_2}
+\end{equation}
+%
+$T \equiv L_0$ is the number of lattice points in the time direction, and $t \equiv x^0$ is the Euclidean time coordinate. $\hat H$ is the Hamiltonian operator generating time translations, and the trace is intended over the Hilbert space of physical states.
+
+We choose a basis of eigenstates of $\hat H$, $\hat H \ket{n} = E_n \ket{n}$, and we rewrite equations \ref{corr_1} and \ref{corr_2} as:
+
+\begin{equation}
+C_{AB}(t) = \frac{1}{Z} \sum_n \bra{n} e^{-(T-t)\hat H} A(0) e^{-t \hat H} B(0) \ket{n}\: ,
+\end{equation}
+
+\begin{equation}
+Z = \sum_n \bra{n} e^{-T \hat H} \ket{n} \: .
+\end{equation}
+%
+By inserting a completeness relation, $\sum_m \ket{m} \bra{m} = \id$, we obtain:
+
+\begin{equation}
+\begin{split}
+C_{AB}(t) & = \frac{1}{Z} \sum_{n,m} \bra{n} e^{-(T-t)\hat H} A(0)\ket{m} \bra{m} e^{-t \hat H} B(0) \ket{n} = \\
+& = \frac{\sum _{n,m}e^{-TE_n} e^{-t(E_m-E_n)}\bra{n} A(0) \ket{m} \bra{m} B(0) \ket{n}}{\sum_n e^{-TE_n}} \: .
+\end{split}
+\end{equation}
+
+
+In the limit of large lattice time extent, $T \to \infty$, only the vacuum state contributes to the sum over $n$:
+
+\begin{equation}
+C_{AB}(t) \underset{T \to \infty}{\sim}  \sum _{m}e^{-t(E_m-E_0)}\bra{0} A(0) \ket{m} \bra{m} B(0) \ket{0} \: .
+\end{equation}
+%
+In the limit of large time separations, $t \to \infty$, only the lightest state with nonzero overlap with $B(0)\ket{0}$ and $A^{\dagger}(0) \ket{0}$ contributes to the sum over $m$:
+
+\begin{equation}
+C_{AB}(t) \underset{\underset{t \to \infty}{T \to \infty}}{\sim} e^{-t(E_{m_0}-E_0)}\bra{0} A(0) \ket{m_0} \bra{m_0} B(0) \ket{0} \: .
+\label{corr_lowest_energy}
+\end{equation}
+
+In this setup, the energy of the state $\ket{m_0}$ can be measured by studying the exponential decay of the correlator $C_{AB}(t)$ for large Euclidean time separations. The energy is measured with respect to the energy of the vacuum state $E_0$. The goal is then to find operators $A$ and $B$ with a good overlap with the states whose energy we want to to measure. In the following we describe the operators used for the mass measurements done in this thesis.
+ 
+
+\subsection{Meson masses}
+
+In order to measure meson masses, we need operators that generate states with the quantum numbers of the desired mesons. We consider a theory with two fermion flavours, and, in analogy with the first quark family of the Standard Model, we denote the fermion fields by $u$ (up) and $d$ (down). These two fermions belong to an isospin doublet, with $I = 1/2$, and $I_3 = +1/2$ ($u$), $I_3 = -1/2$ ($d$).
+
+In this thesis we will measure the mass of the isospin-triplet pseudoscalar mesons (analogue to pions in QCD) and the isospin-triplet vector mesons (analogue to $\rho$ mesons in QCD). For the pseudoscalar isospin triplet, the following operators are used:
+
+\begin{itemize}
+\item $(I=1, I_3 = +1)$: $O_{\pi^+}(x) = \bar{d}(x) \gamma_5 u(x)$
+\item $(I=1, I_3 = 0)$: $O_{\pi^0}(x) = \frac{1}{\sqrt 2} \bigl( \bar{u}(x) \gamma_5 u(x) - \bar{d}(x) \gamma_5 d(x) \bigr)$
+\item $(I=1, I_3 = -1)$: $O_{\pi^-}(x) = \bar{u}(x) \gamma_5 d(x)$ \: .
+\end{itemize}
+%
+These operators have spin zero and negative parity, $O_{\pi^0}$ is an eigenstate of the charge conjugation operator, with eigenvalue $+1$, while $O_{\pi^+}$ and $O_{\pi^-}$ are mapped into each other by charge conjugation. When the fermion masses are degenerate and there are no electroweak interactions, the three states $\pi^{\pm,0}$ have the same mass, therefore it is sufficient to study only one of these operators.
+
+In order to measure the mass of the pseudoscalar meson state, the correlator $C_{\pi^-}(t) = \sum_{\textbf{x}} \langle O_{\pi^-}(\textbf{x},t)  O^{\dagger}_{\pi^-} (\textbf{0},0) \rangle$ is used in this thesis. The sum over the spacial coordinates $\textbf{x}$ is introduced for projecting to states with zero spacial momentum. In fact, going back to equation \ref{corr_lowest_energy}, it can be seen that if there exists a one-particle state with the chosen quantum numbers, then the energy of the lowest-energy state with zero spacial momentum is simply given by the mass of the particle.
+
+The operators chosen for studying the isospin-triplet vector mesons are very similar to $O_{\pi^{\pm}}$ and $O_{\pi^0}$, with the only difference that $\gamma_5$ is replaced with $\gamma_i$, $i = 1, 2, 3$. These operators generate states with spin one and negative parity. Again, in the absence of electroweak effects and if $u$ and $d$ have the same mass, the three states in the isospin triplet have equal masses.
+
+
+\subsection{PCAC mass}
+
+In this thesis we will also measure the fermion mass via the Partially Conserved Axial Current (PCAC) relation.
+The PCAC relation, or axial Ward identity, is a consequence of the transformation properties of the fermion action under chiral rotations in flavour space. In order to derive it, we consider the partition function \ref{partition_function}, and a field redefinition:
+
+\begin{equation}
+\begin{split}
+& \psi^{(i)} \to \psi^{(i)} + \delta \psi^{(i)} \\
+& \bar \psi^{(i)} \to \bar \psi^{(i)} +  \delta \bar\psi^{(i)} \: .
+\end{split}
+\end{equation}
+%
+The partition function doesn't change under this transformation, and, if the integration measure is also symmetric, it follows that:
+
+\begin{equation}
+\langle \delta S \rangle = 0 \: ,
+\label{Ward_id}
+\end{equation}
+%
+where $\delta S$ is the infinitesimal shift in the action.
+
+We now consider the continuum fermion action for a two-flavour theory:
+
+\begin{equation}
+S_{\mathrm{cont}}[\psi, \bar \psi] =  \int \dx  \: \bar \psi(x)(\gamma_{\mu} D_{\mu} + M \id) \psi(x) \: ,
+\end{equation}
+%
+where $\psi = (u \; d)^T$, $M$ is the two-by-two diagonal mass matrix and $\id$ the identity in Dirac space. As in the previous section, we denote the two fermion fields by $u$ and $d$. We consider the following infinitesimal transformation in flavour space:
+
+\begin{equation}
+\begin{split}
+& \psi(x) \to \psi(x) + i \epsilon(x) \gamma_5 \sigma^a \psi(x) \\
+& \bar\psi(x) \to \bar\psi(x) + i \epsilon(x) \bar \psi(x) \gamma_5 \sigma^a \: ,
+\end{split}
+\end{equation}
+%
+where $\sigma^a$ are the Pauli matrices, with $a=1,2,3$, and $\epsilon(x)$ is a generic smooth function, which is nonzero only inside a bounded region. For this specific transformation, equation \ref{Ward_id} reads:
+
+\begin{equation}
+\langle \partial_{\mu} \bigl(\bar \psi(x) \gamma_{\mu} \gamma_5 \sigma^a \psi(x)\bigr) \rangle = \langle \bar\psi(x) \qty \big{M,\sigma^a} \gamma_5 \psi(x) \rangle \: .
+\label{axial_WI_general}
+\end{equation}
+
+If the two fermions have equal masses, $m_u = m_d = m$, equation \ref{axial_WI_general} becomes:
+
+\begin{equation}
+\langle \partial_{\mu} A^a_{\mu} (x) \rangle = 2 m \langle P^a(x) \rangle \: ,
+\label{PCAC}
+\end{equation}
+%
+where we have defined the axial vector current as $A^a_{\mu} = 1/2 \: \bar \psi \gamma_{\mu} \gamma_5 \sigma^a \psi$, and the pseudoscalar interpolator as $P^a = 1/2 \: \bar\psi \gamma_5 \sigma^a \psi$. $P^a$ is related to the $O_{\pi^{\pm,0}}$ operators of the previous section by:
+
+\begin{equation}
+\begin{split}
+& P^1 - iP^2 = \bar d \gamma_5 u = O_{\pi^+} \\
+& P^1 + iP^2 = \bar u \gamma_5 d = O_{\pi^-} \\
+& P^0 = \frac{1}{2} \bigl( \bar u \gamma_5 u - \bar d \gamma_5 d \bigr) = \frac{1}{\sqrt 2} O_{\pi^0} \: .
+\end{split}
+\end{equation}
+
+Equation \ref{PCAC} is known as PCAC relation, and it implies that, when $m=0$, the axial vector current is conserved, due to the symmetry of the action under chiral flavour rotations. On the lattice however, the Wilson fermion action is not chirally symmetric even when the fermion mass is zero, and the analogue of the PCAC relation involves additional terms.  
+
+The PCAC relation can be used to measure the fermion mass on the lattice by studying the long-distance behaviour of the following ratio of correlators:
+
+\begin{equation}
+\frac{1}{2} \frac{\sum_{\textbf{x}} \langle \partial_t A^-_{0}(\textbf{x},t)^{\dagger} O_{\pi^-}(0) \rangle}{\sum_{\textbf{x}} \langle O_{\pi^-}(\textbf{x},t)^{\dagger} O_{\pi^-}(0) \rangle} \underset{t \to \infty}{\sim} m_{PCAC} \: ,
+\end{equation}
+%
+where $A^-_{\mu} = A^1_{\mu} + iA^2_{\mu}$, and, due to the zero-momentum projection, only the time derivative survives. $m_{PCAC}$ is identified with the unrenormalised fermion mass. Due to the fact that the lattice fermion action is not chirally symmetric, $m_{PCAC}$ is not equal to the bare mass used as parameter in the fermion action, and in general is not zero when the bare mass is zero. The chiral limit of the lattice theory is identified by finding the values of the bare lattice parameters such that $m_{PCAC} = 0$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The continuum limit}
+
+Lattice calculations make it possible to study non-perturbatively the discretised version of a quantum field theory. Information on the continuum theory can be obtained by performing the continuum limit.
+
+We have previously observed that, in the limit $a \to 0$, the lattice action \ref{lattice_action} reduces to the continuum Euclidean action of a gauge theory coupled to fermions. However, this is not enough to ensure that meaningful continuum results can be extracted from the lattice theory.
+In order to illustrate this, we consider the mass of some physical state, measured on the lattice from the exponential decay of a correlator, as described in section \ref{mass_measurements}. The lattice calculation results in a dimensionless quantity $\hat M$, which is the inverse of a correlation length, and is related to the physical value of the mass $M$ by: $M = \hat M/a$. If we want $M$ to be finite in the continuum limit, we need $\hat M$ to go to zero as $a$ goes to zero. This means that the bare parameters of the lattice theory must be tuned to a critical point, where correlation lengths diverge.
+
+When we say that $M = \hat M /a$ is the physical value of the mass, we are implicitly assuming that we can express the lattice spacing $a$ in physical units, say in fm. This information is not contained in the lattice theory itself, and it must be deduced by using some external input. For example, if we are studying lattice QCD, we can pick any observable, such as the mass of a bound state, and set its experimental value to be equal to the value measured on the lattice. From this equality we can extract the value of the lattice spacing measured in physical units. 
+
+Once we have a measure for the lattice spacing, the goal is to extrapolate continuum physics out of the lattice results by moving to smaller and smaller values of the lattice spacing. As pointed out earlier, in order to have finite values for the observables in the continuum limit, we have to change the bare lattice couplings as functions of $a$, in such a way that when $a$ goes to zero we move towards a critical point where correlation lengths diverge. In particular, in a pure gauge theory the gauge coupling $g$ must change as a function of $a$ in such a way that:
+
+\begin{equation}
+O(a,g(a)) \underset{a \to 0}{\longrightarrow} O_{ph} \: ,
+\label{cont_limit}
+\end{equation}
+%
+where $O$ is a generic observable and $O_{ph}$ is its physical value. The functional form of $g(a)$ may depend on the specific observable if $a$ is not small enough. However, when we get close to the continuum limit, there must be a unique function $g(a)$ that ensures the finiteness of any observable. We can obtain information on $g(a)$ by using the renormalisation group equation:
+
+\begin{equation}
+\biggl[ a\pder{\:}{a} - \beta(g) \pder{\:}{g} \biggr] O(a,g(a)) = 0 \: ,
+\label{reng_eq}
+\end{equation}
+%
+where $\beta(a) = - a \: \partial g/ \partial a$. We obtain this equation by assuming to be close enough to the continuum limit, so that equation \ref{cont_limit} can be rewritten as an equality, and by deriving with respect to $a$ the right- and left-hand-side. The beta function $\beta(g)$ can be computed perturbatively by expanding $O(a,g)$ in powers of $g$, and by inserting the expansion in equation \ref{reng_eq}. The result up to $\mathcal O(g^3)$ is the same for any observable $O$, and it is given by:
+
+\begin{equation}
+ \beta(g) = - \frac{11 N}{3} \frac{g^3}{(4 \pi)^2} + \mathcal O (g^5) \: ,
+\label{lattice_beta_function}
+\end{equation}
+%
+where we assumed the gauge group to be SU(N). With the help of equation \ref{lattice_beta_function}, we can solve the differential equation $\beta(a) = - a \: \partial g/ \partial a$ and express $a$ as a function of $g$:
+
+\begin{equation}
+a = \frac{1}{\Lambda_L} e^{-\frac{(4\pi)^2}{2 \beta_0 g^2}} \: ,
+\label{a_g}
+\end{equation}
+%
+where $\beta_0 = 11 N/3$, and $\Lambda_L$ is a constant with the dimension of an energy. Equation \ref{a_g} shows that the lattice spacing goes to zero when $g$ goes to zero, and therefore we have to move in parameter space towards $g=0$ in order to take the continuum limit.
+
+When studying a lattice gauge theory coupled to fermions, there is one extra parameter to consider: the fermion mass $m$. We consider here the case of Wilson fermions, whose action is defined in section \ref{fermion_action}, and we define the bare fermion mass measured in lattice units as $\hat m = m a$. The typical procedure for ensuring that in the continuum limit we describe the desired theory (for example QCD), is to repeat the lattice measurements for different values of $g$, and for each value of $g$ to tune $\hat m$ in such a way that some dimensionless ratio of observables assumes its physical value. This way a line of constant physics in the space of bare lattice parameters is defined. The physical value of the lattice spacing is determined by equalling one observable to its experimental value, and then all the other observables can be expressed in physical units, representing the real independent lattice measurements. The continuum value of these observables is extrapolated by moving towards $g=0$ along the line of constant physics.
+
+
+One more important point to consider when taking the continuum limit is the lattice volume. As the lattice spacing becomes smaller, the number of lattice points must be increased, so that the physical volume doesn't shrink. Typically the extrapolation to $a = 0$ is performed by keeping the physical lattice volume fixed, which implies increasing the number of lattice points as $g \to 0$.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

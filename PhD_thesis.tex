@@ -1,0 +1,79 @@
+\documentclass[12pt,a4paper,twoside,openright]{book}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage[italian,english]{babel}
+\usepackage[binding=5mm]{layaureo}
+\usepackage[suftesi]{frontespizio}
+\usepackage{emptypage}
+\usepackage{indentfirst}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mparhack,fixltx2e,relsize}
+\usepackage{chngpage,calc}
+\usepackage{xcolor}
+\usepackage{braket}
+\usepackage{slashed}
+\usepackage{bbold}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
+%TRACE
+%\newcommand{\tr}{\mathrm {Tr}}
+%IDENTITY MATRIX
+\newcommand{\id}{\mathbb{1}}
+%REAL-IMAGINARY PART
+\newcommand{\re}{ \mathrm{Re}}
+\newcommand{\im }{ \mathrm{Im }}
+%SU(2) LEFT
+\newcommand{ \suEW}{SU(2)$_L$ }
+%DERIVATIVE
+\newcommand{ \der}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+%IN-LINE DERIVATIVE
+\newcommand{ \ILder}[2]{\mathrm{d} #1 / \mathrm{d} #2}
+%PARTIAL DERIVATIVE
+\newcommand{ \pder}[2]{\frac{\partial #1}{\partial #2}}
+%FUNCTIONAL INTEGRATION MEASURE
+\newcommand{\D}{\mathcal D}
+%LAGRANGIAN
+\newcommand{\Lag}{\mathcal L}
+%d^4x
+\newcommand{\dx}{\mathrm{d}^4x }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagestyle{plain}
+
+\begin{document}
+
+\frontmatter
+
+\input{Beginning_End/abstract}
+\input{Beginning_End/index}
+\input{Chapters/Introduction}
+
+\mainmatter
+
+
+\input{Chapters/General_introduction}
+\input{Chapters/Lattice_field_theory}
+\input{Chapters/Chapter_1}
+\input{Chapters/Transport_coefficients}
+\input{Chapters/Conclusions}
+\input{Beginning_End/Appendix}
+
+\clearpage
+
+\bibliography{PhD_thesis}
+\bibliographystyle{ieeetr}
+
+\end{document}
