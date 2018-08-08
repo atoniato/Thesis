@@ -469,12 +469,13 @@ V_S = \lambda_1 \bigl( \tr \bigl[ S^{\dagger} S \bigr] \bigr)^2 + \lambda_2 \tr 
 %
 If $N_S =1$, the two operators of equation \ref{quartic_operators} are equal, and one single scalar quartic coupling $\lambda = \lambda_1 + \lambda_2$ is present in the Lagrangian. Since it is of interest for the model studied in this thesis, we specialise the following considerations to the case $N_S = 1$. A complete analysis with generic $N_S$ has been carried out in \cite{Hansen:2017pwe}.
 
-The one-loop beta functions of the gauge coupling $g$ and the scalar quartic coupling $\lambda$ are given by:
+The one-loop beta functions of the gauge coupling $g$ and the scalar quartic coupling $\lambda$ are given by \cite{Sannino:2016sfx}:
 
 \begin{equation}
 \begin{split}
  & (4 \pi)^2 \beta_g = - \biggl( \frac{11}{3} N - \frac{2}{3} N_f - \frac{1}{6} \biggr) g^3 \: ,\\
  & (4 \pi)^2 \beta_{\lambda} = 4(N +4) \lambda^2 -\frac{6(N^2 -1)}{N} g^2 \lambda + \frac{3N^3 + 3N^2 -12N + 6}{4 N^2} g^4 \: .
+ \label{beta_functions}
 \end{split}
 \end{equation}
 %
@@ -484,7 +485,7 @@ The running of $g$ and $\lambda$ as functions of the energy scale $\mu$ is deter
 \frac{\mathrm d g}{\mathrm d \ln \mu} = \beta_g (g) \: ,  \quad \frac{\mathrm d \lambda}{\mathrm d \ln \mu} = \beta_{\lambda} (\lambda,g) \: .
 \end{equation}
 %
-Depending on the choice of $N$ and $N_f$, the solutions may display complete asymptotic freedom, i.e. both $g$ and $\lambda$ go to zero in the limit of large $\mu$. In this case the theory is well defined at high energies and does not suffer from the triviality problem, even though it contains elementary scalars.  As an example, we report in figure \ref{flow_2D} the running of $g^2$ and $\lambda$ in the case $N=5$, $N_f=26$. It can be seen that, while $g^2$ always goes to zero at high energies, the initial condition of $\lambda$ can be chosen such that also $\lambda$ flows to zero, thus realising complete asymptotic freedom. In table \ref{asympt_freedom} we report, for different values of $N$, the ranges in $N_f$ such that there exist completely asymptotically free solutions. It can be noticed that for $N=2$, the object of our lattice study, there is no possible choice of $N_f$ leading to complete asymptotic freedom. Nevertheless the case $N=2$ is of great interest. In fact, as shown in section \ref{SU2_composite_Higgs}, the SU(2) gauge theory with two fundamental fermions offers a minimal setup for composite Higgs models, and for this reason it has been extensively studied on the lattice \cite{Arthur:2016dir}. Adding a fundamental scalar to this setup seems to be the first mandatory step to be taken in order to observe the impact of TC-scalars on the dynamics of the TC sector in a fundamental partial compositeness scenario.
+Depending on the choice of $N$ and $N_f$, the solutions may display complete asymptotic freedom, i.e. both $g$ and $\lambda$ go to zero in the limit of large $\mu$. In this case the theory is well defined at high energies and does not suffer from the triviality problem, even though it contains elementary scalars.  As an example, we report in figure \ref{flow_2D} the running of $g^2$ and $\lambda$ in the case $N=5$, $N_f=26$. It can be seen that, while $g^2$ always goes to zero at high energies, the initial condition of $\lambda$ can be chosen such that also $\lambda$ flows to zero, thus realising complete asymptotic freedom. In table \ref{asympt_freedom} we report, for different values of $N$, the ranges in $N_f$ such that there exist completely asymptotically free solutions. It can be noticed that for $N=2$, the object of our lattice study, there is no possible choice of $N_f$ leading to complete asymptotic freedom. Nevertheless the case $N=2$ is of great interest. In fact, as shown in section \ref{SU2_composite_Higgs}, the SU(2) gauge theory with two fundamental fermions offers a minimal setup for composite Higgs models, and for this reason it has been extensively studied on the lattice \cite{Arthur:2016dir}. Adding a fundamental scalar to this setup seems to be the first mandatory step to be taken, in order to observe the impact of TC-scalars on the dynamics of the TC sector in a fundamental partial compositeness scenario.
 
 Figure~\ref{flow_SU2} shows the running of $g^2$ and $\lambda$ in the SU(2) gauge theory with two fundamental fermions and one fundamental scalar. 
 Two different initial conditions are chosen for $\lambda$: $\lambda_0 = \lambda(\mu_0) = 0$, and $\lambda_0=\lambda(\mu_0)=0.2$. 
@@ -531,16 +532,157 @@ One more comment must be made regarding the case $N=2$. As previously pointed ou
 
 \section{Lattice setup}
 
-%Motivations, what are we looking for on the lattice?
-%verify symmetry breaking
-%phase space of the lattice model
-%spectrum
-%Wilson coefficients?
+
+We now move to the lattice study of the SU(2) gauge theory with two fundamental fermions and one fundamental scalar. In section \ref{running_lambda}, we discussed the running of the scalar quartic coupling, and we concluded that the SU(2) theory is not well defined at high energies because the quartic coupling diverges. Because of this, it is impossible to define the continuum limit of the lattice theory. In fact, due to the universality of the first two coefficients of the beta function, the running of the lattice bare couplings as functions of the lattice spacing is the same as shown in figure \ref{flow_SU2}, with $\mu \propto 1/a$. It follows that, at least in the region where perturbation theory is valid, there is no critical point in the space of bare lattice parameters, and the program of taking the lattice spacing to zero while moving on lines of constant physics cannot be undertaken. Instead, one can take the lattice spacing down to some small but finite value, and match the lattice theory to an effective theory with an ultraviolet cutoff. Given the running of the scalar quartic coupling shown in figure \ref{flow_SU2}, we expect the lattice theory to present a good scaling window when changing the lattice spacing, so that valuable input for phenomenological models can be provided.
+
+For our lattice study, we generated gauge and scalar field configurations with the HiRep code, first introduced in \cite{DelDebbio:2008zf}, which we extended in order to simulate the scalar field in addition to gauge and fermions. In the following we describe the lattice action and the resulting forces needed for the implementation of the Hybrid Monte Carlo algorithm.
+
 
 \subsection{Action}
 
+For the gauge and fermion action we use the Wilson discretisation, as defined in equation \ref{lattice_action_psf}. For simplicity, we fix the lattice spacing to one, and we use the standard notation $\beta = 2 N/ g^2 = 4/g^2$. As for the scalar field $S$, we consider the Euclidean continuum action:
+
+\begin{equation}
+S_S^{cont} [A,S^{\dagger},S]= \int d^4x \biggl( (D_{\mu} S)^{\dagger} D_{\mu}S + m_S^2 |S|^ 2 + \lambda |S|^4 \biggr) \; ,
+\end{equation}
+%
+and we discretise it by assigning 
+
+\begin{equation}
+\int \dx (D_{\mu} S)^{\dagger} D_{\mu}S \to - \sum_{x,\mu} S^{\dagger} \nabla_{\mu}^* \nabla_{\mu} S \; ,
+\end{equation}
+%
+where
+
+\begin{equation}
+\begin{split}
+&\nabla_{\mu} S(x) = U_{\mu}(x)S(x + \hat\mu) - S(x)  \\
+&\nabla_{\mu}^* S(x) = S(x) - U_{\mu}(x- \hat \mu)^{\dagger} S(x- \hat \mu) \; .
+\end{split}
+\end{equation}
+%
+The resulting discretised action is: 
+
+\begin{equation}
+\begin{split}
+S_S[U,S^{\dagger},S] = & \sum_x \biggl[ - \sum_{\mu} \biggl( S^{\dagger}(x) U_{\mu}(x) S(x+\hat\mu) + S^{\dagger}(x) U_{\mu}(x-\hat\mu)^{\dagger} S(x-\hat\mu) \biggr) +  \\
+ & M^2 S^{\dagger}(x) S(x) + \lambda \bigl(S^{\dagger}(x) S(x) \bigr)^2 \biggr] \: ,
+\end{split}
+\label{scalar_lattice_action}
+\end{equation}
+%
+where $M^2=m_S^2+8$. For future purposes, we write the action of our lattice model as:
+
+\begin{equation}
+S[U,\phi^{\dagger},\phi,S^{\dagger},S] = S_G[U] + S_F[U,\phi^{\dagger},\phi] + S_S[U,S^{\dagger},S] \: ,
+\label{action}
+\end{equation}
+%
+where $S_S$ is the scalar contribution given by equation \ref{scalar_lattice_action}, $S_G$ is the gauge contribution:
+
+\begin{equation}
+S_G[U] =  \beta \sum_{x \in \Lambda}  \sum_{\mu < \nu} \biggr[  1 - \frac{1}{\mathrm{N}} \re \tr  [U_{\mu \nu}] \biggl ] \: ,
+\end{equation}
+%
+and $S_F$ the pseudofermion contribution:
+
+\begin{equation}
+S_F[U,\phi^{\dagger},\phi]  = \sum_{x,y \in \Lambda} \phi^{\dagger}(x) Q^{-2}(x \vert y)\phi(y) \equiv \phi^{\dagger} Q^{-2} \phi \: ,
+\end{equation}
+%
+where we introduced a short-hand notation that will be useful in the following.
+
+
 \subsection{Forces}
 \label{Forces}
+
+In order to implement the Hybrid Monte Carlo algorithm, we introduce the Hamiltonian:
+
+\begin{equation}
+H = \frac{1}{2} T_R\sum_{x,\mu}\sum_{a=1}^{N^2-1} \pi_a (x, \mu)^2 + \sum_x \sum_{i=1}^N P_i(x)P^*_i(x) + S[U,\phi^{\dagger},\phi,S^{\dagger},S] \: ,
+\end{equation}
+%
+where $\pi_a(x,\mu)$ and $P_i(x)$ are the momenta associated to the gauge and scalar fields, and $S$ is the action \ref{action}. Here, to be more general, we are referring to an SU(N) gauge group. $T_R$ is the normalisation of the SU(N) generators in the representation $R$, defined by: $\mathrm{tr} (T^aT^b) = T_R \delta^{ab}$.
+In this setup, only gauge and scalar fields evolve dynamically along the molecular dynamics trajectory. The pseudofermions are updated before starting every new trajectory according to the following rule: a field $\chi$ is extracted out of a Gaussian distribution, with probability $P[\chi] \propto \exp [-\chi^{\dagger} \chi]$, and then the pseudofermion field is defined as: $\phi = D \chi$, where $D$ is the Wilson-Dirac operator \ref{Wilson-Dirac}. The field $\phi$ defined in this way is correctly distributed according to:
+
+
+\begin{equation}
+\det[Q^2] = \det[D]^2 = \det[DD^{\dagger}] = \pi^{-N} \int \prod_{x \in \Lambda} \mathrm{d} \phi(x) \mathrm{d} \phi^{\dagger}(x) \exp \bigl[ 
+-\phi^{\dagger}(DD^{\dagger})^{-1}  \phi \bigr] \: .
+\end{equation}
+%
+We express the link variables as:
+\begin{equation}
+U_{\mu}(x)=\exp [\frac{i}{T_R} q_a(x,\mu) T^a] \: , 
+\end{equation}
+%
+and we assign the conjugate momenta as follows:
+
+\begin{equation}
+\begin{split}
+& q_a(x,\mu) \to \pi_a(x,\mu) \\
+& S_i(x) \to P_i(x) \; .
+\end{split}
+\end{equation}
+%
+Hamilton's equations are given by:
+
+\begin{equation}
+\begin{split}
+& \dot{q}_a(x,\mu) = \frac{\partial H}{\partial \pi_a(x,\mu)}  =T_R \pi_a(x,\mu) \\
+& \dot{\pi}_a(x,\mu) = -\frac{\partial H}{\partial q_a(x,\mu)} = -\frac{\partial S_G}{\partial q_a(x,\mu)} -\frac{\partial S_F}{\partial q_a(x,\mu)} -\frac{\partial S_S}{\partial q_a(x,\mu)} \\
+& \dot{S}_i(x) = \frac{\partial H}{\partial P_i(x)} = P^*_i(x) \\
+& \dot{P}_i(x) =  -\frac{\partial H}{\partial S_i(x)} = -\frac{\partial S_S}{\partial S_i(x)}  \: ,\\ 
+\end{split} 
+\label{hamilton}
+\end{equation} 
+%
+where the dot indicates the derivative with respect to molecular dynamics time. For brevity we omitted the equations for $\dot S^*$ and $\dot P^*$, which are simply given by the complex conjugate of the last two lines in \ref{hamilton}.
+The first line of \ref{hamilton} can be rewritten in terms of the link variables as follows:
+
+
+\begin{equation}
+\dot{U_{\mu}}(x)= i \pi_a(x,\mu)T^a U_{\mu}(x) \; .
+\end{equation}
+%
+The driving forces are given by:
+
+\begin{equation}
+\bullet \qquad \frac{\partial S_G}{\partial q_a(x,\mu)} = - \frac{\beta}{N} \frac{1}{T_R} \mathrm{Re \; tr} \biggl[ i T^a U_{\mu}(x) V^{\dagger}_{\mu} (x) \biggr]
+\end{equation}
+%
+where $V_{\mu}(x) = \sum_{\nu \neq \mu} \bigl[ U_{\nu}(x) U_{\mu}(x+\hat\nu) U_{\nu}^{\dagger}(x+\hat\mu) + 
+U_{\nu}^{\dagger}(x - \hat\nu) U_{\mu}(x - \hat\nu) U_{\nu}(x-\hat\nu+\hat\mu)\bigr]$ is the sum of the staples around the link $U_{\mu}(x)$,
+
+
+\begin{equation}
+\bullet \qquad\frac{\partial S_F}{\partial q_a(x,\mu)} =   -\biggl[ \phi^{\dagger} Q^{-2}\frac{\partial Q}{\partial q_a(x,\mu)} Q^{-1} \phi + \phi^{\dagger} Q^{-1} \frac{\partial Q}{\partial q_a(x,\mu)} Q^{-2} \phi \biggr] 
+\end{equation}
+%
+where
+
+\begin{equation}
+\frac{\partial Q(x \vert y)}{\partial q_a(z,\mu)} = \gamma_5 \biggl( -\frac{i}{2T_R} (\id - \gamma_{\mu}) T^a U_{\mu}(z) \delta_{y,z+\hat\mu} \delta_{x,z} +\frac{i}{2T_R}(\id + \gamma_{\mu}) U_{\mu}^{\dagger}(z) T^a \delta_{y,z} \delta_{x-a\hat\mu,z} \biggr) \: ,
+\end{equation}
+
+
+\begin{equation}
+\bullet \qquad
+\frac{\partial S_S}{\partial q_a(x,\mu)} = - \frac{2}{T_R} \; \mathrm{Re} \biggl[ S^{\dagger}(x) i T^a U_{\mu}(x) S(x+\hat\mu) \biggr] 
+\end{equation}
+
+
+
+\begin{equation}
+\begin{split}
+\bullet \qquad
+\frac{\partial S_S}{\partial S_i(x)} = & - \sum_{\mu} \biggl( S^*_k(x-\hat \mu) U_{\mu}(x-\hat\mu)_{ki} + S^*_k(x+\hat\mu) U_{\mu}(x)^{\dagger}_{ki} \biggr) +  \\
+& + M^2 S_i^*(x) + 2 \lambda S_k^*(x) S_k(x) S_i^*(x) \: .
+\end{split}
+\end{equation}
+%
+Hamilton's equations \ref{hamilton} are to be solved numerically, thus generating the molecular dynamics trajectory. In this work we used a second-order Omelyan integrator \cite{PhysRevE.65.056706,OMELYAN2003272} for the numerical integration.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -551,9 +693,9 @@ One more comment must be made regarding the case $N=2$. As previously pointed ou
 
 Finite volume corrections + dependence on $m_{PCAC}$
 
-\subsection{Scalar states}
+\subsection{Scalar-scalar states}
 
-\subsection{Fermionic states}
+\subsection{Fermion-scalar states}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
