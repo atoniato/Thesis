@@ -135,7 +135,45 @@ i \sigma^i & 0
 
 In this thesis we always omit the superscript $E$ in gamma matrices, and we implicitly assume that every time we discuss a lattice model, which requires the Euclidean version of the action, gamma matrices assume their Euclidean form.
 
-\subsection{Algebra of SU(N) generators}
+\subsection{SU($N$) generators}
+\label{SUN_generators}
+
+We denote the generators of the representation $r$ of SU($N$) by $T^a_r$, with $a = 1, \dots, N^2 -1$. The generators are normalised as:
+
+\begin{equation}
+\tr [T^a_r T^b_r] = T[r] \delta^{ab} \: .
+\end{equation}
+%
+The quadratic Casimir $C_2[r]$ is defined by:
+
+\begin{equation}
+\sum_{a=1}^{N^2 -1} T^a_r T^a_r = C_2[r] \id \: ,
+\end{equation}
+%
+and it is related to $T[r]$ and the dimension of the representation $d[r]$ by:
+
+\begin{equation}
+C_2[r] d[r] = T[r] d[G] \: ,
+\end{equation}
+%
+where $G$ denotes the adjoint representation. The values of $d$, $T$ and $C_2$ for the fundamental and adjoint representation are listed in table \ref{group_factors}.
+
+    \begin{table}
+\begin{center}
+    %\begin{minipage}{3.8in}
+    \begin{tabular}{c||ccc }
+    $r$ & $ \quad T[r] $ & $\quad C_2[r] $ & $\quad d[r] $  \\
+    \hline \hline
+    $ \fund $ & $\quad \frac{1}{2}$ & $\quad\frac{N^2-1}{2N}$ &\quad $N$  \\
+        $\text{$G$}$ &\quad $N$ &\quad $N$ &\quad $N^2-1$  \\
+    \end{tabular}
+    %\end{minipage}
+    \end{center}
+\caption{Values of $d$, $T$ and $C_2$ for the fundamental ($\fund$) and adjoint (G) representation of SU($N$).}
+\label{group_factors}
+    \end{table}
+
+
 
 \section{Lattice Fourier transforms}
 \label{Fourier}

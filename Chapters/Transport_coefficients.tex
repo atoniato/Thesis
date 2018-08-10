@@ -1,13 +1,34 @@
 \chapter{Transport coefficients in the conformal window}
 
+Gauge theories with a nontrivial infrared (IR) fixed point are important in the context of model building Beyond the Standard Model (BSM) \cite{Sannino:2008ha}. These theories are characterised by scale invariance in the infrared and, in the case of four space-time dimensions, they are invariant under the larger group of conformal transformations. For this reason, the region in theory space, parametrised by the number of colours ($N$) and fermion flavours ($N_f$), such that a nontrivial IR fixed point exists, is called conformal window.
+Substantial effort has been taken in studying the properties of theories in the conformal window, both perturbatively and via lattice simulations (\emph{references?}). In this chapter, we present a study of the transport coefficients of theories in the perturbative conformal window, which has been published in \cite{Toniato:2016twr}.
+The chapter is organised as follows: we start by introducing the conformal window and the definition of the transport coefficients under analysis. We then briefly sketch the method used by the authors of \cite{Arnold:2000dr} for calculating the transport coefficients of a gauge theory coupled to fermions. Finally, we present the results obtained by applying the perturbative results of \cite{Arnold:2000dr} to theories in the conformal window. 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{The conformal window}
 \label{ conformal_window}
 
-%The Banks-Zaks fixed point, importance for BSM theories, the interest in finite-temperature properties.
+We consider a non-Abelian gauge theory, with gauge group SU($N$) and $N_f$ fermions in the representation $r$. The two-loop beta function for the gauge coupling $g$ is given by:
 
-%REMEMBER TO JUSTIFY THE FACT THAT THE NUMBER OF FLAVORS IS TREATED LIKE A CONTINUOUS PARAMETER!
+ \begin{equation}
+ \beta (g) = - \frac{\beta_0}{(4\pi)^2} g^3 - \frac{\beta_1}{(4\pi)^4} g^5 + \mathcal{O}(g^{7}) \; ,
+ \end{equation}
+%
+with
+
+ \begin{align}
+\beta_0 &= \frac{11}{3} C_2[G] - \frac{4}{3} T[r] N_f\; , \\
+\beta_1 &= \frac{34}{3} C_2^2[G] - \left ( \frac{20}{3} C_2[G] + 4 C_2[r] \right ) T[r] N_f\; ,
+\end{align}
+%
+where $G$ denotes the adjoint representation. The definition of the group factors $C_2$, $T$ and $d$ can be found in appendix \ref{SUN_generators}. If $\beta_0 > 0$, the theory is asymptotically free, i.e $g=0$ is an ultraviolet(UV)-stable fixed point. This happens provided the number of fermions in smaller than the upper limit:
+
+\begin{equation}
+N_f^{AF} = \frac{11}{4} \frac{C_2[G]}{T[r]} \: .
+\end{equation}
+
+%REMEMBER TO JUSTIFY THE FACT THAT THE NUMBER OF FLAVOURS IS TREATED LIKE A CONTINUOUS PARAMETER!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -16,11 +37,11 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Transport coefficients in a quantum field theory}
+\section{Transport coefficients of a gauge theory: the kinetic approach}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Application of perturbative results to theories in the conformal window}
+\section{Application to theories in the conformal window}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

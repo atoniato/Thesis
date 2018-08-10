@@ -49,6 +49,15 @@
 %d^4x
 \newcommand{\dx}{\mathrm{d}^4x }
 
+%FUNDAMENTAL REPRESENTATION
+\def\drawbox#1#2{\hrule height#2pt
+        \hbox{\vrule width#2pt height#1pt \kern#1pt
+              \vrule width#2pt}
+              \hrule height#2pt}
+\def\Fund#1#2{\vcenter{\vbox{\drawbox{#1}{#2}}}}
+\def\fund{\Fund{6.4}{0.3}}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagestyle{plain}
