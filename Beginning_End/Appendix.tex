@@ -295,7 +295,7 @@ In the above proof we used explicitly the reversibility of the molecular dynamic
 \section{Scalar quartic potential in an SU(2) gauge theory}
 \label{app_quartic_potential}
 
-We consider a theory of gauge-interacting scalars in the fundamental representation of the gauge group SU(2). We discuss which terms are allowed by colour and flavour symmetries in the quartic potential.
+We consider a theory of gauge-interacting scalars in the fundamental representation of the gauge group SU(2). We discuss which terms are allowed by colour and flavour symmetries in the quartic potential. In the case of a theory with a single scalar field, we also discuss the possibility of spontaneous flavour symmetry breaking due to a scalar condensate.
 
 \subsection{Single scalar field}
 
@@ -432,6 +432,7 @@ The first and the second term in equation \ref{quartic} are not linearly indepen
 & \tilde{\phi}^{\dagger} \tilde{\phi} = - \epsilon_{ij} \phi_j (- \epsilon_{ik} \phi^*_k) = \delta_{jk} \phi_j \phi^*_k = \phi^{\dagger} \phi \\
 \end{split}
 \quad \Rightarrow  S^{\dagger} S = \phi^{\dagger} \phi \, \id \: .
+\label{app_S1}
 \end{equation}
 %
 It follows that: $(\mathrm{Tr} [S^{\dagger} S])^2 = 4 (\phi^{\dagger} \phi)^2$, $\mathrm{Tr}[S^{\dagger} S S^{\dagger} S]= 2 (\phi^{\dagger} \phi)^2$.
@@ -441,8 +442,41 @@ In conclusion, the most general quartic potential for one single scalar field $\
 V = \lambda (\mathrm{Tr} [S^{\dagger} S])^2  \, .
 \end{equation}
 
+We now consider gauge-symmetric scalar bilinears, which may cause spontaneous flavour symmetry breaking:
 
+\begin{equation}
+\mathcal{S}_1 = \langle S^{\dagger} S \rangle \: , \qquad \mathcal{S}_2 = \langle S^T \epsilon S \rangle \: .
+\end{equation}
+%
+Under the flavour transformation $S \to SM$, $M \in$ Sp(2), they transform as:
 
+\begin{equation}
+\mathcal{S}_1 \to M^{\dagger} \mathcal{S}_1 M \: , \qquad \mathcal{S}_2 \to M^T \mathcal{S}_2 M \: .
+\end{equation}
+%
+In the following, we show that both $\mathcal{S}_1$ and $\mathcal{S}_2$ are symmetric under this transformation, and therefore there cannot be spontaneous flavour symmetry breaking in a theory with a singe scalar field. In the case of $\mathcal{S}_1$, this follows directly from equation \ref{app_S1}:
+
+\begin{equation}
+\mathcal{S}_1 = \langle \phi^{\dagger} \phi \rangle \id \to M^{\dagger} \mathcal{S}_1 M = \langle \phi^{\dagger} \phi \rangle  M^{\dagger} M = \mathcal{S}_1 \: .
+\end{equation}
+%
+We rewrite $\mathcal{S}_2$ as:
+
+\begin{equation}
+\begin{split}
+& (S^T \epsilon S)_{11}=  \epsilon_{ij} \phi_i \phi_i = 0 \\
+& (S^T \epsilon S)_{22} = -\epsilon_{ij} \phi^*_i \phi^*_j= 0 \\
+& (S^T \epsilon S)_{12} = -(S^{\dagger} \epsilon S)_{21} = \delta_{ij} \phi_i \phi^*_j = \phi^{\dagger} \phi\\
+\end{split}
+\quad \Rightarrow  \mathcal{S}_2 = \langle \phi^{\dagger} \phi \rangle\, E \: ,
+\label{app_S2}
+\end{equation}
+%
+implying that also $\mathcal{S}_2$ is symmetric under flavour transformations:
+
+\begin{equation}
+\mathcal{S}_2 = \langle \phi^{\dagger} \phi \rangle E \to M^T \mathcal{S}_2 M = \langle \phi^{\dagger} \phi \rangle  M^T E M = \mathcal{S}_2 \: .
+\end{equation}
 
 \subsection{Multiple scalar fields}
 
