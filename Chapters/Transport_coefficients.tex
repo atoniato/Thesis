@@ -49,7 +49,7 @@ This is an IR-stable fixed point, which can be studied in perturbation theory in
 Figure \ref{walking} shows three different regimes of the beta function, and the related running of the gauge coupling. The first one (red line) characterises a QCD-like theory. The beta function has one single zero at $g=0$, and is negative for all other values of $g$. In this case, the coupling goes to zero in the UV (asymptotic freedom) and grows when moving towards the IR, until it diverges at some finite energy scale. This theory displays spontaneous chiral symmetry breaking in the IR. The second regime (blue line) characterises a theory in the conformal window. The beta function has two zeros, $g=0$ and $g=g^*$, and is negative in between. The gauge coupling goes to zero in the UV, and stabilises at the fixed point value $g=g^*$ in the IR. This theory is characterised by scale invariance in the IR, and does not display spontaneous chiral symmetry breaking. The third regime (green dashed line) is associated to "walking" dynamics. It is reasonable to assume that, close to the lower boundary of the conformal window, theories with an approximate IR fixed point can be found. Their beta function is very similar to the one of theories in the conformal window, with the difference that it gets very close to zero at $g\simeq g^*$, without actually reaching a fixed point, and then assumes a QCD-like behaviour for larger values of $g$. In this theory the gauge coupling goes to zero in the UV, then stabilises at an approximately constant value for a wide range of energies, and finally diverges at a finite energy scale, thus triggering chiral symmetry breaking. Theories with walking gauge coupling are very important in the context of composite Higgs models, as discussed in section \ref{partial_comp}. In fact these theories show an approximate conformal behaviour, which can lead to a nice separation of scales and good scaling properties of composite operators, and at the same time break chiral symmetry, which is a necessary ingredient in composite Higgs models.
 Lattice simulations can be used in order to find out whether a theory is in one of the three regimes shown in figure \ref{walking}, see for example \cite{Hietanen:2008mr,Hansen:2017ejh}.
 
-Here we consider theories in the perturbative conformal window, i.e. $N_f \lesssim N_f^{AF}$, and we study their viscosity and fermion number diffusion coefficient by applying the perturbative results for transport coefficients obtained in \cite{Arnold:2000dr}.
+Here we consider theories in the perturbative conformal window, i.e. $N_f \lesssim N_f^{AF}$, and we study their sheer viscosity and fermion number diffusion coefficient by applying the perturbative results obtained in \cite{Arnold:2000dr}.
 
 %REMEMBER TO JUSTIFY THE FACT THAT THE NUMBER OF FLAVOURS IS TREATED LIKE A CONTINUOUS PARAMETER!
 
@@ -57,10 +57,90 @@ Here we consider theories in the perturbative conformal window, i.e. $N_f \lesss
 
 \section{Transport coefficients}
 
+Transport coefficients characterise the response of a fluid to small deviations from thermodynamic equilibrium. The transport coefficients considered in our study are viscosity and diffusion coefficients. Viscosity describes the response to spacial variations of the flow velocity, in the presence of dissipative phenomena (internal friction). Diffusion coefficients describe the evolution of the density of conserved charges, when the charge concentration is not uniform over the fluid. In this section we introduce the equations of motion of a viscous fluid and the diffusion equation, which provide the definitions of the transport coefficients under analysis.
+
+\subsection{Viscosity}
+
+In this derivation we follow the lines of \cite{landau2013fluid}. We start by considering the motion of an ideal fluid, which is described by the continuity equation:
+
+\begin{equation}
+\partial_t \rho + \partial_i (\rho v_i) = 0 \: ,
+\end{equation}
+%
+and Euler's equation (given here in component form):
+
+\begin{equation}
+\partial_t v_i +  v_j \partial_j v_i = -\frac{1}{\rho} \partial_i p \: ,
+\end{equation}
+%
+where time is denoted by $t$, spacial coordinates by $x_i$ ($i=1,2,3$), the fluid mass density by $\rho$, the flow velocity components by $v_i$,  and the pressure by $p$. Sums over repeated indices are understood. Euler's equation can be rewritten as:
+
+\begin{equation}
+\partial_t (\rho v_i) = - \partial_j \Pi_{ij} \: ,
+\label{Euler}
+\end{equation}
+%
+where the symmetric tensor $\Pi_{ij} = p \delta_{ij} + \rho v_i v_j$ represents the flux density of the momentum component $i$ in all possible directions $j$. The momentum transfer described by the tensor $\Pi_{ij}$ is reversible, and it is due to the mechanical transport of the different volumes of fluid and to pressure forces acting in the fluid. The motion of a viscous fluid is characterised by an extra, irreversible, transfer of momentum, occurring from points where the flow velocity is large to points where is is low.
+In the case of a viscous fluid, the tensor $\Pi_{ij}$ can be parametrised as:
+
+\begin{equation}
+\Pi_{ij} = p \delta_{ij} + \rho v_i v_j - \sigma_{ik} \: ,
+\end{equation}
+%
+where $-\sigma_{ik}$ is the contribution due to internal friction. Always following \cite{landau2013fluid}, we notice that $\sigma_{ik}$ must depend on the spacial derivatives of the flow velocity, since internal friction occurs only when different layers of fluid move with different velocities, and must vanish when the flow velocity is constant in space. Moreover, $\sigma_{ij}$
+must vanish when the fluid is in uniform rotational motion, because in this case there is no relative motion between different layers of fluid. The flow velocity of a uniformly rotating fluid is expressed as: $\vec v = \vec \Omega \times \vec r$, $\vec r$ being the distance from the centre of rotation and $\vec \Omega$ the constant angular velocity. If the velocity gradients are small, we may assume that $\sigma_{ik}$ is a linear function of the first derivatives of the flow velocity. The most general function of this sort, which vanishes in case of constant $\vec v$, or $\vec v = \vec \Omega \times \vec r$, is:
+
+\begin{equation}
+\sigma_{ij} = \eta \biggl( \partial_i v_j + \partial_j v_i -\frac{2}{3} \delta_{ij} \partial_k v_k \biggr) + \zeta \delta_{ij} \partial_{k} v_k \: ,
+\label{viscosity_classical}
+\end{equation}
+%
+where the coefficient $\eta$ is the shear viscosity and $\zeta$ the bulk viscosity. The terms in equation \ref{viscosity_classical} are organised so that the expression in parentheses vanishes when tracing over $i$ and $j$. To conclude, we have for a viscous fluid:
+
+\begin{equation}
+\Pi_{ij} = p \delta_{ij} + \rho v_i v_j - \eta \biggl( \partial_i v_j + \partial_j v_i -\frac{2}{3} \delta_{ij} \partial_k v_k \biggr) - \zeta \delta_{ij} \partial_{k} v_k \: ,
+\label{Navier-Stokes}
+\end{equation}
+%
+and Euler's equation is substituted by the Navier-Stokes equation, obtained by inserting \ref{Navier-Stokes} in \ref{Euler}.
+
+
+A fluid with relativistic flow velocity, or having microscopic components moving at relativistic speed, is described by relativistic fluid equations.
+ 
+ \subsection{Diffusion coefficient}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Transport coefficients of a gauge theory: the kinetic approach}
+\section{Transport coefficients of a gauge theory: kinetic approach}
+
+The equilibrium state of a high temperature quantum field theory can be described as a relativistic fluid. Transport coefficients can in principle be computed, based on the dynamics of the underlying microscopic theory.
+This is what the authors of \cite{Arnold:2000dr,Arnold:2003zc} did in the case of a weakly coupled , high temperature gauge theory, both in a leading-log approximation \cite{Arnold:2000dr} and in a full leading order treatment \cite{Arnold:2003zc}.
+In this section, without aiming at a complete description, we would like to sketch the method used in these works to compute the transport coefficients. The analytic results given in \cite{Arnold:2000dr}, together with the coefficients in table \ref{AB}, are the basis for our study of transport coefficients in the perturbative conformal window.
+
+In \cite{Arnold:2000dr,Arnold:2003zc}, a finite-temperature gauge theory coupled to fermions is considered, under the assumption that the gauge coupling at the scale of the temperature is weak: $g(T) \ll 1$.
+
+\subsection{Leading-log and next-to-leading-log results}
+
+    \begin{table}[h!]
+\begin{center}
+    %\begin{minipage}{3.8in}
+    \begin{tabular}{c||ccc }
+    $N_f$ & $ \quad A$ & $\quad B $ &   \\
+    \hline \hline
+    $ 6 $ & \quad 2.918 & \quad 3.064   \\
+        $14$ &\quad 2.878 &\quad 3.135  \\
+        $15$ & \quad 2.873 & \quad 3.172 \\
+        $16$ & \quad 2.869  & \quad 3.176 \\
+    $16.25$ & \quad 2.867 & \quad 3.177
+    \end{tabular}
+    %\end{minipage}
+    \end{center}
+\caption{Values of the coefficients $A$ and $B$ \cite{privcommGDM}
+appearing in the next-to-leading-log expressions of the shear viscosity and the fermion-number diffusion coefficient, 
+for $N = 3$ and different values of $N_f$.}
+\label{AB}
+    \end{table}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
