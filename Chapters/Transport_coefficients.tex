@@ -80,22 +80,22 @@ where time is denoted by $t$, spacial coordinates by $x_i$ ($i=1,2,3$), the flui
 \label{Euler}
 \end{equation}
 %
-where the symmetric tensor $\Pi_{ij} = p \delta_{ij} + \rho v_i v_j$ represents the flux density of the momentum component $i$ in all possible directions $j$. The momentum transfer described by the tensor $\Pi_{ij}$ is reversible, and it is due to the mechanical transport of the different volumes of fluid and to pressure forces acting in the fluid. The motion of a viscous fluid is characterised by an extra, irreversible, transfer of momentum, occurring from points where the flow velocity is large to points where is is low.
+where the symmetric tensor $\Pi_{ij} = p \delta_{ij} + \rho v_i v_j$ represents the flux density of the momentum component $i$ in all possible directions $j$. The momentum transfer described by the tensor $\Pi_{ij}$ is reversible, and it is due to the mechanical transport of volumes of fluid and to pressure forces acting in the fluid. The motion of a viscous fluid is characterised by an extra, irreversible, transfer of momentum, occurring from points where the flow velocity is large to points where it is low.
 In the case of a viscous fluid, the tensor $\Pi_{ij}$ can be parametrised as:
 
 \begin{equation}
 \Pi_{ij} = p \delta_{ij} + \rho v_i v_j - \sigma_{ik} \: ,
 \end{equation}
 %
-where $-\sigma_{ik}$ is the contribution due to internal friction. Always following \cite{landau2013fluid}, we notice that $\sigma_{ik}$ must depend on the spacial derivatives of the flow velocity, since internal friction occurs only when different layers of fluid move with different velocities, and must vanish when the flow velocity is constant in space. Moreover, $\sigma_{ij}$
-must vanish when the fluid is in uniform rotational motion, because in this case there is no relative motion between different layers of fluid. The flow velocity of a uniformly rotating fluid is expressed as: $\vec v = \vec \Omega \times \vec r$, $\vec r$ being the distance from the centre of rotation and $\vec \Omega$ the constant angular velocity. If the velocity gradients are small, we may assume that $\sigma_{ik}$ is a linear function of the first derivatives of the flow velocity. The most general function of this sort, which vanishes in case of constant $\vec v$, or $\vec v = \vec \Omega \times \vec r$, is:
+where $-\sigma_{ik}$ is the contribution due to internal friction. Always following \cite{landau2013fluid}, we notice that $\sigma_{ik}$ must depend on the spacial derivatives of the flow velocity, since internal friction occurs only when different layers of fluid move with respect to each other, and must vanish when the flow velocity is constant in space. Moreover, $\sigma_{ij}$
+must vanish when the fluid is in uniform rotational motion, because in this case there is no relative motion between different layers of fluid. The flow velocity of a uniformly rotating fluid is expressed as: $\vec v = \vec \Omega \times \vec r$, $\vec r$ being the distance from the centre of rotation and $\vec \Omega$ the constant angular velocity. If the velocity gradients are small, we may assume that $\sigma_{ik}$ is a linear function of the first derivatives of the flow velocity. The most general function of this sort, which vanishes in case $\vec v = \mathrm{constant}$, or $\vec v = \vec \Omega \times \vec r$, is:
 
 \begin{equation}
 \sigma_{ij} = \eta \biggl( \partial_i v_j + \partial_j v_i -\frac{2}{3} \delta_{ij} \partial_k v_k \biggr) + \zeta \delta_{ij} \partial_{k} v_k \: ,
 \label{viscosity_classical}
 \end{equation}
 %
-where the coefficient $\eta$ is the shear viscosity and $\zeta$ the bulk viscosity. The terms in equation \ref{viscosity_classical} are organised so that the expression in parentheses vanishes when tracing over $i$ and $j$. To conclude, we have for a viscous fluid:
+where the coefficient $\eta$ is the shear viscosity and $\zeta$ the bulk viscosity. The terms in equation \ref{viscosity_classical} are organised so that the expression in parentheses vanishes when traced over $i$ and $j$. To conclude, for a viscous fluid
 
 \begin{equation}
 \Pi_{ij} = p \delta_{ij} + \rho v_i v_j - \eta \biggl( \partial_i v_j + \partial_j v_i -\frac{2}{3} \delta_{ij} \partial_k v_k \biggr) - \zeta \delta_{ij} \partial_{k} v_k \: ,
@@ -105,14 +105,75 @@ where the coefficient $\eta$ is the shear viscosity and $\zeta$ the bulk viscosi
 and Euler's equation is substituted by the Navier-Stokes equation, obtained by inserting \ref{Navier-Stokes} in \ref{Euler}.
 
 
-A fluid with relativistic flow velocity, or having microscopic components moving at relativistic speed, is described by relativistic fluid equations.
+Relativistic fluid equations describe a fluid whose flow velocity is relativistic, or whose microscopical components move at relativistic speed. In order to derive them, we introduce the energy-momentum tensor $T^{\mu\nu}$ of the relativistic fluid. The component $T^{00}$ is the fluid energy density, $T^{i0} = T^{0i}$ is the momentum component density (equal to the energy flux density), and $T^{ij}$ the momentum flux density, analogue to the non-relativistic $\Pi_{ij}$. The equations of motion
+
+\begin{equation}
+\partial_{\mu} T^{\mu\nu} = 0
+\end{equation}
+%
+express the conservation of energy and momentum in the fluid.
+We start by defining $T^{\mu\nu}$ for an ideal fluid in the local rest frame. In the local rest frame, the momentum density is zero ($T^{0i} = 0$), and the force exerted by the fluid on some surface is the same in all directions, and always perpendicular to the surface. The $i$-th component of the force exerted on an infinitesimal surface $\mathrm{d} \hat \Sigma = \abs{\mathrm{d}\Sigma} \: \hat n$ is given by:  $T^{ij} \mathrm{d} \hat \Sigma^j $, where $\hat n$ is the normal to the surface. It follows from the above argument that $T^{ij} \mathrm{d} \hat \Sigma^j = p \: \mathrm{d} \hat \Sigma^i $, and therefore $T^{ij} = \delta^{ij} p$. Consequently, in the local rest frame:
+ 
+ 
+ \begin{equation}
+ (T^{\mu\nu}) =
+ \begin{pmatrix}
+ e & 0 & 0 & 0 \\
+ 0 & p & 0 & 0 \\
+ 0 & 0 & p & 0 \\
+ 0 & 0 & 0 & p \\
+ \end{pmatrix} \: ,
+ \label{T_rest_frame}
+ \end{equation}
+ %
+ where $e$ is the energy density and $p$ the pressure.
+ This expression can be generalised to a generic reference frame by introducing the fluid four-velocity $u^{\mu}$, which in the local rest frame is given by $u^0 =1$, $u^i =0$, and in a frame in which the fluid element moves with velocity $\vec v$ by $u^0 = 1/\sqrt{1-v^2}$, $u^i = v^i/\sqrt{1-v^2}$. In a generic frame, $T^{\mu\nu}$ is expressed as:
+ 
+ \begin{equation}
+ T^{\mu\nu} = (e+p) u^{\mu} u^{\nu} - p \: \eta^{\mu\nu} \: ,
+ \label{Tmunu}
+ \end{equation}
+ %
+ where $\eta_{\mu\nu}$ is Minkowski metric. Equation \ref{T_rest_frame} is recovered by fixing $u^0 =1$, $u^i =0$.
+In the presence of internal friction, further terms must be added to the energy momentum tensor \ref{Tmunu}. In the local rest frame, the spatial components of the energy momentum tensor of a viscous relativistic fluid are given by:
+
+\begin{equation}
+T_{ij} = p \delta_{ij} - \eta \biggl( \partial_i u_j +\partial_j u_i - \frac{2}{3} \delta_{ij} \partial_k u_k \biggr) - \zeta \delta_{ij} \partial_k u_k \: ,
+\label{viscosity_def}
+\end{equation}
+%
+which reduce to \ref{Navier-Stokes} in the non-relativistic limit $\abs{v} \ll 1$. Equation \ref{viscosity_def} may be regarded as the definition of the shear and bulk viscosities of a relativistic fluid.
  
  \subsection{Diffusion coefficient}
+ 
+We have seen that the equations of motion of a relativistic fluid express the conservation of energy and momentum. Further conservation equations exist for any other conserved quantity. We consider here the case of a conserved particle number density. The conservation equation takes the form:
+ 
+ \begin{equation}
+ \partial_{\mu} j^{\mu} = 0 \: ,
+ \label{cons_density}
+ \end{equation}
+ %
+ where $j^{\mu} = n \: u^{\mu}$, $u^{\mu}$ being the fluid four-velocity and $n$ the particle number density in the local rest frame.
+ The diffusion equation:
+ 
+ \begin{equation}
+ \partial_t n = D \Laplace n \: ,
+ \label{diffusion_eq}
+ \end{equation}
+ %
+ where $\Laplace = \partial_i \partial^i$, describes the evolution of the number density $n$, when $n$ is low and not uniform over the fluid. In this case, the number density flux can be expressed, in the local rest frame, as:
+ 
+\begin{equation}
+j^i = - D \partial^i n \: ,
+\label{diffusion_current}
+\end{equation}
+%
+which, in combination with the conservation law \ref{cons_density}, implies the diffusion equation \ref{diffusion_eq}. The coefficient $D$ is known as diffusion coefficient. Equations of the form \ref{diffusion_eq}, \ref{diffusion_current} describe for example the evolution of the concentration $c$ of the solute in a weak solution ($c \ll 1$) \cite{landau2013fluid}, or the density of particles undergoing Brownian motion. It will be shown in the following that conserved currents related to global flavour symmetries in a hot gauge theory evolve diffusively.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Transport coefficients of a gauge theory: kinetic approach}
+\section{Transport coefficients of a hot gauge theory: kinetic approach}
 
 The equilibrium state of a high temperature quantum field theory can be described as a relativistic fluid. Transport coefficients can in principle be computed, based on the dynamics of the underlying microscopic theory.
 This is what the authors of \cite{Arnold:2000dr,Arnold:2003zc} did in the case of a weakly coupled , high temperature gauge theory, both in a leading-log approximation \cite{Arnold:2000dr} and in a full leading order treatment \cite{Arnold:2003zc}.
