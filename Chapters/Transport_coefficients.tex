@@ -80,7 +80,7 @@ where time is denoted by $t$, spacial coordinates by $x_i$ ($i=1,2,3$), the flui
 \label{Euler}
 \end{equation}
 %
-where the symmetric tensor $\Pi_{ij} = p \delta_{ij} + \rho v_i v_j$ represents the flux density of the momentum component $i$ in all possible directions $j$. The momentum transfer described by the tensor $\Pi_{ij}$ is reversible, and it is due to the mechanical transport of volumes of fluid and to pressure forces acting in the fluid. The motion of a viscous fluid is characterised by an extra, irreversible, transfer of momentum, occurring from points where the flow velocity is large to points where it is low.
+where the symmetric tensor $\Pi_{ij} = p \delta_{ij} + \rho v_i v_j$ represents the flux density of the momentum component $i$ in all possible directions $j$. The momentum transfer described by $\Pi_{ij}$ is reversible, and it is due to the mechanical transport of volumes of fluid and to pressure forces acting in the fluid. The motion of a viscous fluid is characterised by an extra, irreversible, transfer of momentum, occurring from points where the flow velocity is large to points where it is low.
 In the case of a viscous fluid, the tensor $\Pi_{ij}$ can be parametrised as:
 
 \begin{equation}
@@ -142,19 +142,18 @@ T_{ij} = p \delta_{ij} - \eta \biggl( \partial_i u_j +\partial_j u_i - \frac{2}{
 \label{viscosity_def}
 \end{equation}
 %
-which reduce to \ref{Navier-Stokes} in the non-relativistic limit $\abs{v} \ll 1$. Equation \ref{viscosity_def} may be regarded as the definition of the shear and bulk viscosities of a relativistic fluid.
+which reduce to \ref{Navier-Stokes} in the non-relativistic limit $\abs{\vec v} \ll 1$. Equation \ref{viscosity_def} may be regarded as the definition of the shear and bulk viscosities of a relativistic fluid.
  
  \subsection{Diffusion coefficient}
  
-We have seen that the equations of motion of a relativistic fluid express the conservation of energy and momentum. Further conservation equations exist for any other conserved quantity. We consider here the case of a conserved particle number density. The conservation equation takes the form:
+We have seen that the equations of motion of a relativistic fluid express the conservation of energy and momentum. Further conservation laws, of the form
  
  \begin{equation}
  \partial_{\mu} j^{\mu} = 0 \: ,
  \label{cons_density}
  \end{equation}
  %
- where $j^{\mu} = n \: u^{\mu}$, $u^{\mu}$ being the fluid four-velocity and $n$ the particle number density in the local rest frame.
- The diffusion equation:
+ exist for all other eventual conserved quantities. We consider here the case of a conserved particle number density. The current $j^{\mu}$ in this case is expressed as: $j^{\mu} = n  u^{\mu}$, where $u^{\mu}$ represents the fluid four-velocity and $n$ the particle number density in the local rest frame. The diffusion equation:
  
  \begin{equation}
  \partial_t n = D \Laplace n \: ,
@@ -168,7 +167,9 @@ j^i = - D \partial^i n \: ,
 \label{diffusion_current}
 \end{equation}
 %
-which, in combination with the conservation law \ref{cons_density}, implies the diffusion equation \ref{diffusion_eq}. The coefficient $D$ is known as diffusion coefficient. Equations of the form \ref{diffusion_eq}, \ref{diffusion_current} describe for example the evolution of the concentration $c$ of the solute in a weak solution ($c \ll 1$) \cite{landau2013fluid}, or the density of particles undergoing Brownian motion. It will be shown in the following that conserved currents related to global flavour symmetries in a hot gauge theory evolve diffusively.
+which, in combination with the conservation law \ref{cons_density}, implies the diffusion equation \ref{diffusion_eq}. The coefficient $D$ is known as diffusion coefficient. Equations of the form \ref{diffusion_eq}, \ref{diffusion_current} describe for example the evolution of the concentration $c$ of the solute in a weak solution ($c \ll 1$) \cite{landau2013fluid}. Random walk dynamics, which may be applied to the description of Brownian motion, is also governed by the diffusion equation. It will be shown in the following that conserved currents related to global flavour symmetries in a hot gauge theory satisfy a constitutive relation of the form \ref{diffusion_current}. 
+
+%In particular, in a SU($N$) gauge theory, if the temperature is high enough, the whole set of currents related to SU($N_f$)$_L \times$SU($N_f$)$_R \times$ U(1)$_B \times$ U(1)$_A$ flavour symmetry, is conserved. This is a good approximation when 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -179,7 +180,41 @@ The equilibrium state of a high temperature quantum field theory can be describe
 This is what the authors of \cite{Arnold:2000dr,Arnold:2003zc} did in the case of a weakly coupled , high temperature gauge theory, both in a leading-log approximation \cite{Arnold:2000dr} and in a full leading order treatment \cite{Arnold:2003zc}.
 In this section, without aiming at a complete description, we would like to sketch the method used in these works to compute the transport coefficients. The analytic results given in \cite{Arnold:2000dr}, together with the coefficients in table \ref{AB}, are the basis for our study of transport coefficients in the perturbative conformal window.
 
-In \cite{Arnold:2000dr,Arnold:2003zc}, a finite-temperature gauge theory coupled to fermions is considered, under the assumption that the gauge coupling at the scale of the temperature is weak: $g(T) \ll 1$.
+In \cite{Arnold:2000dr,Arnold:2003zc}, a finite-temperature gauge theory coupled to fermions is considered, under the assumption that the gauge coupling at the scale of the temperature is weak: $g(T) \ll 1$. The temperature is assumed to be much larger than any other mass scale in the theory, such as for example zero-temperature fermion masses, chemical potentials, or, in the case of non-Abelian gauge group, the scale at which the gauge coupling becomes strong. Under this assumption, the transport coefficients are given by a power of the temperature determined by dimensional analysis, multiplied by some function of the gauge coupling.
+
+As explained by the authors of \cite{Arnold:2000dr,Arnold:2003zc}, a kinetic theory approach is appropriate for computing the transport coefficients under their analysis (shear viscosity, diffusion coefficients, electrical conductivity) at leading order in the gauge coupling. We will get back to this point in the following. The kinetic theory is defined by assigning to each particle species a phase space distribution function $f^a(\vec p, x)$, which satisfies a Boltzmann equation of the form:
+
+\begin{equation}
+\biggl( \pder{ }{t}+ \vec v_{\vec p} \cdot \pder{ }{\vec x} + \vec F \cdot \pder{ }{\vec p} \biggr) f^a(\vec p,x) = -C_a[f] (\vec p,x) \: ,
+\end{equation}
+%
+where $\vec v_{\vec p}$ is the velocity of a particle with momentum $\vec p$, $\vec F$ is an external force acting on the particle species $a$, and $C_a[f](\vec p, x)$ is the collision term, describing the rate at which excitations with momentum $\vec p$ of the species $a$ are lost or created due to scattering with other particles in the fluid. Typical excitations in the plasma have momentum $\abs{\vec p} = \mathcal O(T)$ and thus are highly relativistic, and may be treated as massless particles moving at the speed of light, with dispersion relation $p^0= \abs{\vec p}$. It follows that the velocity $\vec v_{\vec p}$ is a unit vector: $\vec v_{\vec p} = \hat p = \vec p/ \abs{\vec p}$.
+
+In \cite{Arnold:2000dr} transport coefficients are computed in the leading-log approximation, i.e. the coefficient of the leading order result (in the gauge coupling $g$) is in turn expanded in powers of $1/\log{g^{-1}}$ and only the first term of this expansion is retained. In this approximation, it is sufficient to include in the collision term only two-body scattering processes:
+
+\begin{equation}
+\begin{split}
+C_a[f](\vec p, x)  & = \frac{1}{4 p^0} \sum_{b,c,d}^{\mathrm{f \bar f h c}} \int_{\vec k, \vec{p'}, \vec k'} \abs{\mathcal M^{ab}_{cd}(p,k;p',k')}^2 (2 \pi)^4 \delta^4(p+k-p'-k') \times \\
+& 
+\begin{split}
+\times  \biggl[ & f^a(\vec p,x) f^b(\vec k,x) [1 \pm f^c(\vec{p'},x)] [1 \pm f^d(\vec k',x)] - \\ 
+& - f^c(\vec{p'},x) f^d(\vec k',x)[1 \pm f^a(\vec p,x)] [1 \pm f^b(\vec k,x)] \biggr]  \: ,
+\end{split}
+\end{split}
+\end{equation}
+%
+where $\mathcal{M}^{ab}_{cd}$ is the scattering amplitude for the process $ab \leftrightarrow cd$, and the sum extends to flavours (f), anti-flavours ($\mathrm{\bar f}$), helicities (h) and colours (c) of the particles $b$, $c$ and $d$. The shorthand notation $\int_{\vec p} \equiv \int \mathrm{d}^3p/\bigl(2p^0 (2 \pi)^3\bigr)$ is introduced for the momentum integrals, and in the final state statistical factors $[1 \pm f]$ the upper sign applies to bosons and the lower to fermions.
+
+\begin{equation}
+T^{\mu\nu}(x) = \sum_a \int \frac{\mathrm d^3 p}{(2 \pi)^3 p^0} p^{\mu} p^{\nu} f^a(\vec p, x)
+\end{equation}
+
+\begin{equation}
+j^{\mu}(x) = \int \frac{\mathrm d^3 p}{(2 \pi)^3 p^0} p^{\mu} q f^a(\vec p, x)
+\end{equation}
+
+
+The next step in the computation is the linearisation of Boltzmann equation around small deviations from local equilibrium.
 
 \subsection{Leading-log and next-to-leading-log results}
 
