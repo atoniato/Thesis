@@ -188,7 +188,7 @@ As explained by the authors of \cite{Arnold:2000dr,Arnold:2003zc}, a kinetic the
 \biggl( \pder{ }{t}+ \vec v_{\vec p} \cdot \pder{ }{\vec x} + \vec F \cdot \pder{ }{\vec p} \biggr) f^a(\vec p,x) = -C_a[f] (\vec p,x) \: ,
 \end{equation}
 %
-where $\vec v_{\vec p}$ is the velocity of a particle with momentum $\vec p$, $\vec F$ is an external force acting on the particle species $a$, and $C_a[f](\vec p, x)$ is the collision term, describing the rate at which excitations with momentum $\vec p$ of the species $a$ are lost or created due to scattering with other particles in the fluid. Typical excitations in the plasma have momentum $\abs{\vec p} = \mathcal O(T)$ and thus are highly relativistic, and may be treated as massless particles moving at the speed of light, with dispersion relation $p^0= \abs{\vec p}$. It follows that the velocity $\vec v_{\vec p}$ is a unit vector: $\vec v_{\vec p} = \hat p = \vec p/ \abs{\vec p}$.
+where $\vec v_{\vec p}$ is the velocity of a particle with momentum $\vec p$, $\vec F$ is an external force acting on the particle species $a$, and $C_a[f](\vec p, x)$ is the collision term, describing the rate at which excitations with momentum $\vec p$ of the species $a$ are lost or created due to scattering with other particles in the fluid. Typical excitations in the plasma have momentum $\abs{\vec p} = \mathcal O(T)$ and thus are highly relativistic, and may be treated as massless particles moving at the speed of light, with dispersion relation $p^0= \abs{\vec p}$. It follows that the velocity $\vec v_{\vec p}$ is a unit vector: $\vec v_{\vec p} = \hat p = \vec p/ \abs{\vec p}$. 
 
 In \cite{Arnold:2000dr} transport coefficients are computed in the leading-log approximation, i.e. the coefficient of the leading order result (in the gauge coupling $g$) is in turn expanded in powers of $1/\log{g^{-1}}$ and only the first term of this expansion is retained. In this approximation, it is sufficient to include in the collision term only two-body scattering processes:
 
@@ -203,19 +203,93 @@ C_a[f](\vec p, x)  & = \frac{1}{4 p^0} \sum_{b,c,d}^{\mathrm{f \bar f h c}} \int
 \end{split}
 \end{equation}
 %
-where $\mathcal{M}^{ab}_{cd}$ is the scattering amplitude for the process $ab \leftrightarrow cd$, and the sum extends to flavours (f), anti-flavours ($\mathrm{\bar f}$), helicities (h) and colours (c) of the particles $b$, $c$ and $d$. The shorthand notation $\int_{\vec p} \equiv \int \mathrm{d}^3p/\bigl(2p^0 (2 \pi)^3\bigr)$ is introduced for the momentum integrals, and in the final state statistical factors $[1 \pm f]$ the upper sign applies to bosons and the lower to fermions.
+where $\mathcal{M}^{ab}_{cd}$ is the scattering amplitude for the process $ab \leftrightarrow cd$, and the sum extends to flavours (f), anti-flavours ($\mathrm{\bar f}$), helicities (h) and colours (c) of the particles $b$, $c$ and $d$. The shorthand notation $\int_{\vec p} \equiv \int \mathrm{d}^3p/\bigl(2p^0 (2 \pi)^3\bigr)$ is introduced for the momentum integrals, and in the final state statistical factors $[1 \pm f]$ the upper sign applies to bosons and the lower to fermions. 
+The energy momentum tensor of the fluid formed by the excitations described by the functions $f^a$ is given by:
 
 \begin{equation}
-T^{\mu\nu}(x) = \sum_a \int \frac{\mathrm d^3 p}{(2 \pi)^3 p^0} p^{\mu} p^{\nu} f^a(\vec p, x)
+T^{\mu\nu}(x) = \sum_a^{\mathrm{f \bar f h c}} \int \frac{\mathrm d^3 p}{(2 \pi)^3 p^0} p^{\mu} p^{\nu} f^a(\vec p, x) \: ,
+\label{Tmunu_kinetic}
 \end{equation}
+%
+while other conserved currents are given by:
 
 \begin{equation}
-j^{\mu}(x) = \int \frac{\mathrm d^3 p}{(2 \pi)^3 p^0} p^{\mu} q f^a(\vec p, x)
+j^{\mu}(x) = \sum_a^{\mathrm{f \bar f h c}}\int \frac{\mathrm d^3 p}{(2 \pi)^3 p^0} p^{\mu} q^a f^a(\vec p, x) \: ,
+\label{jmu_kinetic}
 \end{equation}
+%
+where $q^a$ is the corresponding charge carried by the species $a$.
 
 
-The next step in the computation is the linearisation of Boltzmann equation around small deviations from local equilibrium.
 
+The next step in the computation of transport coefficients is the linearisation of Boltzmann equation around small deviations from local equilibrium. The equilibrium solutions to the Boltzmann equation are given by:
+
+\begin{equation}
+f^a_{eq}(\vec p) = \frac{1}{\exp[\beta(- u_{\mu}p^{\mu} - \mu_{\alpha}q_{\alpha}^a)] \mp 1} \: ,
+\label{equilibrium}
+\end{equation}
+%
+where $\beta = 1/T$, $u^{\mu}$ is the fluid four-velocity, $\set{q^a_{\alpha}}$ a set of conserved charges and $\set{\mu_{\alpha}}$ the related chemical potentials. As before, the upper sign applies to bosons and the lower to fermions, and this convention will hold through all the following derivation. In order to study small deviations from local equilibrium, relevant for the computation of transport coefficients, the phase space distribution can be written as:
+
+\begin{equation}
+f^a(\vec p, x) = f_0^a(\vec p, x) + \delta f^a (\vec p, x) \: ,
+\end{equation}
+%
+where $f_0^a(\vec p, x)$ is a local equilibrium solution, i.e. of the form \ref{equilibrium} but with $\beta$, $u_{\mu}$, $\mu_{\alpha}$ which may depend on space-time coordinates. The deviation from local equilibrium $\delta f^a$ can be rewritten in a form that will simplify the expression of the linearised collision term:
+
+\begin{equation}
+ \delta f^a (\vec p, x)= f_0^a(\vec p, x) [1 \pm f_0^a(\vec p, x)] f_1^a(\vec p, x) \: .
+\end{equation}
+%
+The Boltzmann equation can be linearised by retaining only terms of first order in the deviation from local equilibrium. In particular, only terms linear in $f^a_1$, the external force $\vec F$ and the gradients of $\beta$, $u_{\mu}$, $\mu_{\alpha}$ are retained. Products of $f^a_1$ with gradients or $\vec F$, as well as derivatives of $f^a_1$, are discarded. As a result, the Boltzmann equation becomes a linear integral equation in $f^a_1$:
+
+\begin{equation}
+\biggl( \pder{ }{t}+ \hat p \cdot \pder{ }{\vec x} + \vec F \cdot \pder{ }{\vec p} \biggr) f^a_0(\vec p,x)  =
+- (\mathcal Cf_1)^a (\vec p, x) \: ,
+\label{lin_boltzmann}
+\end{equation}
+%
+where the linearised collision integral is given by:
+
+\begin{equation}
+\begin{split}
+(\mathcal Cf_1)^a (\vec p, x) =  \frac{1}{4 p^0} \sum_{b,c,d}^{\mathrm{f \bar f h c}} &\int_{\vec k, \vec{p'}, \vec k'}  \abs{\mathcal M^{ab}_{cd}(p,k;p',k')}^2 (2 \pi)^4 \delta^4(p+k-p'-k') \times \\
+&\times f_0^a(\vec p,x) f_0^b(\vec k,x)[1 \pm f_0^c(\vec{p'},x)][1 \pm f_0^c(\vec k', x)] \times \\
+& \times \bigl[f_1^a(\vec p,c) + f_1^b(\vec k,x) - f_1^c(\vec{p'},x) - f_1^d(\vec k',x)\bigr] \: .
+\end{split}
+\label{lin_coll_integral}
+\end{equation}
+%
+In order to obtain this result, the fact that the collision term vanishes in the case of a local equilibrium distribution, $C_a[f_0] = 0$, has been used.
+
+In this setup, transport coefficients can be computed by applying the following program:
+
+\begin{itemize}
+\item the collision integrals \ref{lin_coll_integral} must be computed for all the relevant particle species, at the desired order in the gauge coupling $g$
+\item an appropriate "driving term" (left-hand-side of \ref{lin_boltzmann}) must be chosen, which allows to compute the desired transport coefficient
+\item the deviations from local equilibrium $f_1^a$ must be computed for all relevant particle species by solving the integral equations \ref{lin_boltzmann}
+\item the phase space distributions $f^a = f^a_0 + \delta f^a$ must be inserted in the relevant conserved current (\ref{Tmunu_kinetic} or \ref{jmu_kinetic}). Transport coefficients can be read off from the resulting equation.
+\end{itemize}
+%
+Here we don't aim at describing the full procedure in detail. We will just give a sketch of point two of the above program, and further on we will briefly discuss which approximations are applied in the collision integrals in order to obtain leading-log results for transport coefficients.
+
+The form of the local equilibrium distribution $f_0$ can be chosen appropriately for the computation of a specific transport coefficient. In the case of viscosity, the temperature and chemical potentials are constant, while the flow velocity varies as a function of space. In the case of a diffusion coefficients, some chemical potential $\mu_{\alpha}$ is chosen as varying in space, while all other parameter are constant. In both cases the external force $\vec F$, which would be relevant for the calculation of electrical conductivity, can be set to zero. Derivatives of $f_0^a$ can be written as:
+
+\begin{equation}
+\mathrm d f_0^a(\vec p,x) = f_0^a(\vec p,x) [1 \pm f_0^a(\vec p,x)] \mathrm d [\beta u_{\mu}p^{\mu} + \beta q^a_{\alpha} \mu_{\alpha}] \: ,
+\end{equation}
+%
+from which the left-hand-side of equation \ref{lin_boltzmann} can be expressed as:
+
+\begin{equation}
+ \hat p \cdot \pder{ }{\vec x} f^a_0(\vec p, x) = \beta f_0^a(\vec p,x) [1 \pm f_0^a(\vec p,x)] q^a I_{i \dots j} (\hat p) X_{i \dots j} (x) \: ,
+\end{equation}
+%
+where the derivative acting on $[\beta u_{\mu}p^{\mu} + \beta q^a_{\alpha} \mu_{\alpha}]$ has been split in a part depending only on spacial coordinates:
+%
+and one depending only on the direction of the momentum $\hat p$:
+
+ 
 \subsection{Leading-log and next-to-leading-log results}
 
     \begin{table}[h!]
