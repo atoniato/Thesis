@@ -254,8 +254,8 @@ where the linearised collision integral is given by:
 \begin{equation}
 \begin{split}
 (\mathcal Cf_1)^a (\vec p, x) =  \frac{1}{4 p^0} \sum_{b,c,d}^{\mathrm{f \bar f h c}} &\int_{\vec k, \vec{p'}, \vec k'}  \abs{\mathcal M^{ab}_{cd}(p,k;p',k')}^2 (2 \pi)^4 \delta^4(p+k-p'-k') \times \\
-&\times f_0^a(\vec p,x) f_0^b(\vec k,x)[1 \pm f_0^c(\vec{p'},x)][1 \pm f_0^c(\vec k', x)] \times \\
-& \times \bigl[f_1^a(\vec p,c) + f_1^b(\vec k,x) - f_1^c(\vec{p'},x) - f_1^d(\vec k',x)\bigr] \: .
+&\times f_0^a(\vec p,x) f_0^b(\vec k,x)[1 \pm f_0^c(\vec{p'},x)][1 \pm f_0^d(\vec k', x)] \times \\
+& \times \bigl[f_1^a(\vec p,x) + f_1^b(\vec k,x) - f_1^c(\vec{p'},x) - f_1^d(\vec k',x)\bigr] \: .
 \end{split}
 \label{lin_coll_integral}
 \end{equation}
@@ -273,7 +273,7 @@ In this setup, transport coefficients can be computed by applying the following 
 %
 Here we don't aim at describing the full procedure in detail. We will just give a sketch of point two of the above program, and further on we will briefly discuss which approximations are applied in the collision integrals in order to obtain leading-log results for transport coefficients.
 
-The form of the local equilibrium distribution $f_0$ can be chosen appropriately for the computation of a specific transport coefficient. In the case of viscosity, the temperature and chemical potentials are constant, while the flow velocity varies as a function of space. In the case of a diffusion coefficients, some chemical potential $\mu_{\alpha}$ is chosen as varying in space, while all other parameter are constant. In both cases the external force $\vec F$, which would be relevant for the calculation of electrical conductivity, can be set to zero. Derivatives of $f_0^a$ can be written as:
+The form of the local equilibrium distribution $f_0$ can be chosen appropriately for the computation of a specific transport coefficient. In the case of viscosity, the temperature and chemical potentials are constant, while the flow velocity varies as a function of space. In the case of a diffusion coefficient, some chemical potential $\mu_{\alpha}$ is chosen as varying in space, while all other parameters are constant. In both cases the external force $\vec F$, which would be relevant for the calculation of electrical conductivity, can be set to zero. Derivatives of $f_0^a$ can be written as:
 
 \begin{equation}
 \mathrm d f_0^a(\vec p,x) = f_0^a(\vec p,x) [1 \pm f_0^a(\vec p,x)] \mathrm d [\beta u_{\mu}p^{\mu} + \beta q^a_{\alpha} \mu_{\alpha}] \: ,
@@ -283,12 +283,38 @@ from which the left-hand-side of equation \ref{lin_boltzmann} can be expressed a
 
 \begin{equation}
  \hat p \cdot \pder{ }{\vec x} f^a_0(\vec p, x) = \beta f_0^a(\vec p,x) [1 \pm f_0^a(\vec p,x)] q^a I_{i \dots j} (\hat p) X_{i \dots j} (x) \: ,
+\label{driving_term}
 \end{equation}
 %
-where the derivative acting on $[\beta u_{\mu}p^{\mu} + \beta q^a_{\alpha} \mu_{\alpha}]$ has been split in a part depending only on spacial coordinates:
+where the term $ \hat p \cdot \partial /\partial \vec x \: [u_{\mu}p^{\mu} + q^a_{\alpha} \mu_{\alpha}]$ has been split in a part depending only on spacial coordinates:
+
+\begin{equation}
+X_{i \dots j} (x) =
+\begin{cases}
+\pder{ }{x^i} \mu_{\alpha} & \mbox{(diffusion coefficient)} \\
+\frac{1}{\sqrt 6} \bigl( \pder{ }{x^i} u_j + \pder{ }{x^j} u_i -\frac{2}{3} \delta_{ij} \pder{ }{x^k} u_k \bigr) & \mbox{(shear viscosity)}
+\end{cases}
+\end{equation}
 %
 and one depending only on the direction of the momentum $\hat p$:
 
+\begin{equation}
+I_{i \dots j} (\hat p)=
+\begin{cases}
+\hat p_i & \mbox{(diffusion coefficient)} \\
+\sqrt{\frac{3}{2}} \bigl(\hat p_i \hat p_j - \frac{1}{3}\delta_{ij} \bigr) & \mbox{(shear viscosity)} \: .
+\end{cases}
+\end{equation}
+%
+In equation \ref{driving_term}, $q^a$ stands for $q^a_{\alpha}$ in the computation of the diffusion coefficient and for $\abs{\vec p}$ in the computation of shear viscosity.
+
+ We now assume to be in the local rest frame of the fluid. In this frame, at any point $x$, $f_0(\vec p,x)$ depends only on $p^0 = \abs{\vec p}$, and all the angular dependence in \ref{driving_term} comes from the function $I_{i \dots j}(\hat p)$. Since the linearised collision operator $\mathcal{C}$, in the local rest frame at $x$, is rotationally invariant and independent of $x$, the dependence of $f_1^a$ on $\hat p$ and $x$ is the same as the one of the driving term \ref{driving_term}. As a consequence, the deviation from local equilibrium $f_1^a$ can be expressed as:
+ 
+ \begin{equation}
+ f_1^a (\vec p,x) = \beta^2 X_{i \dots j} (x) I_{i \dots j} (\hat p) \chi^a(\abs{\vec p}) \: ,
+ \end{equation}
+ %
+ where $\chi^a(\abs{\vec p})$ is an unknown function, which must be determined by solving the integral equation \ref{lin_boltzmann}. 
  
 \subsection{Leading-log and next-to-leading-log results}
 
