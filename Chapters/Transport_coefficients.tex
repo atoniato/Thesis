@@ -167,7 +167,7 @@ j^i = - D \partial^i n \: ,
 \label{diffusion_current}
 \end{equation}
 %
-which, in combination with the conservation law \ref{cons_density}, implies the diffusion equation \ref{diffusion_eq}. The coefficient $D$ is known as diffusion coefficient. Equations of the form \ref{diffusion_eq}, \ref{diffusion_current} describe for example the evolution of the concentration $c$ of the solute in a weak solution ($c \ll 1$) \cite{landau2013fluid}. Random walk dynamics, which may be applied to the description of Brownian motion, is also governed by the diffusion equation. It will be shown in the following that conserved currents related to global flavour symmetries in a hot gauge theory satisfy a constitutive relation of the form \ref{diffusion_current}. 
+which, in combination with the conservation law \ref{cons_density}, implies the diffusion equation \ref{diffusion_eq}. The coefficient $D$ is known as diffusion coefficient. Equations of the form \ref{diffusion_eq}, \ref{diffusion_current} describe for example the evolution of the concentration $c$ of the solute in a weak solution ($c \ll 1$) \cite{landau2013fluid}. Random walk dynamics, which may be applied to the description of Brownian motion, is also governed by the diffusion equation. It will be shown in the following that the current related to fermion number conservation (analogue to baryon number conservation in QCD) in a hot gauge theory satisfies a constitutive relation of the form \ref{diffusion_current}. 
 
 %In particular, in a SU($N$) gauge theory, if the temperature is high enough, the whole set of currents related to SU($N_f$)$_L \times$SU($N_f$)$_R \times$ U(1)$_B \times$ U(1)$_A$ flavour symmetry, is conserved. This is a good approximation when 
 
@@ -306,17 +306,94 @@ I_{i \dots j} (\hat p)=
 \end{cases}
 \end{equation}
 %
-In equation \ref{driving_term}, $q^a$ stands for $q^a_{\alpha}$ in the computation of the diffusion coefficient and for $\abs{\vec p}$ in the computation of shear viscosity.
+In equation \ref{driving_term}, $q^a$ is the relevant conserved charge, and it stands for either $q^a_{\alpha}$ (for the diffusion coefficient) or $\abs{\vec p}$ (for shear viscosity).
 
- We now assume to be in the local rest frame of the fluid. In this frame, at any point $x$, $f_0(\vec p,x)$ depends only on $p^0 = \abs{\vec p}$, and all the angular dependence in \ref{driving_term} comes from the function $I_{i \dots j}(\hat p)$. Since the linearised collision operator $\mathcal{C}$, in the local rest frame at $x$, is rotationally invariant and independent of $x$, the dependence of $f_1^a$ on $\hat p$ and $x$ is the same as the one of the driving term \ref{driving_term}. As a consequence, the deviation from local equilibrium $f_1^a$ can be expressed as:
+ We now assume to be in the local rest frame of the fluid. In this frame, at any point $x$, $f_0(\vec p,x)$ depends only on $p^0 = \abs{\vec p}$, and all the angular dependence in \ref{driving_term} comes from the function $I_{i \dots j}(\hat p)$. The linearised collision operator $\mathcal{C}$, in the local rest frame at $x$, is rotationally invariant and independent of $x$, therefore the dependence of $f_1^a$ on $\hat p$ and $x$ is the same as the one of the driving term \ref{driving_term}. As a consequence, the deviation from local equilibrium $f_1^a$ can be expressed as:
  
  \begin{equation}
  f_1^a (\vec p,x) = \beta^2 X_{i \dots j} (x) I_{i \dots j} (\hat p) \chi^a(\abs{\vec p}) \: ,
+ \label{f1}
  \end{equation}
  %
- where $\chi^a(\abs{\vec p})$ is an unknown function, which must be determined by solving the integral equation \ref{lin_boltzmann}. 
+ where $\chi^a(\abs{\vec p})$ is an unknown function, which must be determined by solving the integral equation \ref{lin_boltzmann}. The phase space distributions $f^a(\vec p,x)$ thus obtained should then be used to compute the energy momentum tensor \ref{Tmunu_kinetic}  and the conserved current \ref{jmu_kinetic}. In the case of the energy momentum tensor, the forms of $X_{i \dots j}(x)$ and $I_{i \dots j}(\hat p)$ relevant for the computation of shear viscosity must be chosen. It can be seen that the deviation from local equilibrium $\delta f$ contributes to $T^{\mu\nu}$ with a term of the form
+ 
+ \begin{equation}
+ \eta \biggl( \pder{ }{x^i} u_j + \pder{ }{x^j} u_i -\frac{2}{3} \delta_{ij} \pder{ }{x^k} u_k \biggr) \: ,
+ \end{equation} 
+ %
+where the coefficient $\eta$, representing the shear viscosity, can be computed once the functions $\chi^a(\abs{\vec p})$ are known for all relevant particle species. In the case of the diffusion coefficient, it can be seen that the current \ref{jmu_kinetic} is of the form \ref{diffusion_current}, once the term $\partial \mu_{\alpha}/\partial x^i$ is rewritten as:
+
+\begin{equation}
+\pder{\mu_{\alpha} }{x^i}  = \biggl(\pder{n_{\alpha}}{ \mu_{\alpha}}\biggr)^{-1} \pder{n_{\alpha} }{x^i}  \: .
+\end{equation}
+%
+In fact, the local equilibrium terms $f^a_0(\vec p,x)$ give a zero contribution to the spacial components $j^i$ in the local rest frame.
+The diffusion coefficient $D_{\alpha}$, relative to the conserved charge $q_{\alpha}$, can be computed once the functions $\chi^a(\abs{\vec p})$ are determined by solving the linearised Boltzmann equation \ref{lin_boltzmann} in the presence of the appropriate driving term.
+
+The kinetic theory approach described above is not appropriate for describing all the excitations of a high temperature gauge theory. The authors of \cite{Arnold:2000dr,Arnold:2003zc} argue that soft excitations with momentum $\mathcal O(gT)$ or less cannot be described in terms of quasiparticles with purely local collisions. These long-wavelength fluctuations should be thought of as classical gauge field fluctuations, and an effective theory should be constructed in which the high-momentum excitations propagate in a slowly varying classical background field. The method described above for the computation of transport coefficients is valid only for those quantities that are not dominantly sensitive to soft excitations. This is true for shear viscosity and diffusion coefficients, but not for bulk viscosity, which would require a more refined treatment.
+
  
 \subsection{Leading-log and next-to-leading-log results}
+
+In \cite{Arnold:2000dr}, leading-log results are provided for shear viscosity, fermion number diffusion coefficient and electrical conductivity. The leading-log approximation is obtained by restricting to a specific interval the integration over the transfer momentum in the collision integral \ref{lin_coll_integral}. In a process with ingoing momenta $\vec p$, $\vec k$ and outgoing momenta $\vec{p'}$, $\vec k'$, the transfer momentum can be defined as $\vec q = \vec{p'} - \vec p$. The leading-log approximation amounts to extracting the small $\abs{\vec q}$ contribution to the collision integral ($\abs{\vec q} \ll T$). The contribution of the integration over $q \equiv \abs{\vec q}$ to the collision integral results to be:
+
+\begin{equation}
+\int_{gT}^T \frac{\mathrm d q}{q} = \log g^{-1} \: .
+\end{equation}
+%
+The lower bound on the integration at $q = gT$ is due to the fact that some of the tree-level diagrams, contributing to the leading-order transport coefficients, are divergent at small $q$. This leads to logarithmically divergent contributions to the collision integral. The infrared divergences disappear when self-energy contributions are included in the exchange lines in the diagrams. The approach assumed in \cite{Arnold:2000dr} is not to include the self-energy contributions, and to cut down the integration at $q \sim gT$, where the self-energy corrections to the propagators start becoming important. This way leading-log results are obtained.
+
+ We report here the results for shear viscosity and fermion number diffusion coefficient, which are relevant for our study in the conformal window. The leading-log shear viscosity reads \cite{Arnold:2000dr}:
+
+ \begin{equation}   
+\eta \simeq 270 \, d [G] \zeta(5)^2 \biggl( \frac{2}{\pi} \biggr)^5 (v^T c^{-1} v) \frac{T^3}{g(T)^4 \ln( g^{-1})}\;,
+\label{eta}
+\end{equation}
+%
+where  
+
+\begin{equation}
+\begin{split}
+c =  (d [G] C_2 [G]  & + N_f d [r] C_2 [r])
+\begin{pmatrix}
+d [G] C_2 [G] & 0 \\
+0 & \frac{7}{4} N_f d [r] C_2 [r]
+\end{pmatrix}
++  \\
+& + \frac{9 \pi^2}{128} N_f d [r] C_2^2 [r] d [G]
+\begin{pmatrix}
+1 & -1 \\
+-1 & 1
+\end{pmatrix} \;,
+\end{split}
+\end{equation}
+
+\begin{equation}
+v = 
+\begin{pmatrix}
+d [G] \\
+\frac{15}{8} N_f d [r]
+\end{pmatrix} \; .
+\end{equation}
+%
+In the previous equations, $N_f$ denotes the number of fermions, $r$ the representation of the gauge group acting on the fermion fields and $G$ the adjoint representation. The definition of the group factors $d$ and $C_2$ can be found in appendix \ref{SUN_generators}. In equation \ref{eta}, the $\simeq$ sign is due to the fact that this is an approximate result. Specifically,  the results of \cite{Arnold:2000dr,Arnold:2003zc} are obtained by converting the solution of the integral equation \ref{lin_boltzmann} in a variational problem, corresponding to the maximisation of a functional of $\chi^a(\abs{\vec p})$ (see equation \ref{f1}). The maximisation is performed by expanding $\chi^a(\abs{\vec p})$ over a finite basis of functions, and maximising within this variational subspace. The analytic expression \ref{eta} is found by cutting to one the number of elements in the functional basis, and it approximately reproduces results obtained numerically by using a larger basis \cite{Arnold:2000dr}.
+
+
+The diffusion coefficient for the net number density of the fermion flavour $a$ reads, at the leading-log level \cite{Arnold:2000dr}:
+
+\begin{equation}
+D_a \simeq \frac{6^5 \zeta(3)^2}{\pi^3 C_2[r_a]} \biggl[ \sum_b^{f \bar{f} h} T[r_b] \lambda_b + \frac{3 \pi^2}{8} 
+C_2[r_a] \biggr]^{-1}  \frac{T^{-1}}{g^4 \ln(g^{-1})}\;, 
+\label{diff_coeff}
+\end{equation}
+%
+where the sum extends over all flavours (f), anti-flavours ($\bar{\mathrm f}$) and helicities (h) of particles of species $b$ that $a$ can scatter with in the process $ab \to ab$ mediated by a gauge boson. Specifically, a factor of four appears for every Dirac fermion, and a factor of two for every gauge boson. The factor $\lambda_b$  is  equal to one if the particle $b$ is a fermion, and to two if it is a boson. The definition of the group factors $T$ and $C_2$ can be found in appendix \ref{SUN_generators}. This result is again obtained by cutting to one the elements of the functional basis over which the function $\chi^a(\abs{\vec p})$ is expanded. In the case of an SU($N$) gauge theory with $N_f$ Dirac fermions, all in the same representation $r$, equation \ref{diff_coeff} reads:
+
+\begin{equation}
+D \simeq \frac{6^5 \zeta(3)^2}{\pi^3 C_2[r]} \biggl[ 4 N_f T[r] + 4 N + \frac{3 \pi^2}{8} C_2[r] \biggr]^{-1} 
+ \frac{T^{-1}}{g^4\ln(g^{-1})} \;.
+\end{equation}
+
 
     \begin{table}[h!]
 \begin{center}
