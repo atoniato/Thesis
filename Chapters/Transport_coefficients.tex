@@ -27,12 +27,14 @@ where $G$ denotes the adjoint representation. The definition of the group factor
 
 \begin{equation}
 N_f^{AF} = \frac{11}{4} \frac{C_2[G]}{T[r]} \: .
+\label{NfAF}
 \end{equation}
 %
 The number of flavours and colours can be chosen such that $\beta_0>0$ and $\beta_1<0$. In this case there exists an additional zero of the beta function:
 
 \begin{equation}
 g^* = -(4 \pi)^2 \frac{\beta_0}{\beta_1} \: .
+\label{BanksZaks}
 \end{equation}
 %
 This is an IR-stable fixed point, which can be studied in perturbation theory in case $g^*$ is small \cite{Banks:1981nn}. In particular, $g^*$ goes to zero in the limit $N_f \to N_f^{AF}$. If $g^*$ is small, the theory remains perturbative along the whole RG flow, from the UV, where it is dominated by the asymptotically free fixed point $g=0$, down to the IR. If $g^*$ is not small enough, then one has to consider higher-order terms in the beta function \ref{beta_f}, and eventually, when $g^*$ leaves the perturbative regime, apply non-perturbative methods such as lattice simulations. In theory space, parametrised by $N$ and $N_f$, the upper boundary of the conformal window for every fixed $N$ is given by $N_f = N_f^{AF}$, while the lower boundary is yet to be found via non-perturbative methods, since the value of $g^*$ increases with decreasing $N_f$.
@@ -330,23 +332,23 @@ where the coefficient $\eta$, representing the shear viscosity, can be computed 
 In fact, the local equilibrium terms $f^a_0(\vec p,x)$ give a zero contribution to the spacial components $j^i$ in the local rest frame.
 The diffusion coefficient $D_{\alpha}$, relative to the conserved charge $q_{\alpha}$, can be computed once the functions $\chi^a(\abs{\vec p})$ are determined by solving the linearised Boltzmann equation \ref{lin_boltzmann} in the presence of the appropriate driving term.
 
-The kinetic theory approach described above is not appropriate for describing all the excitations of a high temperature gauge theory. The authors of \cite{Arnold:2000dr,Arnold:2003zc} argue that soft excitations with momentum $\mathcal O(gT)$ or less cannot be described in terms of quasiparticles with purely local collisions. These long-wavelength fluctuations should be thought of as classical gauge field fluctuations, and an effective theory should be constructed in which the high-momentum excitations propagate in a slowly varying classical background field. The method described above for the computation of transport coefficients is valid only for those quantities that are not dominantly sensitive to soft excitations. This is true for shear viscosity and diffusion coefficients, but not for bulk viscosity, which would require a more refined treatment.
+The kinetic theory approach is not appropriate for describing all the excitations of a high temperature gauge theory. The authors of \cite{Arnold:2000dr,Arnold:2003zc} argue that soft excitations with momentum $\mathcal O(gT)$ or less cannot be described in terms of quasiparticles with purely local collisions. These long-wavelength fluctuations must be treated as classical gauge field fluctuations, and an effective theory can be constructed in which the high-momentum excitations propagate in a slowly varying classical background field. The method described above for the computation of transport coefficients is valid only for those quantities that are not dominantly sensitive to soft excitations. This is true for shear viscosity and diffusion coefficients, but not for bulk viscosity, which would require a more refined treatment \cite{Arnold:2000dr}.
 
  
 \subsection{Leading-log and next-to-leading-log results}
 
-In \cite{Arnold:2000dr}, leading-log results are provided for shear viscosity, fermion number diffusion coefficient and electrical conductivity. The leading-log approximation is obtained by restricting to a specific interval the integration over the transfer momentum in the collision integral \ref{lin_coll_integral}. In a process with ingoing momenta $\vec p$, $\vec k$ and outgoing momenta $\vec{p'}$, $\vec k'$, the transfer momentum can be defined as $\vec q = \vec{p'} - \vec p$. The leading-log approximation amounts to extracting the small $\abs{\vec q}$ contribution to the collision integral ($\abs{\vec q} \ll T$). The contribution of the integration over $q \equiv \abs{\vec q}$ to the collision integral results to be:
+In \cite{Arnold:2000dr}, leading-log results are provided for shear viscosity, fermion number diffusion coefficient and electrical conductivity. The leading-log approximation is obtained by restricting to a specific interval the integration over the transfer momentum in the collision integral \ref{lin_coll_integral}. In a process with ingoing momenta $\vec p$, $\vec k$ and outgoing momenta $\vec{p'}$, $\vec k'$, the transfer momentum can be defined as $\vec q = \vec{p'} - \vec p$. The leading-log approximation amounts to extracting the small $\abs{\vec q}$ contribution to the collision integral ($\abs{\vec q} \ll T$). In this approximation, the integration over $q \equiv \abs{\vec q}$ results in a factor:
 
 \begin{equation}
 \int_{gT}^T \frac{\mathrm d q}{q} = \log g^{-1} \: .
 \end{equation}
 %
-The lower bound on the integration at $q = gT$ is due to the fact that some of the tree-level diagrams, contributing to the leading-order transport coefficients, are divergent at small $q$. This leads to logarithmically divergent contributions to the collision integral. The infrared divergences disappear when self-energy contributions are included in the exchange lines in the diagrams. The approach assumed in \cite{Arnold:2000dr} is not to include the self-energy contributions, and to cut down the integration at $q \sim gT$, where the self-energy corrections to the propagators start becoming important. This way leading-log results are obtained.
+The lower bound at $q = gT$ is due to the fact that some of the tree-level diagrams, which contribute at leading-order in $g$ to the collision integral, are divergent at small $q$. As a consequence, the collision integral is logarithmically divergent. The infrared divergences disappear when self-energy contributions are included in the exchange lines in the diagrams. The approach assumed in \cite{Arnold:2000dr} is not to include the self-energy contributions, and to cut down the integration at $q \sim gT$, where the self-energy corrections to the propagators start becoming important. This way leading-log results are obtained.
 
  We report here the results for shear viscosity and fermion number diffusion coefficient, which are relevant for our study in the conformal window. The leading-log shear viscosity reads \cite{Arnold:2000dr}:
 
  \begin{equation}   
-\eta \simeq 270 \, d [G] \zeta(5)^2 \biggl( \frac{2}{\pi} \biggr)^5 (v^T c^{-1} v) \frac{T^3}{g(T)^4 \ln( g^{-1})}\;,
+\eta \simeq 270 \, d [G] \zeta(5)^2 \biggl( \frac{2}{\pi} \biggr)^5 (v^T c^{-1} v) \frac{T^3}{g^4 \log( g^{-1})}\;,
 \label{eta}
 \end{equation}
 %
@@ -366,6 +368,7 @@ d [G] C_2 [G] & 0 \\
 -1 & 1
 \end{pmatrix} \;,
 \end{split}
+\label{c_visc}
 \end{equation}
 
 \begin{equation}
@@ -374,6 +377,7 @@ v =
 d [G] \\
 \frac{15}{8} N_f d [r]
 \end{pmatrix} \; .
+\label{v_visc}
 \end{equation}
 %
 In the previous equations, $N_f$ denotes the number of fermions, $r$ the representation of the gauge group acting on the fermion fields and $G$ the adjoint representation. The definition of the group factors $d$ and $C_2$ can be found in appendix \ref{SUN_generators}. In equation \ref{eta}, the $\simeq$ sign is due to the fact that this is an approximate result. Specifically,  the results of \cite{Arnold:2000dr,Arnold:2003zc} are obtained by converting the solution of the integral equation \ref{lin_boltzmann} in a variational problem, corresponding to the maximisation of a functional of $\chi^a(\abs{\vec p})$ (see equation \ref{f1}). The maximisation is performed by expanding $\chi^a(\abs{\vec p})$ over a finite basis of functions, and maximising within this variational subspace. The analytic expression \ref{eta} is found by cutting to one the number of elements in the functional basis, and it approximately reproduces results obtained numerically by using a larger basis \cite{Arnold:2000dr}.
@@ -383,17 +387,61 @@ The diffusion coefficient for the net number density of the fermion flavour $a$ 
 
 \begin{equation}
 D_a \simeq \frac{6^5 \zeta(3)^2}{\pi^3 C_2[r_a]} \biggl[ \sum_b^{f \bar{f} h} T[r_b] \lambda_b + \frac{3 \pi^2}{8} 
-C_2[r_a] \biggr]^{-1}  \frac{T^{-1}}{g^4 \ln(g^{-1})}\;, 
+C_2[r_a] \biggr]^{-1}  \frac{T^{-1}}{g^4 \log(g^{-1})}\;, 
 \label{diff_coeff}
 \end{equation}
 %
-where the sum extends over all flavours (f), anti-flavours ($\bar{\mathrm f}$) and helicities (h) of particles of species $b$ that $a$ can scatter with in the process $ab \to ab$ mediated by a gauge boson. Specifically, a factor of four appears for every Dirac fermion, and a factor of two for every gauge boson. The factor $\lambda_b$  is  equal to one if the particle $b$ is a fermion, and to two if it is a boson. The definition of the group factors $T$ and $C_2$ can be found in appendix \ref{SUN_generators}. This result is again obtained by cutting to one the elements of the functional basis over which the function $\chi^a(\abs{\vec p})$ is expanded. In the case of an SU($N$) gauge theory with $N_f$ Dirac fermions, all in the same representation $r$, equation \ref{diff_coeff} reads:
+where the sum extends over all flavours (f), anti-flavours ($\bar{\mathrm f}$) and helicities (h) of particles of species $b$ that $a$ can scatter with in the process $ab \to ab$ mediated by a gauge boson. Specifically, a factor of four appears for every Dirac fermion, and a factor of two for every gauge boson. The factor $\lambda_b$  is  equal to one if the particle $b$ is a fermion, and to two if it is a boson. The definition of the group factors $T$ and $C_2$ can be found in appendix \ref{SUN_generators}. This result is again obtained by using a one-function basis for the expansion of $\chi^a(\abs{\vec p})$. In the case of an SU($N$) gauge theory with $N_f$ Dirac fermions, all in the same representation $r$, the diffusion coefficient is equal for all fermion species, and it reads:
 
 \begin{equation}
 D \simeq \frac{6^5 \zeta(3)^2}{\pi^3 C_2[r]} \biggl[ 4 N_f T[r] + 4 N + \frac{3 \pi^2}{8} C_2[r] \biggr]^{-1} 
- \frac{T^{-1}}{g^4\ln(g^{-1})} \;.
+ \frac{T^{-1}}{g^4\log(g^{-1})} \;.
 \end{equation}
 
+In \cite{Arnold:2003zc}, a full-leading-order computation of transport coefficients is performed, and the convergence of the expansion in inverse powers of $\log g^{-1}$ is analysed. The authors show that the leading-order transport coefficients can in turn be expanded according to:
+
+\begin{equation}
+D \sim \frac{1}{g^4 T} \sum_{n=1}^{\infty} D_n(\mu) \biggl( \log\frac{\mu}{m_D}\biggr)^{-n} \: ,
+\label{D_series}
+\end{equation}
+
+\begin{equation}
+\eta \sim \frac{T^3}{g^4} \sum_{n=1}^{\infty} \eta_n(\mu) \biggl( \log\frac{\mu}{m_D}\biggr)^{-n} \: ,
+\label{eta_series}
+\end{equation}
+%
+where $\mu$ is an arbitrary energy scale, which should be chosen to be $\mathcal O(T)$, and $m_D$ is the Debye mass:
+
+ \begin{equation}
+ m_D^2 =  \frac{1}{3} \left(C_2[G] + N_f C_2[r]\frac{d[r]}{d[G]}  \right)g^2 T^2 \; .
+\label{Debye_mass} 
+\end{equation}
+%
+The coefficients $\eta_1$ and $D_1$ are independent of $\mu$. The leading-log approximation corresponds to truncating the series \ref{D_series}, \ref{eta_series} at $n=1$.
+
+The scale $\mu$ can be chosen such that the $n=2$ term in the expansion vanishes: $D_2(\mu^*) = 0$, $\eta_2(\mu^*) =0$. With this choice, the next-to-leading-log transport coefficients are given by:
+
+\begin{equation}
+D_{NLL} = \frac{1}{g^4 T} \biggl( \frac{D_1}{ \log(\mu^*/m_D)} \biggr) \: , \qquad
+\eta_{NLL} = \frac{T^3}{g^4} \biggl( \frac{\eta_1}{ \log(\mu^*/m_D)} \biggr) \: .
+\end{equation} 
+%
+We rename $\mu^* = AT$ in the case of shear viscosity, and $\mu^* = BT$ for the diffusion coefficient, and we find the next-to-leading-log results:
+
+ \begin{equation}   
+\eta \simeq 270 \, d [G] \zeta(5)^2 \biggl( \frac{2}{\pi} \biggr)^5 (v^T c^{-1} v) \frac{T^3}{g^4 \log( AT/m_D)} \; ,
+\label{eta_NLL}
+\end{equation}
+
+\begin{equation}
+D \simeq \frac{6^5 \zeta(3)^2}{\pi^3 C_2[r]} \biggl[ 4 N_f T[r] + 4 N + \frac{3 \pi^2}{8} C_2[r] \biggr]^{-1} 
+ \frac{T^{-1}}{g^4\log(BT/m_D)} \;.
+ \label{D_NLL}
+\end{equation}
+%
+where the matrix $c$ and the vector $v$ are always given by equations \ref{c_visc}, \ref{v_visc}. The coefficients $A$ and $B$, for an SU(3) gauge group and different values of $N_f$ in the conformal window (plus $N_f = 6$), have kindly been provided to us by G. D. Moore. Their values are reported in table \ref{AB}.
+
+The convergence of the inverse-log expansion is studied in \cite{Arnold:2003zc}: the coefficients $D_n(\mu^*)$, $\eta_n(\mu^*)$ are found to decrease with increasing $n$ until $n=4$, while subsequent coefficients appear to grow. The authors prove that the expansions \ref{D_series}, \ref{eta_series} are asymptotic expansions with zero radius of convergence. By comparing full-leading-order results with truncated expansions, they find that the next-to-leading-log result is very close to the full-leading-order provided $m_D/T \leq 1$, while going beyond the order $n=2$ in the inverse-log expansion has little practical utility.
 
     \begin{table}[h!]
 \begin{center}
@@ -410,7 +458,7 @@ D \simeq \frac{6^5 \zeta(3)^2}{\pi^3 C_2[r]} \biggl[ 4 N_f T[r] + 4 N + \frac{3 
     %\end{minipage}
     \end{center}
 \caption{Values of the coefficients $A$ and $B$ \cite{privcommGDM}
-appearing in the next-to-leading-log expressions of the shear viscosity and the fermion-number diffusion coefficient, 
+appearing in the next-to-leading-log expressions of the shear viscosity and the fermion number diffusion coefficient, 
 for $N = 3$ and different values of $N_f$.}
 \label{AB}
     \end{table}
@@ -419,5 +467,98 @@ for $N = 3$ and different values of $N_f$.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Application to theories in the conformal window}
+
+We consider SU($N$) gauge theories in the perturbative conformal window, i.e. with a number $N_f$ of fermion flavours such that: $N_f \lesssim N_f^{AF}$ (see equation \ref{NfAF}). For these theories, we study the shear viscosity and fermion number diffusion coefficient, as defined in equations \ref{eta_NLL}, \ref{D_NLL}. More specifically, we concentrate on the dimensionless quantities $\eta/s$ and $DT$, $s$ being the entropy density, since the overall temperature dependence of transport coefficients in a hot gauge theory is simply determined by dimensional analysis. We consider the IR-fixed-point values of $\eta/s$ and $DT$, and we study their dependence on the number of flavours for a fixed value of $N$. Moreover, we study the temperature dependence of $\eta/s$ and $DT$, due to the running of the gauge coupling, for different choices of $N$ and $N_f$ within the perturbative conformal window. 
+
+We start by considering the dimensionless ratio $\eta/s$. We determine the entropy density $s$ via its relation with the free energy density $f$: 
+
+\begin{equation}
+s = - \der{f}{T}  \; . 
+\end{equation}
+%
+The free energy density of a high temperature SU($N$) gauge theory with $N_f$ fermion flavours is known up to the order $g^6 \log(1/g)$ \cite{Kajantie:2002wa}, but for our study it is sufficient to retain only terms up to order $g^2$:
+
+\begin{equation}
+\frac{f}{\pi^2 T^4 } = - \frac{d[G]}{9} \left[ \frac{1}{5} + \frac{7}{20}\frac{d[r]}{d[G]}N_f 
+-   \left ( C_2[G] + \frac{5}{2}T[r] N_f \right ) \frac{g^2}{(4\pi)^2} \right ]\; ,
+\end{equation}
+%
+where $r$ is the representation of the gauge group acting on the fermions, $G$ the adjoint representation and the group theory factors $d$, $T$ and $C_2$ are defined appendix \ref{SUN_generators}.
+The free energy of hot gauge theories in the perturbative conformal window has been studied in \cite{Mojaza:2010cm}. One of the interesting results of this work is a good estimate of the lower boundary of the conformal window, obtained by studying the order-$g^6 \log(1/g)$ free energy density evaluated at the IR fixed point.
+
+In order to obtain the fixed-point value of an observable, the gauge coupling $g$ must be traded for its value at the fixed point: $g=g_{FP}$. The shear viscosity to entropy density ratio at a generic fixed point reads:
+
+
+\begin{equation}
+\biggl( \frac{\eta}{s} \biggr)^{FP} = \frac{{\cal A}(N_ f, N) }{g_{FP}^4 \ln[{\cal B}(N_f, N)g_{FP}^{-1}]}  \; , 
+\label{etaoversFP}
+\end{equation}
+%
+with $ {\cal A}(N_f, N) $  and $ {\cal B}(N_f, N) $ calculable definite positive and smooth functions of the number of 
+colours and flavours.  At non-interacting fixed points,  such as the UV fixed point ($g_{FP} = 0$), the ratio diverges. On the  other hand, at the interacting IR fixed point $g_{FP} = g^*$ (see equation \ref{BanksZaks}) the ratio approaches a finite value controlled by a small non-vanishing $\delta = N_f^{AF} - N_f $. 
+ 
+In the upper panel of figure \ref{etas_Nf}, we plot $\eta/s$ evaluated the the IR fixed point, $(\eta/s)^{IR}$, as function of the number of flavours, for fermions in the fundamental representation and $N = 3$. We express the coefficient $A$ of equation \ref{eta_NLL} as a continuous function of the number of fermions via a linear fit of the values given in table \ref{AB}. When decreasing the number of flavours below the asymptotically free boundary, where the shear viscosity diverges, we observe an abrupt decrease of $\eta/s$, while still remaining above the bound $\eta/s \geq 1/(4\pi)$ conjectured by AdS/CFT \cite{Kovtun:2004de}. We expect that, when further decreasing the number of flavours, the IR ratio would decrease to reach a minimum value at the lower boundary of the conformal window. Below this critical number of flavours we expect the onset of chiral symmetry breaking and the theory in the deep IR becomes a theory of non-interacting pions with again a divergent value of $\eta/s$.
+
+In the lower panel of figure \ref{etas_Nf}, we present the temperature dependence of the shear viscosity over entropy 
+density for several values of $N_f$. $\eta/s$ depends on the temperature over a reference scale $\Lambda$ via the 
+gauge coupling. The reference energy scale is chosen such that the beta function reaches a minimum at $T=\Lambda$,
+between the UV and IR fixed points:
+
+\begin{equation}
+g^2(\Lambda)=\frac{3}{5}(g^*)^2 \, .
+\label{Lambda_visc}
+\end{equation} 
+%
+For $N_f = 6$, where theory does not display an IR perturbative fixed point, $\Lambda$ is taken to be the scale at 
+which the one-loop gauge coupling diverges. The ratio $\eta/s$ decreases with decreasing temperature. For $N_f=15$, we observe that a minimum develops at around $T = \Lambda$.  This happens  because for this value of $N_f$ there exists a temperature such that $4 \ln \left(AT/m_D \right)  = 1 $, which corresponds to a minimum for the function $g^{-4} \ln \left(AT/m_D \right)  ^{-1} $. 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.665\textwidth]{pics/eta-s-n3} \\
+\includegraphics[width=0.68\textwidth]{pics/Temperature-etaovers-n3}
+\end{center}
+\caption{Upper panel: ${\eta}/{s}$ evaluated at the IR fixed point, as a function of the number of flavours, for fermions in 
+the fundamental representation and $N = 3$ colours. Lower panel:  ${\eta}/{s}$ as function of the temperature over the 
+RG scale $\Lambda$  for different values of $N_f$ in the conformal window and one outside corresponding to $N_f = 6$, for $N=3$ colours. Although $N_f = 14$ still displays a potential IR fixed point, the IR dynamics  of ${\eta}/{s}$ cannot be accessed perturbatively.  
+The horizontal line at the bottom is the conjectured AdS/CFT bound. This picture has already been published in \cite{Toniato:2016twr}.} 
+\label{etas_Nf}
+\end{figure}
+
+  
+We repeat the above analysis for the fermion number diffusion coefficient. In the upper panel of figure \ref{D_Nf}, we plot the value of the dimensionless quantity $(T D)^{IR}$ as a function of $N_f$, for fermions in the fundamental representation and $N=3$. We linearly interpolate the values given in table \ref{AB} in order to express $B$ as a continuous function of $N_f$.
+As for the case of the shear viscosity-to-entropy density ratio, we observe that $(TD)^{IR}$ diverges as the number of flavours approaches the asymptotic freedom boundary, corresponding to $g^* \to 0$. In the lower panel of figure \ref{D_Nf}, we plot $T D$ as a function of the temperature for different values of $N_f$ in the conformal window and for $N_f=6$. 
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=0.665\textwidth]{pics/TDaN3} \\
+\includegraphics[width=0.7\textwidth]{pics/Temperature-TDaN3}
+\end{center}
+\caption{Upper panel: $(T D)^{IR}$ as a function of the number of flavours, for fermions in the fundamental representation and $N=3$. Lower panel: $T D$ as a function of the temperature, for different values of $N_f$ and $N=3$. This picture has already been published in \cite{Toniato:2016twr}.}
+\label{D_Nf}
+\end{figure}
+
+One comment has to be made about the applicability of the next-to-leading-log approximation for transport coefficients in the conformal window. The presence of a perturbative IR fixed point allows us to apply the next-to-leading-log results in the whole energy range, from the UV (high temperature), where the theory is asymptotically free, down to the IR (low temperature). However, particular care has to be taken to decide whether the values obtained in the deep IR can be trusted. We chose to illustrate the results for the case of three colours and for different values of the number of flavours within the perturbative conformal window. $N_f=15$ is the last value at which we can observe the expected behaviour of the transport coefficients as functions of the temperature, i.e., to run from a divergent value in the UV down to a constant finite value in the IR. For $N_f=14$ the next-to-leading-log expression of the transport coefficients does not stabilise at a finite value in the IR, but instead diverges at low energies, showing that the next-to-leading-log approximation cannot be trusted even qualitatively. In fact, following \cite{Arnold:2003zc}, one can argue that the next-to-leading-log result is very close to the full-leading-order result (and therefore trustable) as long as $m_D/T \leq 1$.  This requirement is satisfied in our analysis provided $N_f \geq 16.25$, thus further limiting the window of applicability of the perturbative results.  The values of $m_D/T$ at the IR fixed point for $N=3$ and the values of $N_f$ within the conformal window considered in this study are reported in table \ref{mDTconstraint}.
+
+
+
+   \begin{table}
+\begin{center}
+        \begin{tabular}{c||c }
+    $N_f$ & $ \quad (m_D/T)^{IR}$ \\
+    \hline \hline
+        $14$ &$\quad 3.41$   \\
+        $15$ & $\quad 2.51$ \\
+        $16$ & $\quad 1.38$  \\
+    $16.25$ & $\quad 0.97$ \\
+    \end{tabular}
+     \end{center}
+\caption{Values of the ratio $m_D/T$ evaluated at the IR fixed point for $N=3$ and different values of $N_f$ in the 
+conformal window. It can be observed that the constraint $m_D/T \leq 1$ is respected only in the case $N_f=16.25$.}
+\label{mDTconstraint}
+    \end{table}
+
+To conclude, we summarise the salient points of our analysis. We determined the shear viscosity-to-entropy density ratio and the fermion-number diffusion coefficient (multiplied by the temperature) within the perturbative regime of the conformal window. This provides a theoretically relevant example in which the perturbative estimate of the transport coefficients can be used along the entire RG flow from the UV to the IR without losing validity. We determined the range of applicability of those results within the conformal window of QCD-like theories. In the case $N=3$, we found out that already at $N_f=14$ the next-to-leading-log results cannot be trusted even qualitatively. The ratio $\eta/s$ at the IR fixed point drops significantly when going from 16.25 to 15 flavours showing that a modest change in the number of flavours dramatically affects the dynamics of the theory encoded in the transport coefficients. Higher-order corrections are needed to reach lower values of $N_f$ within the conformal window for the transport coefficients. In contrast, at zero temperature one observes that perturbation theory allows to go quite low in the number of flavours within the conformal window~\cite{Pica:2010mt,Pica:2010xq,Ryttov:2010iz,Ryttov:2016ner}. Although unproven, it is reasonable to expect that the minimum of $\eta/s$ as function of temperature in QCD lies below the lowest value of $\eta/s$ obtained at the bottom of the conformal window, and therefore lower than the one obtained near 15 flavours. 
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
