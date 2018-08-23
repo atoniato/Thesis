@@ -577,11 +577,27 @@ In this thesis we will measure the mass of the isospin-triplet pseudoscalar meso
 \item $(I=1, I_3 = -1)$: $O_{\pi^-}(x) = \bar{u}(x) \gamma_5 d(x)$ \: .
 \end{itemize}
 %
-These operators have spin zero and negative parity, $O_{\pi^0}$ is an eigenstate of the charge conjugation operator, with eigenvalue $+1$, while $O_{\pi^+}$ and $O_{\pi^-}$ are mapped into each other by charge conjugation. When the fermion masses are degenerate and there are no electroweak interactions, the three states $\pi^{\pm,0}$ have the same mass, therefore it is sufficient to study only one of these operators.
+These operators have spin zero and negative parity, $O_{\pi^0}$ is an eigenstate of charge conjugation, with eigenvalue $+1$, while $O_{\pi^+}$ and $O_{\pi^-}$ are mapped into each other by charge conjugation. When the fermion masses are degenerate and there are no electroweak interactions, the three states $\pi^{\pm,0}$ have the same mass, therefore it is sufficient to study only one of these operators.
 
-In order to measure the mass of the pseudoscalar meson state, the correlator $C_{\pi^-}(t) = \sum_{\textbf{x}} \langle O_{\pi^-}(\textbf{x},t)  O^{\dagger}_{\pi^-} (\textbf{0},0) \rangle$ is used in this thesis. The sum over the spacial coordinates $\textbf{x}$ is introduced for projecting to states with zero spacial momentum. In fact, going back to equation \ref{corr_lowest_energy}, it can be seen that if there exists a one-particle state with the chosen quantum numbers, then the energy of the lowest-energy state with zero spacial momentum is simply given by the mass of the particle.
+In order to measure the mass of the pseudoscalar meson state, the correlator $C_{\pi^-}(t) = \sum_{\vec x} \langle O_{\pi^-}(\vec x,t)  O_{\pi^-} (\vec 0,0)^{\dagger} \rangle$ is used in this thesis. The sum over the spacial coordinates $\vec x$ is introduced for projecting to states with zero spacial momentum. In fact, going back to equation \ref{corr_lowest_energy}, it can be seen that if there exists a one-particle state with the chosen quantum numbers, then the energy of the lowest-energy state with zero spacial momentum is simply given by the mass of the particle.
 
 The operators chosen for studying the isospin-triplet vector mesons are very similar to $O_{\pi^{\pm}}$ and $O_{\pi^0}$, with the only difference that $\gamma_5$ is replaced with $\gamma_i$, $i = 1, 2, 3$. These operators generate states with spin one and negative parity. Again, in the absence of electroweak effects and if $u$ and $d$ have the same mass, the three states in the isospin triplet have equal masses.
+
+To summarise, we define the operator $O_{\Gamma}(x) = \bar u(x) \Gamma d(x) $, where $\Gamma$ stands in general for a product of gamma matrices, and the cases of our interest are $\Gamma =\gamma_5$ (pseudoscalar meson) and $\Gamma = \gamma_i$ (vector meson). We measure isospin-triplet meson masses by studying the exponential decay of the correlator:
+
+\begin{equation}
+C_{\Gamma}(t) = \sum_{\vec x} \langle O_{\Gamma}(\vec x,t) O_{\Gamma} (\vec 0, 0)^{\dagger} \rangle \: .
+\label{meson_correlator}
+\end{equation}
+%
+More specifically, we define the effective mass $m^{eff}_{\Gamma}(t)$ via the equation:
+
+\begin{equation}
+\frac{C_{\Gamma}(t-1)}{C_{\Gamma}(t)} = \frac{e^{-m^{eff}_{\Gamma}(t)(T-(t-1))} + e^{-m^{eff}_{\Gamma}(t)(t-1)}}{e^{-m^{eff}_{\Gamma}(t)(T-t)} + e^{-m^{eff}_{\Gamma}(t)t}} \: ,
+\label{eff_mass_mesons}
+\end{equation}
+%
+and we find the meson mass as the large-t limit of $m^{eff}_{\Gamma}(t)$. The expression \ref{eff_mass_mesons} takes into account the fact that the correlator $C_{\Gamma}(t)$ is symmetric under $t \to T-t$.
 
 
 \subsection{PCAC mass}
@@ -649,7 +665,7 @@ Equation \ref{PCAC} is known as PCAC relation, and it implies that, when $m=0$, 
 The PCAC relation can be used to measure the fermion mass on the lattice by studying the long-distance behaviour of the following ratio of correlators:
 
 \begin{equation}
-\frac{1}{2} \frac{\sum_{\textbf{x}} \langle \partial_t A^-_{0}(\textbf{x},t)^{\dagger} O_{\pi^-}(0) \rangle}{\sum_{\textbf{x}} \langle O_{\pi^-}(\textbf{x},t)^{\dagger} O_{\pi^-}(0) \rangle} \underset{t \to \infty}{\sim} m_{PCAC} \: ,
+\frac{1}{2} \frac{\sum_{\vec x} \langle \partial_t A^-_{0}(\vec x,t)^{\dagger} O_{\pi^-}(0) \rangle}{\sum_{\vec x} \langle O_{\pi^-}(\vec x,t)^{\dagger} O_{\pi^-}(0) \rangle} \underset{t \to \infty}{\sim} m_{PCAC} \: ,
 \end{equation}
 %
 where $A^-_{\mu} = A^1_{\mu} + iA^2_{\mu}$, and, due to the zero-momentum projection, only the time derivative survives. $m_{PCAC}$ is identified with the unrenormalised fermion mass. Due to the fact that the lattice fermion action is not chirally symmetric, $m_{PCAC}$ is not equal to the bare mass used as parameter in the fermion action, and in general is not zero when the bare mass is zero. The chiral limit of the lattice theory is identified by finding the values of the bare lattice parameters such that $m_{PCAC} = 0$.
