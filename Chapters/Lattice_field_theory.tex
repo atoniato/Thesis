@@ -544,25 +544,37 @@ By inserting a completeness relation, $\sum_m \ket{m} \bra{m} = \id$, we obtain:
 \begin{equation}
 \begin{split}
 C_{AB}(t) & = \frac{1}{Z} \sum_{n,m} \bra{n} e^{-(T-t)\hat H} A(0)\ket{m} \bra{m} e^{-t \hat H} B(0) \ket{n} = \\
-& = \frac{\sum _{n,m}e^{-TE_n} e^{-t(E_m-E_n)}\bra{n} A(0) \ket{m} \bra{m} B(0) \ket{n}}{\sum_n e^{-TE_n}} \: .
+& = \frac{\sum _{n,m}e^{-(T-t)E_n} e^{-tE_m}\bra{n} A(0) \ket{m} \bra{m} B(0) \ket{n}}{\sum_n e^{-TE_n}} \: .
 \end{split}
 \end{equation}
 
 
-In the limit of large lattice time extent, $T \to \infty$, only the vacuum state contributes to the sum over $n$:
+In the limit of large lattice time extent, $T \to \infty$, and large time separations, $t \to \infty$, we find:
 
 \begin{equation}
-C_{AB}(t) \underset{T \to \infty}{\sim}  \sum _{m}e^{-t(E_m-E_0)}\bra{0} A(0) \ket{m} \bra{m} B(0) \ket{0} \: .
+C_{AB}(t) \underset{\underset{t \to \infty}{T \to \infty}}{\sim}  \frac{e^{-(T-t)E_0} e^{-tE_{AB}}c_{AB}}{e^{-TE_0}} +
+\frac{e^{-(T-t)E_{BA}} e^{-tE_0} c_{BA}}{e^{-TE_0}} \: ,
 \end{equation}
 %
-In the limit of large time separations, $t \to \infty$, only the lightest state with nonzero overlap with $B(0)\ket{0}$ and $A^{\dagger}(0) \ket{0}$ contributes to the sum over $m$:
+where $E_0$ is the energy of the vacuum state and $E_{AB}$, $E_{BA}$ are the energies of the states $\ket{m_{AB}}$, $\ket{n_{BA}}$, defined as the lightest states such that:
 
 \begin{equation}
-C_{AB}(t) \underset{\underset{t \to \infty}{T \to \infty}}{\sim} e^{-t(E_{m_0}-E_0)}\bra{0} A(0) \ket{m_0} \bra{m_0} B(0) \ket{0} \: .
+\begin{split}
+&c_{AB} \equiv \bra{0} A(0) \ket{m_{AB}} \bra{m_{AB}} B(0) \ket{0} \neq 0 \\
+&c_{BA} \equiv \bra{0} B(0) \ket{n_{BA}} \bra{n_{BA}} A(0) \ket{0} \neq 0 \: .
+\end{split}
+\end{equation}
+%
+If $B=A^{\dagger}$, the coefficients $c_{AB}$, $c_{BA}$ are real and positive, and equal to each other: $c_{AB} = c_{BA} \equiv c$, and the correlator is given by: 
+
+\begin{equation}
+C_{AA^{\dagger}}(t) \underset{\underset{t \to \infty}{T \to \infty}}{\sim} c \biggl( e^{-t(E_{m_0} - E_0)} + e^{-(T-t)(E_{m_0}-E_0)} \biggr)\ \: ,
 \label{corr_lowest_energy}
 \end{equation}
+%
+where $E_{m_0}$ is the energy of the lightest state $\ket{m_0}$ with nonzero overlap with $A^{\dagger} \ket{0}$, i.e. $c = \abs{\bra{m_0} A^{\dagger}(0) \ket{0}}^2 \neq 0$.
 
-In this setup, the energy of the state $\ket{m_0}$ can be measured by studying the exponential decay of the correlator $C_{AB}(t)$ for large Euclidean time separations. The energy is measured with respect to the energy of the vacuum state $E_0$. The goal is then to find operators $A$ and $B$ with a good overlap with the states whose energy we want to to measure. In the following we describe the operators used for the mass measurements done in this thesis.
+In this setup, the energy of the state $\ket{m_0}$ can be measured by studying the exponential decay of the correlator $C_{AA^{\dagger}}(t)$ for large Euclidean time separations. The energy is measured with respect to the energy of the vacuum state $E_0$. The goal is then to find operators with a good overlap with the states whose energy we want to to measure. In the following we describe the operators used for the mass measurements done in this thesis.
  
 
 \subsection{Meson masses}
@@ -579,7 +591,7 @@ In this thesis we will measure the mass of the isospin-triplet pseudoscalar meso
 %
 These operators have spin zero and negative parity, $O_{\pi^0}$ is an eigenstate of charge conjugation, with eigenvalue $+1$, while $O_{\pi^+}$ and $O_{\pi^-}$ are mapped into each other by charge conjugation. When the fermion masses are degenerate and there are no electroweak interactions, the three states $\pi^{\pm,0}$ have the same mass, therefore it is sufficient to study only one of these operators.
 
-In order to measure the mass of the pseudoscalar meson state, the correlator $C_{\pi^-}(t) = \sum_{\vec x} \langle O_{\pi^-}(\vec x,t)  O_{\pi^-} (\vec 0,0)^{\dagger} \rangle$ is used in this thesis. The sum over the spacial coordinates $\vec x$ is introduced for projecting to states with zero spacial momentum. In fact, going back to equation \ref{corr_lowest_energy}, it can be seen that if there exists a one-particle state with the chosen quantum numbers, then the energy of the lowest-energy state with zero spacial momentum is simply given by the mass of the particle.
+In order to measure the mass of the pseudoscalar meson state, the correlator $C_{\pi^-}(t) = \sum_{\vec x} \langle O_{\pi^-}(\vec x,t)  O_{\pi^-} (\vec 0,0)^{\dagger} \rangle$ is used in this thesis. The sum over the spacial coordinates $\vec x$ is introduced for projecting to states with zero spacial momentum. In fact, if there exists a one-particle state with the quantum numbers of the operator $O^{\dagger}_{\pi^-}$, then the energy of the lowest-energy state with zero spacial momentum is simply given by the mass of the particle.
 
 The operators chosen for studying the isospin-triplet vector mesons are very similar to $O_{\pi^{\pm}}$ and $O_{\pi^0}$, with the only difference that $\gamma_5$ is replaced with $\gamma_i$, $i = 1, 2, 3$. These operators generate states with spin one and negative parity. Again, in the absence of electroweak effects and if $u$ and $d$ have the same mass, the three states in the isospin triplet have equal masses.
 
@@ -597,8 +609,7 @@ More specifically, we define the effective mass $m^{eff}_{\Gamma}(t)$ via the eq
 \label{eff_mass_mesons}
 \end{equation}
 %
-and we find the meson mass as the large-t limit of $m^{eff}_{\Gamma}(t)$. The expression \ref{eff_mass_mesons} takes into account the fact that the correlator $C_{\Gamma}(t)$ is symmetric under $t \to T-t$.
-
+and we find the meson mass as the large-t limit of $m^{eff}_{\Gamma}(t)$. 
 
 \subsection{PCAC mass}
 
