@@ -694,11 +694,23 @@ Hamilton's equations \ref{hamilton} are to be solved numerically, thus generatin
 
 \subsection{Mesons}
 
+\begin{table}
+\begin{tabular}{l  l l l l l l l l l l}
+\toprule
+$m_f$ & $\lambda$ & $m_S^2$ & $L$ & $T$ & $m_{PCAC}$ & $m_{PS}$ & $f_{PS}$ & $m_V$ & $\mathcal Q_L$ & $\mathcal Q_C$ \\ 
+\hhline{===========}
+-0.94 & 0 & 25 & 16 & 32 \\
+\bottomrule
+\label{data}
+\end{tabular}
+\caption{data}
+\label{data}
+\end{table}
+
 Finite volume corrections + dependence on $m_{PCAC}$
 
-\subsection{Scalar-scalar states}
+\subsection{Bound states with the scalar}
 
-\subsection{Fermion-scalar states}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -708,6 +720,22 @@ Finite volume corrections + dependence on $m_{PCAC}$
 \subsection{Phase diagram of the SU(2)-Higgs model}
 
 \subsection{Gauge fixing}
+
+\begin{equation}
+\tilde U(t) = \frac{1}{L^3} \sum_{\vec x} U_{0}(\vec x,t)
+\end{equation}
+
+\begin{equation}
+\mathcal Q_C = \frac{1}{T} \sum_{t=0}^{T-1} \tr [\tilde U(t) \tilde U(t)^{\dagger}]
+\end{equation}
+
+\begin{equation}
+\bar S = \frac{1}{TL^3} \sum_{x} S(x)
+\end{equation}
+
+\begin{equation}
+\mathcal Q_L = \bar S^{\dagger} \bar S
+\end{equation}
 
 \subsection{Results}
 
