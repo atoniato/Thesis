@@ -587,7 +587,7 @@ where $S_S$ is the scalar contribution given by equation \ref{scalar_lattice_act
 S_G[U] =  \beta \sum_{x \in \Lambda}  \sum_{\mu < \nu} \biggr[  1 - \frac{1}{\mathrm{N}} \re \tr  [U_{\mu \nu}] \biggl ] \: ,
 \end{equation}
 %
-and $S_F$ the pseudofermion contribution:
+and $S_F$ the pseudofermion contribution (for two mass-degenerate fermion flavours):
 
 \begin{equation}
 S_F[U,\phi^{\dagger},\phi]  = \sum_{x,y \in \Lambda} \phi^{\dagger}(x) Q^{-2}(x \vert y)\phi(y) \equiv \phi^{\dagger} Q^{-2} \phi \: ,
@@ -695,13 +695,57 @@ Hamilton's equations \ref{hamilton} are to be solved numerically, thus generatin
 
 \subsection{Mesons}
 
+In this section, we present our results on the meson spectrum of the SU(2) gauge theory with two fundamental fermions and one fundamental scalar. We measured the mass of the isospin-triplet pseudoscalar ($m_{PS}$) and vector ($m_V$) mesons. The interpolating operators for these observables are defined in section \ref{meson_masses}. We also measured the fermion mass $m_{PCAC}$ via the PCAC relation, as described in section \ref{measure_PCAC}. Moreover, we measured the Goldstone boson decay constant $f_{PS}$. This observable (once renormalised) can be used to express the lattice spacing in physical units. In fact, as discussed in section \ref{SU2_composite_Higgs}, the $W$ boson mass is given by\footnote{Here we use a different normalisation for the Goldstone boson decay constant with respect to section \ref{SU2_composite_Higgs}. The two conventions are related by: $f = f_{PS}/(2 \sqrt 2)$.}:
+
+\begin{equation}
+m_W = \frac{g_{EW}}{2} (f_{PS})^{ren}_0 \sin \theta \: ,
+\end{equation}
+%
+where $g_{EW}$ is the SU(2)$_L$ electroweak gauge coupling and $\theta$ the alignment angle. $(f_{PS})^{ren}_0$ denotes the renormalised Goldstone boson decay constant in the chiral limit ($m_{PCAC} \to 0$). It follows that the experimental value of $m_W$ is recovered by fixing $(f_{PS})^{ren}_0 \sin \theta = v$, $v = 246 \: \mathrm{GeV}$ being the Higgs vacuum expectation value. $f_{PS}$ is computed as:
+
+\begin{equation}
+f_{PS} = \frac{2 m_{PCAC}}{m_{PS}^2} G_{PS} \: ,
+\end{equation}
+%
+where $G_{PS}$ is obtained from the large-t behaviour of the correlator $C_{\gamma_5}(t)$, defined in section \ref{meson_masses}:
+
+\begin{equation}
+C_{\gamma_5}(t) \underset{t \to \infty}{\sim} -\frac{G^2_{PS}}{m_{PS}} e^{-m_{PS} t} \: .
+\end{equation}
+
+
+Renormalisation has not been addressed in our work yet, and the values of $m_{PCAC}$ and $f_{PS}$ that we quote are unrenormalised. Moreover, all our results, listed in table \ref{data}, are expressed in lattice units. For our measurements, we chose values of the inverse gauge coupling $\beta$ and of the bare fermion mass $m_f$ that have already been studied in the SU(2) gauge theory with two fundamental fermions \cite{Arthur:2016dir}. In particular, at the current status of our analysis, we considered one single value of $\beta$ ($\beta = 2$) and two values of the bare fermion mass: $m_f = -0.94, -0.952$. For each choice of $m_f$, we simulated several values of the squared scalar mass $m_S^2$, and, in the case of $m_f = -0.94$, we repeated the analysis for two different values of the scalar quartic coupling $\lambda$. In a few cases, we repeated the measurements with the same bare parameters at two different lattice volumes. In this study we consider lattices with the same extent in all spacial directions $L_1 = L_2 = L_3 \equiv L$, and we denote the lattice time extent by $T \equiv L_0$. 
+
+Since we will use quite often the SU(2) theory with two fundamental fermions as a comparison, we will shortly refer to it as the SU(2)-2F model, and it will be understood that we refer to the most recent results published in \cite{Arthur:2016dir}.
+In figure \ref{mesons_mS}, we plot the PCAC mass, the meson masses and the Goldstone boson decay constant as functions of the squared scalar mass $m_S^2$. Together with our data points, we report the results for the same observables obtained in the SU(2)-2F model (dashed lines).  We observe that, provided $m_S^2$ is large enough, the results of the SU(2)-2F model are recovered, while for $m_S^2 \lesssim 1$ deviations from those results can be observed in all the considered observables. Moreover, for $\lambda = 2$ and $m_f = -0.94$, we observe a sharp change of behaviour around $m_S^2 \simeq -3.2$, possibly corresponding to a phase transition. In particular, at ($m_f$, $\lambda$, $m_S^2$) = (-0.94, 2, -3.6), the PCAC mass is negative, $m_{PS}$ and $m_V$ are almost degenerate and $f_{PS}$ is compatible with zero. For $m_f = -0.94$, $\lambda = 2$ and $m_S^2 \leq -3.2$, the simulations become significantly more time-consuming than for larger values of $m_S^2$, and require a very fine integration step in the molecular dynamics trajectories. In the case of $m_f = -0.94$ and $\lambda = 0$, we were not able to run simulations at $m_S^2 < -1$. We believe that this is due to instability of the scalar potential. It will be shown in the next section that a similar situation occurs in the SU(2) model with one fundamental scalar and no fermions (SU(2)-Higgs model).
+
+
+
 \begin{figure}[thb] 
 \begin{adjustwidth}{-4em}{-4em}
   \includegraphics[width=9cm,clip]{pics/mesons_094} ~\includegraphics[width=9cm,clip]{pics/mesons_0952} 
   \end{adjustwidth}
-  \caption{.}
-  \label{mesons_094}
+  \caption{Fermion mass ($m_{PCAC}$), pseudoscalar meson mass ($m_{pS}$), vector meson mass ($m_V$) and Goldstone boson decay constant ($f_{PS}$) as functions of the squared scalar mass $m_S^2$. Together with our data points, we report the results for the same observables obtained in the SU2-2F model (dashed lines). In the left panel we plot the results for $m_f = -0.94$ and two different values of $\lambda$, while in the right panel there appear the results for $m_f = -0.952$ and $\lambda = 2$.}
+  \label{mesons_mS}
 \end{figure}
+
+In figure \ref{mesons_094_PCAC}, we plot $m_{PS}$, $m_V$ and $f_{PS}$ as functions of $m_{PCAC}$, for $m_f = -0.94$. In the left panel we report all our data points, while in the right panel we omit two points, corresponding to ($\lambda$, $m_S^2$) = (2, -3.6), (2, -3.2). Together with our data, we report fits to the data of the SU(2)-2F model. The forms of the fitting functions for $m_{PS}$ and $f_{PS}$ are motivated by chiral perturbation theory, and are given by:
+
+\begin{equation}
+\frac{m_{PS}^2}{m_{PCAC}} = M_0 \bigl[ 1 + M_1 \log (m_{PCAC}) + M_2 m_{PCAC} \bigr] \: ,
+\end{equation}
+
+\begin{equation}
+f_{PS} = F_0 \bigl[ 1+ F_1 m_{PCAC} \log (m_{PCAC}) + F_2 m_{PCAC} \bigr] \: ,
+\end{equation}
+%
+while for $m_V$ the following polynomial ansatz is used:
+
+\begin{equation}
+m_V = V_0 + V_1 m_{PCAC} + V_2 m_{PCAC}^2 \: .
+\end{equation}
+%
+It can be observed that, once 
 
 \begin{figure}[thb] 
 \begin{adjustwidth}{-4em}{-4em}
@@ -764,7 +808,7 @@ $m_f$ & $\lambda$ & $m_S^2$ & $L$ & $T$ & $m_{PCAC}$ & $m_{PS}$ & $f_{PS}$ & $m_
 \bottomrule
 \end{tabular}
 \end{adjustwidth}
-\caption{data}
+\caption{In this table we report our results, obtained at a fixed value of the inverse gauge coupling $\beta = 2$, and different values of $m_f$, $\lambda$ and $m_S^2$. The observables under analysis are: the fermion mass $m_{PCAC}$, the pseudoscalar meson mass $m_{PS}$, the vector meson mass $m_V$, the Goldstone boson decay constant $f_{PS}$ and the gauge-dependent order parameters $\mathcal Q_L$ and $\mathcal Q_C$. The latter have only been measured in some of the ensembles. All the results are expressed in lattice units. The values of $m_{PCAC}$ and $f_{PS}$ are unrenormalised.}
 \label{data}
 \end{table}
 
@@ -776,7 +820,22 @@ Finite volume corrections + dependence on $m_{PCAC}$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Phase diagram}
+\section{Higgs phase}
+
+\begin{equation}
+S_S =  \sum_x \biggl[ S^{\dagger}(x) S(x) + \tilde \lambda \bigl( S^{\dagger}(x) S(x) - 1 \bigr)^2 
+ - \gamma\sum_{\mu}   \biggl( S^{\dagger}(x) U_{\mu}(x) S(x+\hat\mu) +  S^{\dagger}(x) U_{\mu}(x-\hat\mu)^{\dagger} S(x-\hat\mu)\biggr)  \biggr] \; ,
+\end{equation}
+
+
+
+\begin{equation}
+\begin{cases}
+\lambda = \tilde \lambda/\gamma^2\\
+m_S^2 = (1-2\tilde\lambda)/\gamma - 8 
+\end{cases}
+\end{equation}
+
 
 \subsection{Gauge-dependent order parameters}
 
@@ -808,11 +867,20 @@ Finite volume corrections + dependence on $m_{PCAC}$
 
 \subsection{SU(2)-Higgs model}
 
+\begin{equation}
+U =  \frac{1}{6V} \sum_x \sum_{\mu < \nu} \frac{1}{2} \mathrm{Re} \tr[U_{\mu\nu}(x)]
+\end{equation}
+
+\begin{equation}
+S^{\dagger} S = \frac{1}{V} \sum_x S^{\dagger}(x) S(x)
+\end{equation}
+
 \begin{figure}[thb] 
-\begin{adjustwidth}{-1em}{-10em}
-  \includegraphics[width=8.8cm,clip]{pics/SU2H_phase_diagram}\includegraphics[width=9cm,clip]{pics/SU2H_phase_diagram_GF}
-  \end{adjustwidth}
-  \caption{Left: sketch of the phase diagram of the SU(2)-Higgs model in the infinite-(?) limit. The line of first order phase transitions (?) terminates in the middle of the diagram, indicating that the Higgs and confinement phases are analytically connected.  Both pictures are taken from \cite{Caudy:2007sf}.}
+\begin{center}
+  \includegraphics[width=8.8cm,clip]{pics/SU2H_phase_diagram}
+  \includegraphics[width=9cm,clip]{pics/SU2H_phase_diagram_GF}
+\end{center}
+  \caption{Upper panel: sketch of the phase diagram of the SU(2)-Higgs model in the infinite-$\tilde\lambda$ limit. The line of first order phase transitions (?) terminates in the middle of the diagram, indicating that the Higgs and confinement phases are analytically connected.  Both pictures are taken from \cite{Caudy:2007sf}.}
   \label{SU2H_phase_diagram}
 \end{figure}
 
