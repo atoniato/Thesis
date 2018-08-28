@@ -716,7 +716,7 @@ C_{\gamma_5}(t) \underset{t \to \infty}{\sim} -\frac{G^2_{PS}}{m_{PS}} e^{-m_{PS
 
 Renormalisation has not been addressed in our work yet, and the values of $m_{PCAC}$ and $f_{PS}$ that we quote are unrenormalised. Moreover, all our results, listed in table \ref{data}, are expressed in lattice units. For our measurements, we chose values of the inverse gauge coupling $\beta$ and of the bare fermion mass $m_f$ that have already been studied in the SU(2) gauge theory with two fundamental fermions \cite{Arthur:2016dir}. In particular, at the current status of our analysis, we considered one single value of $\beta$ ($\beta = 2$) and two values of the bare fermion mass: $m_f = -0.94, -0.952$. For each choice of $m_f$, we simulated several values of the squared scalar mass $m_S^2$, and, in the case of $m_f = -0.94$, we repeated the analysis for two different values of the scalar quartic coupling $\lambda$. In a few cases, we repeated the measurements with the same bare parameters at two different lattice volumes. We consider lattices with the same extent in all spacial directions $L_1 = L_2 = L_3 \equiv L$, and we denote the lattice time extent by $T \equiv L_0$. 
 
-Since we will use quite often the SU(2) theory with two fundamental fermions as a comparison, we will shortly refer to it as the SU(2)-2F model, and it will be understood that we refer to the most recent results published in \cite{Arthur:2016dir}.
+Since we will use quite often the SU(2) theory with two fundamental fermions as a comparison, we will shortly refer to it as the SU(2)-2F model, and we will make reference to the most recent results published in \cite{Arthur:2016dir}.
 In figure \ref{mesons_mS}, we plot the PCAC mass, the meson masses and the Goldstone boson decay constant as functions of the squared scalar mass $m_S^2$. Together with our data points, we report the results for the same observables obtained in the SU(2)-2F model (dashed lines).  We observe that, provided $m_S^2$ is large enough, the results of the SU(2)-2F model are recovered, while for $m_S^2 \lesssim 1$ deviations from those results can be observed in all the considered observables. Moreover, for $\lambda = 2$ and $m_f = -0.94$, we observe a sharp change of behaviour around $m_S^2 \simeq -3.2$, presumably corresponding to a phase transition. In particular, at ($m_f$, $\lambda$, $m_S^2$) = (-0.94, 2, -3.6), the PCAC mass is negative, $m_{PS}$ and $m_V$ are almost degenerate and $f_{PS}$ is compatible with zero. For $m_f = -0.94$, $\lambda = 2$ and $m_S^2 \leq -3.2$, the simulations become significantly more time-consuming than for larger values of $m_S^2$, and require a very fine integration step in the molecular dynamics trajectories. In the case of $m_f = -0.94$ and $\lambda = 0$, we were not able to run simulations at $m_S^2 < -1$. We believe that this is due to instability of the scalar potential. It will be shown in the next section that a similar situation occurs in the SU(2) model with one fundamental scalar and no fermions (SU(2)-Higgs model).
 
 
@@ -732,7 +732,7 @@ In figure \ref{mesons_mS}, we plot the PCAC mass, the meson masses and the Golds
 In figure \ref{mesons_094_PCAC}, we plot $m_{PS}$, $m_V$ and $f_{PS}$ as functions of $m_{PCAC}$, for $m_f = -0.94$. In the left panel we report all our data points, while in the right panel we omit two points, corresponding to ($\lambda$, $m_S^2$) = (2, -3.6), (2, -3.2). Together with our data, we report fits to the data of the SU(2)-2F model. The forms of the fitting functions for $m_{PS}$ and $f_{PS}$ are motivated by chiral perturbation theory, and are given by:
 
 \begin{equation}
-\frac{m_{PS}^2}{m_{PCAC}} = M_0 \bigl[ 1 + M_1 \log (m_{PCAC}) + M_2 m_{PCAC} \bigr] \: ,
+\frac{m_{PS}^2}{m_{PCAC}} = M_0 \bigl[ 1 + M_1 m_{PCAC} \log (m_{PCAC}) + M_2 m_{PCAC} \bigr] \: ,
 \label{fit_PS}
 \end{equation}
 
@@ -755,7 +755,7 @@ It can be observed that, once the points ($\lambda$, $m_S^2$) = (2, -3.6), (2, -
 \begin{adjustwidth}{-4em}{-4em}
   \includegraphics[width=9cm,clip]{pics/mesons_094_PCAC} ~\includegraphics[width=9cm,clip]{pics/mesons_094_PCAC_fit}
    \end{adjustwidth}
-  \caption{Pseudoscalar meson mass ($m_{PS}$), vector meson mass ($m_V$) and Goldstone boson decay constant ($f_{PS}$) as functions of $m_{PCAC}$, at $m_f = -0.94$. In the left panel all the available data are included, while in the right panel we excluded the points ($\lambda$, $m_S^2$) = (2, -3.6), (2, -3.2). The dotted, dashed and dash-dotted lines are fits to the data of the SU(2)-2F model, obtained by fitting data at fixed $\beta = 2$ and varying $m_f$, by using the functional forms \ref{fit_V}, \ref{fit_PS}, \ref{fit_fPS}. The black points in the left panel represent measurements obtained in a larger volume $L=24$, $T=48$. All the other points are obtained with $L=16$, $T=32$.}
+  \caption{Pseudoscalar meson mass ($m_{PS}$), vector meson mass ($m_V$) and Goldstone boson decay constant ($f_{PS}$) as functions of $m_{PCAC}$, at $m_f = -0.94$. In the left panel all the available data are included, while in the right panel we excluded the points ($\lambda$, $m_S^2$) = (2, -3.6), (2, -3.2). The dotted, dashed and dash-dotted lines are fits to the data of the SU(2)-2F model, obtained by fitting data at fixed $\beta = 2$ and varying $m_f$, by using the functional forms \ref{fit_V}, \ref{fit_PS}, \ref{fit_fPS}. The black data points in the right panel represent measurements obtained in a larger volume $L=24$, $T=48$. All the other points correspond to $L=16$, $T=32$.}
   \label{mesons_094_PCAC} 
 \end{figure}
 
@@ -773,7 +773,7 @@ In figure \ref{mesons_l2_PCAC} we plot $m_{PS}$, $m_V$ and $f_{PS}$ as functions
 
 To conclude, our somewhat preliminary analysis of the meson spectrum of the SU(2) gauge theory with two fundamental fermions and one fundamental scalar already shows some interesting results. First of all, there seems to exist a phase with broken fermion-flavour symmetry, with Goldstone boson states (the pseudoscalar mesons) whose mass goes to zero in the limit of vanishing $m_{PCAC}$ and whose decay constant remains finite in the same limit. This seems to indicate that additional scalar fields may not dramatically affect the symmetry breaking pattern of a gauge-fermion theory, and it is encouraging from the point of view of composite Higgs models based on the fundamental partial compositeness paradigm. However, we found two kinds of obstacles in moving towards small values of the PCAC mass: at $m_f = -0.94$, $\lambda = 0$, we found a critical value of the squared scalar mass, $m_S^2 = -1$, below which the simulations do not work, due presumably to instability of the scalar potential (we will discuss this point in more detail in the next section). At $m_f = -0.94$, $\lambda = 2$, we observed an abrupt change of behaviour of the meson observables around $m_S^2 = -3.2$, presumably due to a phase transition. In particular, we find a point with zero PCAC mass and nonzero $m_{PS}$, ($m_S^2$ = -3.2) and one point with negative PCAC mass and degenerate $m_{PS}$ and $m_V$ ($m_S^2 = -3.6$). An extension of our analysis to smaller values of the bare fermion mass and larger values of $\beta$ will give us a better understanding of the phase structure of the model. 
 
-Another interesting result is the impressive agreement between our results and the results  of the SU(2) theory with two fundamental fermions \cite{Arthur:2016dir}, once the meson masses and Goldstone boson decay constant are expressed as functions of $m_{PCAC}$. In particular, our data fall pretty accurately on top of the curves obtained by fitting the data of the SU(2)-2F model, provided we exclude some of the data which presumably belong to a different phase. This seems to indicate that the main influence of the scalar field on the meson observables is a shift of the PCAC mass. The last interesting observation, for which we have no explanation at the moment, is the occurrence of large finite volume effects in $m_{PCAC}$ and $m_{PS}$ at ($m_f$, $\lambda$, $m_S^2$) = (-0.94, 0, -1).
+Another interesting result is the impressive agreement between our results and the results  of the SU(2) theory with two fundamental fermions \cite{Arthur:2016dir}, once the meson masses and Goldstone boson decay constant are expressed as functions of $m_{PCAC}$. In particular, our data fall pretty accurately on top of the curves obtained by fitting the data of the SU(2)-2F model, provided we exclude some of the data which presumably belong to a different phase. This seems to indicate that the main influence of the scalar field on the meson observables is due to a shift of the PCAC mass. The last interesting observation, for which we have no explanation at the moment, is the occurrence of large finite volume effects in $m_{PCAC}$ and $m_{PS}$ at ($m_f$, $\lambda$, $m_S^2$) = (-0.94, 0, -1).
 
 
 \begin{table}
@@ -815,8 +815,7 @@ $m_f$ & $\lambda$ & $m_S^2$ & $L$ & $T$ & $m_{PCAC}$ & $m_{PS}$ & $f_{PS}$ & $m_
 -0.952 & 2 & 0 & 32 & 32 & 0.0182(7) & 0.287(5) & 0.064(2) & 0.47(2) &  7.1(2) $\times 10^{-7}$ & 0.0486(4)\\
 -0.952 & 2 & -0.5 & 32 & 32 & 0.0175(6) & 0.280(5) & 0.063(2) & 0.46(3) & 8.9(2) $\times 10^{-7}$ & 0.0501(4)\\
 -0.952 & 2 & -1 & 32 & 32 & 0.0162(8) & 0.270(8) & 0.061(3) & 0.46(3) & 1.10(3) $\times 10^{-6}$ & 0.0509(6)\\
--0.952 & 2 & -2 & 32 & 32 \\
--0.952 & 2 & -3 & 32 & 32 \\
+-0.952 & 2 & -2 & 32 & 32  & 0.013(1) & 0.245(8) & 0.058(3) & 0.43(5) & 1.8(2) $\times 10^{-6}$ & 0.0560(7)\\
 \bottomrule
 \end{tabular}
 \end{adjustwidth}
@@ -829,26 +828,46 @@ $m_f$ & $\lambda$ & $m_S^2$ & $L$ & $T$ & $m_{PCAC}$ & $m_{PS}$ & $f_{PS}$ & $m_
 \subsection{Bound states with the scalar}
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Higgs phase}
+
+In this section we address the question of whether the scalar field can induce spontaneous breaking of the gauge symmetry in our model. We take inspiration from \cite{Caudy:2007sf}, where the phase diagram of the SU(2)-Higgs model is analysed in relation to the question of spontaneous gauge symmetry breaking. In studies of the SU(2)-Higgs model, the scalar field action is usually expressed as:
 
 \begin{equation}
 S_S =  \sum_x \biggl[ S^{\dagger}(x) S(x) + \tilde \lambda \bigl( S^{\dagger}(x) S(x) - 1 \bigr)^2 
  - \gamma\sum_{\mu}   \biggl( S^{\dagger}(x) U_{\mu}(x) S(x+\hat\mu) +  S^{\dagger}(x) U_{\mu}(x-\hat\mu)^{\dagger} S(x-\hat\mu)\biggr)  \biggr] \; ,
 \end{equation}
-
-
+%
+where the coefficients $\tilde \lambda$ and $\gamma$ are related to our $\lambda$ and $m_S^2$ by the following equations:
 
 \begin{equation}
 \begin{cases}
 \lambda = \tilde \lambda/\gamma^2\\
 m_S^2 = (1-2\tilde\lambda)/\gamma - 8 
-\end{cases}
+\end{cases} \: .
 \end{equation}
+%
+A schematic picture of the phase diagram of the SU(2)-Higgs model, in the infinite-$\tilde \lambda$ limit, is given in the upper panel of figure \ref{SU2H_phase_diagram}. The infinite-$\tilde \lambda$ limit corresponds to a fixed-length scalar field: $S^{\dagger} S \equiv 1$. For $(\beta,\gamma) \ll 1$ the system is in a confinement-like phase, with a linear potential between static colour sources (up to a maximal distance where string breaking occurs due to the formation of scalar-antiscalar pairs) and a rich spectrum of QCD-like bound states. For $(\beta,\gamma) \gg 1$, the system is in a Higgs-like phase, with Yukawa-type potential between static sources and a spectrum of three massive vector bosons and a single scalar particle. The two phases are partially separated by a line of first order phase transitions, which terminates in the middle of the diagram. The Higgs and confinement phases are analytically connected \cite{Fradkin:1978dv,OSTERWALDER1978440}: any two points in the phase diagram can be connected by a path over which the expectation value of any local gauge-invariant observable varies analytically. Also the spectrum, which appears to be qualitatively very different in the two phases, changes smoothly along this analytical path. In \cite{Wurtz:2013ova}, the spectrum of the SU(2)-Higgs model is measured in the Higgs phase, and the observed states are found to be consistent with collections of almost noninteracting Higgs and $W$ bosons. The same gauge-invariant operators with all possible quantum numbers are to be used to measure the spectrum in both the Higgs and the confinement phase. While these operators generate hadron-like and "$W$-ball" states in the confinement phase, they correspond to weakly-interacting multi-particle states in the Higgs phase, and the transition between the two regimes occurs smoothly. 
+
+The authors of \cite{Caudy:2007sf} address the question of whether the concept of gauge symmetry breaking can be used to distinguish between the Higgs and the confinement phase, i.e. they wonder whether the phase diagram of the SU(2)-Higgs model can be unambiguously separated in a symmetric region and a broken-symmetry region. The first thing that they point out, is that gauge symmetries cannot be spontaneously broken, due to the Elitzur theorem \cite{Elitzur:1975im}. As a consequence, unless the gauge is fixed, the vacuum expectation value of the scalar field is always zero. Only global subgroups of the gauge symmetry group can be spontaneously broken. "Global" refers to transformations depending on a finite number of parameters, which is independent of the volume. As a contrast, local transformations depend on a number of parameters which grows with the lattice volume. A global subgroup can be selected by fixing a gauge which leaves the 
 
 
-\subsection{Gauge-dependent order parameters}
+
+
+\begin{figure}[thb] 
+\begin{center}
+  \includegraphics[width=8.8cm,clip]{pics/SU2H_phase_diagram}
+  \includegraphics[width=9cm,clip]{pics/SU2H_phase_diagram_GF}
+\end{center}
+  \caption{Upper panel: sketch of the phase diagram of the SU(2)-Higgs model in the infinite-$\tilde\lambda$ limit. The line of first order phase transitions terminates in the middle of the diagram, indicating that the Higgs and confinement phases are analytically connected.  Both pictures are taken from \cite{Caudy:2007sf}.}
+  \label{SU2H_phase_diagram}
+\end{figure}
+
+
+
 
 \begin{equation}
 \tilde U(t) = \frac{1}{L^3} \sum_{\vec x} U_{0}(\vec x,t)
@@ -874,26 +893,24 @@ m_S^2 = (1-2\tilde\lambda)/\gamma - 8
   \label{SU2H_volume_scaling}
 \end{figure}
 
-
+We thought it interesting to analyse the behaviour of the gauge-dependent order parameters $\mathcal Q_L$ and $\mathcal Q_C$ in our model with SU(2) gauge symmetry, two fundamental fermions and one fundamental scalar.
 
 \subsection{SU(2)-Higgs model}
 
-\begin{equation}
-U =  \frac{1}{6V} \sum_x \sum_{\mu < \nu} \frac{1}{2} \mathrm{Re} \tr[U_{\mu\nu}(x)]
-\end{equation}
+As a first step, we considered the SU(2)-Higgs model at $\beta = 2$ and the two different values of $\lambda$ analysed in our study of SU(2) with two fermions and one scalar. We simulated different values of the squared scalar mass $m_S^2$ and measured $\mathcal Q_L$ and $\mathcal Q_C$, plus the scalar condensate $S^{\dagger} S$:
 
 \begin{equation}
-S^{\dagger} S = \frac{1}{V} \sum_x S^{\dagger}(x) S(x)
+S^{\dagger} S = \frac{1}{V} \sum_x S^{\dagger}(x) S(x) \: ,
+\end{equation}
+%
+and the plaquette:
+
+\begin{equation}
+U =  \frac{1}{6V} \sum_x \sum_{\mu < \nu} \frac{1}{2} \mathrm{Re} \tr[U_{\mu\nu}(x)] \: .
 \end{equation}
 
-\begin{figure}[thb] 
-\begin{center}
-  \includegraphics[width=8.8cm,clip]{pics/SU2H_phase_diagram}
-  \includegraphics[width=9cm,clip]{pics/SU2H_phase_diagram_GF}
-\end{center}
-  \caption{Upper panel: sketch of the phase diagram of the SU(2)-Higgs model in the infinite-$\tilde\lambda$ limit. The line of first order phase transitions (?) terminates in the middle of the diagram, indicating that the Higgs and confinement phases are analytically connected.  Both pictures are taken from \cite{Caudy:2007sf}.}
-  \label{SU2H_phase_diagram}
-\end{figure}
+We start by reporting the results we obtained at $\lambda = 2$.
+
 
 \begin{figure}[thb] 
 \begin{center}
