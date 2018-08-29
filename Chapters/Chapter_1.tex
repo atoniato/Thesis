@@ -852,52 +852,67 @@ m_S^2 = (1-2\tilde\lambda)/\gamma - 8
 %
 A schematic picture of the phase diagram of the SU(2)-Higgs model, in the infinite-$\tilde \lambda$ limit, is given in the upper panel of figure \ref{SU2H_phase_diagram}. The infinite-$\tilde \lambda$ limit corresponds to a fixed-length scalar field: $S^{\dagger} S \equiv 1$. For $(\beta,\gamma) \ll 1$ the system is in a confinement-like phase, with a linear potential between static colour sources (up to a maximal distance where string breaking occurs due to the formation of scalar-antiscalar pairs) and a rich spectrum of QCD-like bound states. For $(\beta,\gamma) \gg 1$, the system is in a Higgs-like phase, with Yukawa-type potential between static sources and a spectrum of three massive vector bosons and a single scalar particle. The two phases are partially separated by a line of first order phase transitions, which terminates in the middle of the diagram. The Higgs and confinement phases are analytically connected \cite{Fradkin:1978dv,OSTERWALDER1978440}: any two points in the phase diagram can be connected by a path over which the expectation value of any local gauge-invariant observable varies analytically. Also the spectrum, which appears to be qualitatively very different in the two phases, changes smoothly along this analytical path. In \cite{Wurtz:2013ova}, the spectrum of the SU(2)-Higgs model is measured in the Higgs phase, and the observed states are found to be consistent with collections of almost noninteracting Higgs and $W$ bosons. The same gauge-invariant operators with all possible quantum numbers are to be used to measure the spectrum in both the Higgs and the confinement phase. While these operators generate hadron-like and "$W$-ball" states in the confinement phase, they correspond to weakly-interacting multi-particle states in the Higgs phase, and the transition between the two regimes occurs smoothly. 
 
-The authors of \cite{Caudy:2007sf} address the question of whether the concept of gauge symmetry breaking can be used to distinguish between the Higgs and the confinement phase, i.e. they wonder whether the phase diagram of the SU(2)-Higgs model can be unambiguously separated in a symmetric region and a broken-symmetry region. The first thing that they point out, is that gauge symmetries cannot be spontaneously broken, due to the Elitzur theorem \cite{Elitzur:1975im}. As a consequence, unless the gauge is fixed, the vacuum expectation value of the scalar field is always zero. Only global subgroups of the gauge symmetry group can be spontaneously broken. "Global" refers to transformations depending on a finite number of parameters, which is independent of the volume. As a contrast, local transformations depend on a number of parameters which grows with the lattice volume. A global subgroup can be selected by fixing a gauge which leaves the 
-
-
-
-
 \begin{figure}[thb] 
 \begin{center}
   \includegraphics[width=8.8cm,clip]{pics/SU2H_phase_diagram}
   \includegraphics[width=9cm,clip]{pics/SU2H_phase_diagram_GF}
 \end{center}
-  \caption{Upper panel: sketch of the phase diagram of the SU(2)-Higgs model in the infinite-$\tilde\lambda$ limit. The line of first order phase transitions terminates in the middle of the diagram, indicating that the Higgs and confinement phases are analytically connected.  Both pictures are taken from \cite{Caudy:2007sf}.}
+  \caption{Upper panel: sketch of the phase diagram of the SU(2)-Higgs model in the infinite-$\tilde\lambda$ limit. The line of first order phase transitions terminates in the middle of the diagram, indicating that the Higgs and confinement phases are analytically connected. Lower panel: transition between the symmetric and broken-symmetry phase, probed by the two gauge-dependent order parameters $\mathcal Q_L$ and $\mathcal Q_C$. Where there exists a thermodynamic phase transition, the transition to the broken-symmetry phase occurs simultaneously for both order parameters, and together with the thermodynamic transition. In the absence of a thermodynamic phase transition, the two different global subgroups probed by $\mathcal Q_L$ and $\mathcal Q_C$ break at different points in parameter space, thus indicating that it is not possible to unambiguously separate the phase diagram in a symmetric and a non-symmetric phase. Both pictures are taken from \cite{Caudy:2007sf}.}
   \label{SU2H_phase_diagram}
 \end{figure}
 
-
-
+The authors of \cite{Caudy:2007sf} address the question of whether the concept of gauge symmetry breaking can be used to distinguish between the Higgs and the confinement phase, i.e. whether the phase diagram of the SU(2)-Higgs model can be unambiguously separated in a symmetric region and a broken-symmetry region. The first thing that they point out, is that gauge symmetries cannot be spontaneously broken, due to the Elitzur theorem \cite{Elitzur:1975im}. As a consequence, unless the gauge is fixed, the vacuum expectation value of the scalar field is always zero. Only global subgroups of the gauge symmetry group can be spontaneously broken. "Global" refers to transformations depending on a finite number of parameters, which is independent of the volume. As a contrast, local transformations depend on a number of parameters which grows with the lattice volume. The breaking of some global subgroup can be studied by fixing a gauge which leaves the desired global subgroup unfixed, and then measuring an order parameter which transforms nontrivially under the remnant symmetry. In \cite{Caudy:2007sf}, the Landau and Coulomb gauges are considered. The Landau gauge is defined by:
 
 \begin{equation}
-\tilde U(t) = \frac{1}{L^3} \sum_{\vec x} U_{0}(\vec x,t)
+\partial_{\mu} A_{\mu} = 0 \:  \rightarrow \sum_{\mu =0}^3 \bigl( A_{\mu}(x) - A_{\mu}(x - \hat\mu) \bigr) = 0 \: ,
+\end{equation}
+%
+and the Coulomb gauge by:
+
+\begin{equation}
+\partial_i A_i = 0 \: \rightarrow \sum_{i =1}^3 \bigl( A_i (x) - A_i(x - \hat i) \bigr) = 0 \: ,
+\end{equation}
+%
+where we reported both the continuum and the discretised forms of the gauge conditions (and the lattice spacing is fixed to one). When the Landau gauge is fixed, there is a remnant symmetry under transformations constant in space: $\Omega (x) \equiv \Omega$. An order parameter $\mathcal Q_L$ can be defined as follows: 
+
+\begin{equation}
+\bar S = \frac{1}{V} \sum_{x} S(x) \: ,
 \end{equation}
 
 \begin{equation}
-\mathcal Q_C = \frac{1}{T} \sum_{t=0}^{T-1} \langle \tr [\tilde U(t) \tilde U(t)^{\dagger}] \rangle
+\mathcal Q_L = \langle \bar S^{\dagger} \bar S \rangle \: .
+\end{equation}
+%
+The average scalar $\bar S$ transforms nontrivially under constant gauge transformations, and the scaling of $\mathcal Q_L$ with the lattice volume indicates whether the symmetry is broken or not. When the symmetry is broken, $\mathcal Q_L$ goes to a finite constant in the infinite-volume limit $V = TL^3 \to \infty$, while in the symmetric phase $\mathcal Q_L \to 0$ as $V \to \infty$.
+When the Coulomb gauge is fixed, on top of constant gauge transformations there is a larger remnant global symmetry, corresponding to transformations constant in space but not in time: $\Omega (x) \equiv \Omega (t)$. An order parameter $\mathcal Q_C$ for the breaking of this global subgroup is given by:
+
+\begin{equation}
+\tilde U(t) = \frac{1}{L^3} \sum_{\vec x} U_{0}(\vec x,t) \: ,
 \end{equation}
 
 \begin{equation}
-\bar S = \frac{1}{TL^3} \sum_{x} S(x)
+\mathcal Q_C = \frac{1}{T} \sum_{t=0}^{T-1} \langle \tr [\tilde U(t) \tilde U(t)^{\dagger}] \rangle \: .
 \end{equation}
+%
+$\tilde U(t)$ is the average time-like link at fixed time $t$, and its trace $\tr [\tilde U(t)]$ is symmetric with respect constant transformations, but not with respect to transformations depending on time $\Omega (x) \equiv \Omega (t)$. Therefore $\mathcal Q_L$ and $\mathcal Q_C$ probe two different global subgroups of the local symmetry group. In the infinite-volume limit, $\mathcal Q_C \to 0$ in the symmetric phase, while $\mathcal Q_C \to$~constant in the broken phase. As an example, in figure \ref{SU2H_volume_scaling} we plot $\mathcal Q_L$ and $\mathcal Q_C$ as functions of the volume in the SU(2)-Higgs model, at ($\beta$, $\lambda$) = (2.3, 10.8135), for one point in the symmetric phase (left panel) and one point in the broken-symmetry phase (right panel). The value of $m_S^2$ corresponding to the first order phase transition at these values of $\beta$ and $\lambda$ is: $m_S^2 = -11.2884$ \cite{Langguth:1985eu}.
 
-\begin{equation}
-\mathcal Q_L = \langle \bar S^{\dagger} \bar S \rangle
-\end{equation}
 
 \begin{figure}[thb] 
 \begin{adjustwidth}{-4em}{-4em}
   \includegraphics[width=9cm,clip]{pics/SU2H_volume_symm}\includegraphics[width=9cm,clip]{pics/SU2H_volume_Higgs}
 \end{adjustwidth}
-  \caption{.}
+  \caption{Gauge-dependent order parameters $\mathcal Q_L$ and $\mathcal Q_C$ in the SU(2)-Higgs model, at $\beta = 2.3$ and $\lambda = 10.8135$. We plot the data at three different lattice volumes ($12^4$, $16^4$, $20^4$), for one point in the confinement phase (left panel) and one point in the Higgs phase (right panel). The point corresponding to the first order phase transition, ($\beta$, $\lambda$, $m_S^2$) = (2.3, 10.8135, -11.2884), is given in reference \cite{Langguth:1985eu}. $\mathcal Q_L$ and $\mathcal Q_C$ converge to a finite constant in the broken-symmetry phase, while they move towards zero as the volume increases in the symmetric phase.}
   \label{SU2H_volume_scaling}
 \end{figure}
 
-We thought it interesting to analyse the behaviour of the gauge-dependent order parameters $\mathcal Q_L$ and $\mathcal Q_C$ in our model with SU(2) gauge symmetry, two fundamental fermions and one fundamental scalar.
+
+The order parameters $\mathcal Q_L$ and $\mathcal Q_C$ test the breaking of two different global subgroups of the local symmetry group. The authors of \cite{Caudy:2007sf} discuss the question of whether the two global subgroups break at the same points in parameter space, thus identifying unambiguously phases of broken and unbroken symmetry. Their results are reported in the lower panel of figure \ref{SU2H_phase_diagram}. Along the line of first order thermodynamic phase transitions, the two subgroups probed by $\mathcal Q_L$ and $\mathcal Q_C$ break simultaneously in parameter space, at the points of the thermodynamic transitions. Where a thermodynamic transition is absent, the spontaneous breaking of the two different global subgroups happens at different points in parameter space. It follows that, to separate the phase diagram in a symmetric and a broken-symmetry phase, one should first specify which global subgroup of the gauge symmetry group is supposed to be spontaneously broken. The authors of \cite{Caudy:2007sf} conclude that the spontaneous breaking of global gauge symmetries does not necessarily correspond to a change in physical state, and that there is no unambiguous distinction between a symmetric and non-symmetric phase in the phase diagram of the SU(2)-Higgs model.
+
+We thought it interesting to analyse the behaviour of the gauge-dependent order parameters $\mathcal Q_L$ and $\mathcal Q_C$ in our model with SU(2) gauge group, two fundamental fermions and one fundamental scalar.
 
 \subsection{SU(2)-Higgs model}
 
-As a first step, we considered the SU(2)-Higgs model at $\beta = 2$ and the two different values of $\lambda$ analysed in our study of SU(2) with two fermions and one scalar. We simulated different values of the squared scalar mass $m_S^2$ and measured $\mathcal Q_L$ and $\mathcal Q_C$, plus the scalar condensate $S^{\dagger} S$:
+As a first step, we considered the SU(2)-Higgs model at $\beta = 2$ and the two different values of $\lambda$ analysed in our study of SU(2) with two fermions and one scalar ($\lambda = 0, 2$). In order to locate the symmetry-breaking transition in parameter space, we simulated different values of the squared scalar mass $m_S^2$, gaugefixed the gauge and scalar configurations in both the Landau and Coulomb gauge, and measured the order parameters $\mathcal Q_L$ and $\mathcal Q_C$. In each ensemble, we also measured the scalar condensate $S^{\dagger} S$:
 
 \begin{equation}
 S^{\dagger} S = \frac{1}{V} \sum_x S^{\dagger}(x) S(x) \: ,
@@ -908,15 +923,17 @@ and the plaquette:
 \begin{equation}
 U =  \frac{1}{6V} \sum_x \sum_{\mu < \nu} \frac{1}{2} \mathrm{Re} \tr[U_{\mu\nu}(x)] \: .
 \end{equation}
+%
+The goal is to use the analysis of the SU(2)-Higgs model as a guideline for studying our model with fermions and scalars. For this reason, we did not attempt a scaling analysis of $\mathcal Q_L$ and $\mathcal Q_C$ for different lattice volumes, since this approach would become computationally quite expensive when applied to a model with dynamical fermions. Instead, we simply analysed the order parameters as functions of $m_S^2$, and we think that this allowed us to locate quite clearly the symmetry-breaking transition.
 
-We start by reporting the results we obtained at $\lambda = 2$.
+We start by reporting the results we obtained at $\lambda = 2$. Figure \ref{SU2H_jump_Q} shows the order parameters $\mathcal Q_L$ and $\mathcal Q_C$ as functions of the squared scalar mass. We observe a jump in both observables around $m_S^2 = -3.97$, corresponding to the symmetry-breaking transition. Even without analysing their volume scaling, $\mathcal Q_L$ and $\mathcal Q_C$ seem to look quite different in the symmetric and broken phase. $\mathcal Q_L$ is very close to zero in the symmetric phase, and  it jumps to $\mathcal Q_L \simeq 0.25$ in the broken-symmetry phase. $\mathcal Q_C$ is approximately constant in the symmetric phase, assuming a value $\mathcal Q_C \simeq 0.05$, and it jumps to $\mathcal Q_C \simeq 0.9$ in the broken phase. In figure \ref{SU2H_jump_pl_cond}, we plot the scalar condensate $\langle S^{\dagger}S \rangle$ and the plaquette $\langle U \rangle$ as functions of $m_S^2$. Also these observables display a jump at around $m_S^2 = -3.97$, which indicates that we are in the presence of the thermodynamic first order phase transition, accompanied by the spontaneous breaking of both the global subgroups probed by $\mathcal Q_L$ and $\mathcal Q_C$.
 
 
 \begin{figure}[thb] 
 \begin{center}
   \includegraphics[width=9.5cm,clip]{pics/SU2H_jump_Q}  
   \end{center}
-  \caption{.}
+  \caption{$\mathcal Q_L$ and $\mathcal Q_C$ as functions of the squared scalar mass, in the SU(2)-Higgs model, at $\beta =2$ and $\lambda = 2$. We observe the transition to the broken-symmetry phase around $m_S^2 = -3.97$. The transition happens simultaneously for both $\mathcal Q_L$ and $\mathcal Q_C$. We made these measurements on a $12^4$ lattice.}
   \label{SU2H_jump_Q}
 \end{figure}
 
@@ -925,7 +942,7 @@ We start by reporting the results we obtained at $\lambda = 2$.
 \begin{adjustwidth}{-4em}{-4em}
   \includegraphics[width=9cm,clip]{pics/SU2H_jump_plaquette}\includegraphics[width=9cm,clip]{pics/SU2H_jump_condensate}
 \end{adjustwidth}
-  \caption{.}
+  \caption{Scalar condensate $\langle S^{\dagger}S \rangle$ and plaquette $\langle U \rangle$ as functions of $m_S^2$, in the SU(2)-Higgs model, at $\beta =2$ and $\lambda = 2$. Both observables display an abrupt jump around $m_S^2 = -3.97$, due to the thermodynamic first-order phase transition. We obtained these data on a $12^4$ lattice.}
   \label{SU2H_jump_pl_cond}
 \end{figure}
 
