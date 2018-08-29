@@ -422,6 +422,7 @@ Recent studies indicate that the required large anomalous dimensions are hard to
 
 
 \subsection{Fundamental Partial Compositeness}
+\label{fundamental_partial_compositeness}
 
 In order to overcome the difficulties related to the generation of fermion masses in composite Higgs scenarios, models of fundamental partial compositeness have recently been introduced \cite{Sannino:2016sfx}. In these models, the TC sector contains as matter fields not only fermions but also scalars. The Lagrangian can be written schematically as follows:
 
@@ -694,6 +695,7 @@ Hamilton's equations \ref{hamilton} are to be solved numerically, thus generatin
 
 
 \subsection{Mesons}
+\label{meson_spectrum}
 
 In this section, we present our results on the meson spectrum of the SU(2) gauge theory with two fundamental fermions and one fundamental scalar. We measured the mass of the isospin-triplet pseudoscalar ($m_{PS}$) and vector ($m_V$) mesons. The interpolating operators for these observables are defined in section \ref{meson_masses}. We also measured the fermion mass $m_{PCAC}$ via the PCAC relation, as described in section \ref{measure_PCAC}. Moreover, we measured the Goldstone boson decay constant $f_{PS}$. This observable (once renormalised) can be used to express the lattice spacing in physical units. In fact, as discussed in section \ref{SU2_composite_Higgs}, the $W$ boson mass is given by\footnote{Here we use a different normalisation for the Goldstone boson decay constant with respect to section \ref{SU2_composite_Higgs}. The two conventions are related by: $f = f_{PS}/(2 \sqrt 2)$.}:
 
@@ -827,14 +829,80 @@ $m_f$ & $\lambda$ & $m_S^2$ & $L$ & $T$ & $m_{PCAC}$ & $m_{PS}$ & $f_{PS}$ & $m_
 
 \subsection{Bound states with the scalar}
 
+In fundamental partial compositeness models, as discussed in section \ref{fundamental_partial_compositeness}, fermionic bound states made by one fermion and one scalar are involved in the generation of Standard Model fermion masses, and it is therefore very interesting to measure their mass spectrum. In this section, we report our very preliminary analysis of the spectrum of bound states involving the scalar field. Our analysis did not lead to any results yet, and we will need to apply more refined techniques in order to measure this part of the spectrum.  
+
+To measure the mass of spin-zero states formed by a scalar-antiscalar pair, we consider the correlator:
+
+\begin{equation}
+C(t) = \frac{1}{T} \sum_{\tau=0}^{T-1} \sum_{\vec x,\vec y} \langle S^{\dagger}(\vec x,\tau + t) S(\vec x, \tau + t) S^{\dagger}(\vec y,\tau) S(\vec y,\tau) \rangle \; .
+\label{scalar_correlator}
+\end{equation}
+%
+In order to subtract the contributions from disconnected diagrams, we study $C(t)-C(t+1)$ as a function of $t$, as shown  in figure \ref{spectrum_scalar}. We observe that the decay with increasing $t$ is very fast, which suggests that no light states are present in this channel. The data are very noisy, and do not allow us to extract the coefficient of the exponential decay at large $t$.
+
+\begin{figure}[thb] 
+\begin{center}
+  \includegraphics[width=9.5cm,clip]{pics/spectrum_scalar}  
+  \end{center}
+  \caption{Decay of $C(t) - C(t+1)$ as a function of the Euclidean time $t$, at $m_f = -0.94$ and different values of $m_S^2$ and $\lambda$. The correlator $C(t)$ is defined in equation \ref{scalar_correlator}. We observe a very fast decay, which suggests the absence of light states in this channel. The data are too noisy to extract any quantitative information.}
+  \label{spectrum_scalar}
+\end{figure}
 
 
+To study fermionic bound states made by one fermion and one scalar, we consider two kinds of correlators:
+
+\begin{equation}
+C_F(t) =  \frac{1}{L^3} \sum_{\vec x,\vec y} \langle S^{\dagger}(\vec x, t) \psi_i(\vec x, t) \bar\psi_i(\vec y,0) S(\vec y,0) \rangle \: ,
+\label{corr_trace}
+\end{equation}
+
+
+\begin{equation}
+C^{\pm}_F(t) = \frac{1}{L^3} \sum_{\vec x,\vec y}\langle (\id \pm\gamma_0)_{ij} S^{\dagger}(\vec x,t) \psi_j(\vec x,t)\bar\psi_k(\vec y,0)S(\vec y,0) (\id \pm \gamma_0)_{ki} \rangle \: ,
+\label{corr_pm}
+\end{equation}
+%
+where all the repeated spin indices $i$, $j$, $k$ are summed over. The correlator $C^{\pm}_F$ is built by using the parity-eigenstate operators $O^{\pm}_i(x) = (\id \pm \gamma_0)_{ij} S^{\dagger}(x) \psi_j (x)$. In figures \ref{spectrum_trace}, \ref{spectrum_parity_plus}, \ref{spectrum_parity_minus}, we report our cleanest results for these correlators. The decay is again very fast, indicating the absence of light states. For the computation of the term $\sum_{\vec y}\langle \psi_i(x) \bar \psi_j(\vec y, 0)  \rangle S(\vec y,0) = \sum_{\vec y}D^{-1}(x \vert \vec y,0)_{ij} S(\vec y, 0)$, we use the scalar field as a source in the inversion of the Dirac operator, i.e. we invert the equation:
+
+\begin{equation}
+\sum_{y,\vec z} \sum_{b,c,\beta, \gamma} D(x \vert y)_{a b}^{\alpha \beta}D^{-1}(y \vert \vec z, 0)_{b c}^{\beta \gamma} S_c(\vec z,0) \delta^{\gamma \gamma_0} = S_a(\vec x,0)\delta^{\alpha \gamma_0} \: ,
+\end{equation}
+%
+where $D(x \vert y)$ is the Wilson-Dirac operator \ref{Wilson-Dirac}, $a$, $b$ and $c$ are colour indices and $\alpha$, $\beta$ and $\gamma$ are spin indices.
+
+\begin{figure}[thb] 
+\begin{adjustwidth}{-4em}{-4em}
+  \includegraphics[width=9cm,clip]{pics/spectrum_trace}\includegraphics[width=9cm,clip]{pics/spectrum_trace_log}
+\end{adjustwidth}
+  \caption{Correlator $C_F(t)$, defined in equation \ref{corr_trace}, as a function of $t$, for $m_f = -0.94$, $\lambda = 2$, $m_S^2 = -2$, both in a regular scale (left panel) and in a log-scale (right panel).}
+  \label{spectrum_trace}
+\end{figure}
+
+
+\begin{figure}[thb] 
+\begin{adjustwidth}{-4em}{-4em}
+  \includegraphics[width=9cm,clip]{pics/spectrum_plus}\includegraphics[width=9cm,clip]{pics/spectrum_plus_log}
+\end{adjustwidth}
+  \caption{Correlator $C_F^+(t)$, defined in equation \ref{corr_pm}, as a function of $t$, for $m_f = -0.94$, $\lambda = 2$, $m_S^2 = -2$, both in a regular scale (left panel) and in a log-scale (right panel).}
+  \label{spectrum_parity_plus}
+\end{figure}
+
+\begin{figure}[thb] 
+\begin{adjustwidth}{-4em}{-4em}
+  \includegraphics[width=9cm,clip]{pics/spectrum_minus}\includegraphics[width=9cm,clip]{pics/spectrum_minus_log}
+\end{adjustwidth}
+  \caption{Correlator $C_F^-(t)$, defined in equation \ref{corr_pm}, as a function of $t$, for $m_f = -0.94$, $\lambda = 2$, $m_S^2 = -2$, both in a regular scale (left panel) and in a log-scale (right panel).}
+  \label{spectrum_parity_minus}
+\end{figure}
+
+
+The results of our very preliminary analysis of the spectrum of bound states of the scalar field can be summarised by saying that no light states have been observed, and more refined techniques must be used to obtain quantitative results. In particular, we may need to consider a larger operator basis and to introduce some smearing of the operators. Probably larger statistics would also help. For example, in \cite{Wurtz:2013ova} the spectrum of the SU(2)-Higgs theory is computed on an ensemble of 20000 configurations, while we used ensembles of $\sim 2000$ configurations for our measurements. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Higgs phase}
 
-In this section we address the question of whether the scalar field can induce spontaneous breaking of the gauge symmetry in our model. We take inspiration from \cite{Caudy:2007sf}, where the phase diagram of the SU(2)-Higgs model is analysed in relation to the question of spontaneous gauge symmetry breaking. In studies of the SU(2)-Higgs model, the scalar field action is usually expressed as:
+In this section, we address the question of whether the scalar field can induce spontaneous gauge symmetry breaking in the SU(2) gauge theory with two fundamental fermions and one fundamental scalar. We take inspiration from \cite{Caudy:2007sf}, where the phase diagram of the SU(2)-Higgs model is analysed in relation to the question of spontaneous gauge symmetry breaking. In studies of the SU(2)-Higgs model, the scalar field action is usually expressed as:
 
 \begin{equation}
 S_S =  \sum_x \biggl[ S^{\dagger}(x) S(x) + \tilde \lambda \bigl( S^{\dagger}(x) S(x) - 1 \bigr)^2 
@@ -850,7 +918,7 @@ m_S^2 = (1-2\tilde\lambda)/\gamma - 8
 \end{cases} \: .
 \end{equation}
 %
-A schematic picture of the phase diagram of the SU(2)-Higgs model, in the infinite-$\tilde \lambda$ limit, is given in the upper panel of figure \ref{SU2H_phase_diagram}. The infinite-$\tilde \lambda$ limit corresponds to a fixed-length scalar field: $S^{\dagger} S \equiv 1$. For $(\beta,\gamma) \ll 1$ the system is in a confinement-like phase, with a linear potential between static colour sources (up to a maximal distance where string breaking occurs due to the formation of scalar-antiscalar pairs) and a rich spectrum of QCD-like bound states. For $(\beta,\gamma) \gg 1$, the system is in a Higgs-like phase, with Yukawa-type potential between static sources and a spectrum of three massive vector bosons and a single scalar particle. The two phases are partially separated by a line of first order phase transitions, which terminates in the middle of the diagram. The Higgs and confinement phases are analytically connected \cite{Fradkin:1978dv,OSTERWALDER1978440}: any two points in the phase diagram can be connected by a path over which the expectation value of any local gauge-invariant observable varies analytically. Also the spectrum, which appears to be qualitatively very different in the two phases, changes smoothly along this analytical path. In \cite{Wurtz:2013ova}, the spectrum of the SU(2)-Higgs model is measured in the Higgs phase, and the observed states are found to be consistent with collections of almost noninteracting Higgs and $W$ bosons. The same gauge-invariant operators with all possible quantum numbers are to be used to measure the spectrum in both the Higgs and the confinement phase. While these operators generate hadron-like and "$W$-ball" states in the confinement phase, they correspond to weakly-interacting multi-particle states in the Higgs phase, and the transition between the two regimes occurs smoothly. 
+A schematic picture of the phase diagram of the SU(2)-Higgs model, in the infinite-$\tilde \lambda$ limit, is given in the upper panel of figure \ref{SU2H_phase_diagram}. The infinite-$\tilde \lambda$ limit corresponds to a fixed-length scalar field: $S^{\dagger} S \equiv 1$. For $(\beta,\gamma) \ll 1$, the system is in a confinement-like phase, with a linear potential between static colour sources (up to a maximal distance where string breaking occurs due to the formation of scalar-antiscalar pairs) and a rich spectrum of QCD-like bound states. For $(\beta,\gamma) \gg 1$, the system is in a Higgs-like phase, with Yukawa-type potential between static sources and a spectrum of three massive vector bosons and a single scalar particle. The two phases are partially separated by a line of first order phase transitions, which terminates in the middle of the diagram. The Higgs and confinement phases are analytically connected \cite{Fradkin:1978dv,OSTERWALDER1978440}: any two points in the phase diagram can be connected by a path over which the expectation value of any local gauge-invariant observable varies analytically. Also the spectrum, which appears to be qualitatively very different in the two phases, changes smoothly along this analytical path. In \cite{Wurtz:2013ova}, the spectrum of the SU(2)-Higgs model is measured in the Higgs phase, and the observed states are found to be consistent with collections of almost noninteracting Higgs and $W$ bosons. The same gauge-invariant operators with all possible quantum numbers are to be used to measure the spectrum in both the Higgs and the confinement phase. While these operators generate hadron-like and "$W$-ball" states in the confinement phase, they correspond to weakly-interacting multi-particle states in the Higgs phase, and the transition between the two regimes occurs smoothly. 
 
 \begin{figure}[thb] 
 \begin{center}
@@ -894,7 +962,7 @@ When the Coulomb gauge is fixed, on top of constant gauge transformations there 
 \mathcal Q_C = \frac{1}{T} \sum_{t=0}^{T-1} \langle \tr [\tilde U(t) \tilde U(t)^{\dagger}] \rangle \: .
 \end{equation}
 %
-$\tilde U(t)$ is the average time-like link at fixed time $t$, and its trace $\tr [\tilde U(t)]$ is symmetric with respect constant transformations, but not with respect to transformations depending on time $\Omega (x) \equiv \Omega (t)$. Therefore $\mathcal Q_L$ and $\mathcal Q_C$ probe two different global subgroups of the local symmetry group. In the infinite-volume limit, $\mathcal Q_C \to 0$ in the symmetric phase, while $\mathcal Q_C \to$~constant in the broken phase. As an example, in figure \ref{SU2H_volume_scaling} we plot $\mathcal Q_L$ and $\mathcal Q_C$ as functions of the volume in the SU(2)-Higgs model, at ($\beta$, $\lambda$) = (2.3, 10.8135), for one point in the symmetric phase (left panel) and one point in the broken-symmetry phase (right panel). The value of $m_S^2$ corresponding to the first order phase transition at these values of $\beta$ and $\lambda$ is: $m_S^2 = -11.2884$ \cite{Langguth:1985eu}.
+$\tilde U(t)$ is the average time-like link at fixed time $t$, and its trace $\tr [\tilde U(t)]$ is symmetric with respect to constant transformations, but not with respect to transformations depending on time $\Omega (x) \equiv \Omega (t)$. Therefore $\mathcal Q_L$ and $\mathcal Q_C$ probe two different global subgroups of the local symmetry group. In the infinite-volume limit, $\mathcal Q_C \to 0$ in the symmetric phase, while $\mathcal Q_C \to$~constant in the broken phase. As an example, in figure \ref{SU2H_volume_scaling} we plot $\mathcal Q_L$ and $\mathcal Q_C$ as functions of the volume in the SU(2)-Higgs model, at ($\beta$, $\lambda$) = (2.3, 10.8135), for one point in the symmetric phase (left panel) and one point in the broken-symmetry phase (right panel). The value of $m_S^2$ corresponding to the first order phase transition at these values of $\beta$ and $\lambda$ is: $m_S^2 = -11.2884$ \cite{Langguth:1985eu}.
 
 
 \begin{figure}[thb] 
@@ -924,9 +992,11 @@ and the plaquette:
 U =  \frac{1}{6V} \sum_x \sum_{\mu < \nu} \frac{1}{2} \mathrm{Re} \tr[U_{\mu\nu}(x)] \: .
 \end{equation}
 %
-The goal is to use the analysis of the SU(2)-Higgs model as a guideline for studying our model with fermions and scalars. For this reason, we did not attempt a scaling analysis of $\mathcal Q_L$ and $\mathcal Q_C$ for different lattice volumes, since this approach would become computationally quite expensive when applied to a model with dynamical fermions. Instead, we simply analysed the order parameters as functions of $m_S^2$, and we think that this allowed us to locate quite clearly the symmetry-breaking transition.
+The goal is to use this analysis of the SU(2)-Higgs model as a guideline for studying our model with fermions and scalars. For this reason, we did not attempt a scaling analysis of $\mathcal Q_L$ and $\mathcal Q_C$ for different lattice volumes, since this approach would become computationally quite expensive when applied to a model with dynamical fermions. Instead, we simply analysed the order parameters as functions of $m_S^2$, and we think that this allowed us to locate quite clearly the symmetry-breaking transition.
 
-We start by reporting the results we obtained at $\lambda = 2$. Figure \ref{SU2H_jump_Q} shows the order parameters $\mathcal Q_L$ and $\mathcal Q_C$ as functions of the squared scalar mass. We observe a jump in both observables around $m_S^2 = -3.97$, corresponding to the symmetry-breaking transition. Even without analysing their volume scaling, $\mathcal Q_L$ and $\mathcal Q_C$ seem to look quite different in the symmetric and broken phase. $\mathcal Q_L$ is very close to zero in the symmetric phase, and  it jumps to $\mathcal Q_L \simeq 0.25$ in the broken-symmetry phase. $\mathcal Q_C$ is approximately constant in the symmetric phase, assuming a value $\mathcal Q_C \simeq 0.05$, and it jumps to $\mathcal Q_C \simeq 0.9$ in the broken phase. In figure \ref{SU2H_jump_pl_cond}, we plot the scalar condensate $\langle S^{\dagger}S \rangle$ and the plaquette $\langle U \rangle$ as functions of $m_S^2$. Also these observables display a jump at around $m_S^2 = -3.97$, which indicates that we are in the presence of the thermodynamic first order phase transition, accompanied by the spontaneous breaking of both the global subgroups probed by $\mathcal Q_L$ and $\mathcal Q_C$.
+We start by reporting the results we obtained at $\lambda = 2$. Figure \ref{SU2H_jump_Q} shows the order parameters $\mathcal Q_L$ and $\mathcal Q_C$ as functions of the squared scalar mass. We observe a jump in both observables around $m_S^2 = -3.97$, corresponding to the symmetry-breaking transition. Even without analysing their volume scaling, $\mathcal Q_L$ and $\mathcal Q_C$ seem to look quite different in the symmetric and broken phase. $\mathcal Q_L$ is very close to zero in the symmetric phase, and  it jumps to $\mathcal Q_L \simeq 0.25$ in the broken-symmetry phase. $\mathcal Q_C$ is approximately constant in the symmetric phase, assuming a value $\mathcal Q_C \simeq 0.05$, and it jumps to $\mathcal Q_C \simeq 0.9$ in the broken phase. In figure \ref{SU2H_jump_pl_cond}, we plot the scalar condensate $\langle S^{\dagger}S \rangle$ and the plaquette $\langle U \rangle$ as functions of $m_S^2$. Also these observables display a jump around $m_S^2 = -3.97$, which indicates that we are in the presence of the thermodynamic first-order phase transition, accompanied by the spontaneous breaking of both the global subgroups probed by $\mathcal Q_L$ and $\mathcal Q_C$.
+
+At $\lambda = 0$ we do not observe a symmetry-breaking transition. For all the values of $m_S^2$ that we simulated, the values of $\mathcal Q_L$ and $\mathcal Q_C$ seem to correspond to a symmetric phase. We could not run the simulations at $m_S^2 \leq -1.5$. The history of the scalar condensate in Monte Carlo time at $m_S^2 = -1.5$, shown in the right panel of figure \ref{SU2H_history}, indicates that this could be due to instability of the scalar potential. The scalar condensate moves towards very large values with increasing Monte Carlo time, and the configurations stop being accepted. This is probably due to large values of the forces associated to the scalar field, and we presume that we could make the simulations work by using a much smaller integration step to generate the molecular dynamics trajectories. However, this system would never thermalise, and would keep on moving towards larger and larger values of $S^{\dagger} S$.
 
 
 \begin{figure}[thb] 
@@ -942,19 +1012,30 @@ We start by reporting the results we obtained at $\lambda = 2$. Figure \ref{SU2H
 \begin{adjustwidth}{-4em}{-4em}
   \includegraphics[width=9cm,clip]{pics/SU2H_jump_plaquette}\includegraphics[width=9cm,clip]{pics/SU2H_jump_condensate}
 \end{adjustwidth}
-  \caption{Scalar condensate $\langle S^{\dagger}S \rangle$ and plaquette $\langle U \rangle$ as functions of $m_S^2$, in the SU(2)-Higgs model, at $\beta =2$ and $\lambda = 2$. Both observables display an abrupt jump around $m_S^2 = -3.97$, due to the thermodynamic first-order phase transition. We obtained these data on a $12^4$ lattice.}
+  \caption{Plaquette $\langle U \rangle$ and scalar condensate $\langle S^{\dagger}S \rangle$ as functions of $m_S^2$, in the SU(2)-Higgs model, at $\beta =2$ and $\lambda = 2$. Both observables display an abrupt jump around $m_S^2 = -3.97$, due to the thermodynamic first-order phase transition. We obtained these data on a $12^4$ lattice.}
   \label{SU2H_jump_pl_cond}
 \end{figure}
 
+\begin{figure}[thb] 
+\begin{adjustwidth}{-4em}{-4em}
+  \includegraphics[width=9cm,clip]{pics/history_plaquette}\includegraphics[width=9cm,clip]{pics/history_condensate}
+\end{adjustwidth}
+  \caption{History of the plaquette $\langle U \rangle$ and of the scalar condensate $\langle S^{\dagger}S \rangle$, in the SU(2)-Higgs model, at $\beta = 2$, $\lambda = 0$ and $m_S^2 = -1.5$. The simulations get stuck with zero acceptance, apparently due to the scalar condensate's very big values. These data have been measured on an $8^4$ lattice.}
+  \label{SU2H_history}
+\end{figure}
 
 
-\subsection{SU(2) with fermions and scalars}
+\subsection{SU(2) with two fermions and one scalar}
+
+We repeat the same analysis in the SU(2) model with two fermions and one scalar. All the values of $\mathcal Q_L$ and $\mathcal Q_C$ that we measured are reported in table \ref{data}. We observe the symmetry-breaking transition at ($m_f$, $\lambda$) = (-0.94, 2), and we presume that we will observe it also at ($m_f$, $\lambda$) = (-0.952, 2), once we extend our analysis to smaller values of $m_S^2$. At ($m_f$, $\lambda$) = (-0.94, 0), all the ensembles that we generated belong to the symmetric phase, and we found a minimum value $m_S^2 = -1$ below which the simulations do not work. In analogy with what observed in the SU(2)-Higgs model, we believe that this is due to instability of the scalar potential.
+
+In figure \ref{jump_Q}, we plot $\mathcal Q_L$ and $\mathcal Q_C$ as functions of $m_S^2$, at ($m_f$, $\lambda$) = (-0.94, 2). We observe a jump in these observables around $m_S^2 = -3.2$. The symmetry-breaking transition seems to happen simultaneously for both the gauge-dependent order parameters. The plaquette $\langle U \rangle$ and the scalar condensate $\langle S^{\dagger} S \rangle$ seem to indicate a first-order phase transition around $m_S^2 = -3.2$, as shown in figure \ref{jump_pl_cond}. Moreover, as discussed in section \ref{meson_spectrum}, also the meson spectrum shows an abrupt change of behaviour around the same value of $m_S^2$. The value $m_S^2 = -3.2$ is somewhat in between the two phases. In fact, according to figures \ref{jump_Q}, \ref{jump_pl_cond}, it seems to belong to the same phase as the points with larger values of $m_S^2$. In the meson spectrum however, $m_S^2 = -3.2$ already shows large qualitative deviations from the behaviour of the points with $m_S^2 > -3.2$.
 
 \begin{figure}[thb] 
 \begin{center}
   \includegraphics[width=9.5cm,clip]{pics/jump_Q}  
   \end{center}
-  \caption{.}
+  \caption{$\mathcal Q_L$ and $\mathcal Q_C$ as functions of $m_S^2$, in the SU(2) model with two fermions and one scalar, at ($m_f$, $\lambda$) = (-0.94, 2). We observe the symmetry-breaking transition around $m_S^2 = -3.2$. The data shown in this figure can be found in table \ref{data}.}
   \label{jump_Q}
 \end{figure}
 
@@ -962,7 +1043,7 @@ We start by reporting the results we obtained at $\lambda = 2$. Figure \ref{SU2H
 \begin{adjustwidth}{-4em}{-4em}
   \includegraphics[width=9cm,clip]{pics/jump_plaquette}\includegraphics[width=9cm,clip]{pics/jump_condensate}
 \end{adjustwidth}
-  \caption{.}
+  \caption{Plaquette $\langle U \rangle$ and scalar condensate $\langle S^{\dagger} S \rangle$ as functions of $m_S^2$, in the SU(2) model with two fermions and one scalar, at ($m_f$, $\lambda$) = (-0.94, 2). This plot seems to evidence a first-order phase transition around $m_S^2 = -3.2$.}
   \label{jump_pl_cond}
 \end{figure}
 
@@ -970,6 +1051,10 @@ We start by reporting the results we obtained at $\lambda = 2$. Figure \ref{SU2H
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusions and outlook}
+
+In this chapter we discussed our lattice study of the SU(2) gauge theory with two fundamental fermions and one fundamental scalar. The theoretical motivation for this study is given by the recent proposal of fundamental partial compositeness models \cite{Sannino:2016sfx}, featuring strongly interacting fermions and scalars.
+
+We measured the meson spectrum of the lattice model, and we found a phase compatible with spontaneous breaking of the fermion flavour symmetry. 
 
 %Renormalisation, continuum limit
 
