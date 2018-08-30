@@ -470,7 +470,7 @@ C_{AB}(t) = \langle A(t) B(0) \rangle = \frac{1}{Z} \tr \biggl[ e^{-(T-t)\hat H}
 \label{corr_1}
 \end{equation}
 %
-where the partition function $Z$ is expressed in the operator formalism as:
+where the partition function $Z$ is expressed in the operator formalism as: 
 \begin{equation}
 Z = \tr \biggl[ e^{-T \hat H} \biggr] \: .
 \label{corr_2}
@@ -510,7 +510,6 @@ where $E_0$ is the energy of the vacuum state and $E_{AB}$, $E_{BA}$ are the ene
 \end{equation}
 %
 If $B=A^{\dagger}$, the coefficients $c_{AB}$, $c_{BA}$ are real and positive, and equal to each other: $c_{AB} = c_{BA} \equiv c$, and the correlator is given by: 
-
 \begin{equation}
 C_{AA^{\dagger}}(t) \underset{\underset{t \to \infty}{T \to \infty}}{\sim} c \biggl( e^{-t(E_{m_0} - E_0)} + e^{-(T-t)(E_{m_0}-E_0)} \biggr)\ \: ,
 \label{corr_lowest_energy}
@@ -527,7 +526,6 @@ In this setup, the energy of the state $\ket{m_0}$ can be measured by studying t
 In order to measure meson masses, we need operators that generate states with the quantum numbers of the desired mesons. We consider a theory with two fermion flavours, and, in analogy with the first quark family of the Standard Model, we denote the fermion fields by $u$ (up) and $d$ (down). These two fermions belong to an isospin doublet, with $I = 1/2$, and $I_3 = +1/2$ ($u$), $I_3 = -1/2$ ($d$).
 
 In this thesis we will measure the mass of the isospin-triplet pseudoscalar mesons (analogue to pions in QCD) and the isospin-triplet vector mesons (analogue to $\rho$ mesons in QCD). For the pseudoscalar isospin triplet, the following operators are used:
-
 \begin{itemize}
 \item $(I=1, I_3 = +1)$: $O_{\pi^+}(x) = \bar{d}(x) \gamma_5 u(x)$
 \item $(I=1, I_3 = 0)$: $O_{\pi^0}(x) = \frac{1}{\sqrt 2} \bigl( \bar{u}(x) \gamma_5 u(x) - \bar{d}(x) \gamma_5 d(x) \bigr)$
@@ -541,14 +539,12 @@ In order to measure the mass of the pseudoscalar meson state, the correlator $C_
 The operators chosen for studying the isospin-triplet vector mesons are very similar to $O_{\pi^{\pm}}$ and $O_{\pi^0}$, with the only difference that $\gamma_5$ is replaced with $\gamma_i$, $i = 1, 2, 3$. These operators generate states with spin one and negative parity. Again, in the absence of electroweak effects and if $u$ and $d$ have the same mass, the three states in the isospin triplet have equal masses.
 
 To summarise, we define the operator $O_{\Gamma}(x) = \bar u(x) \Gamma d(x) $, where $\Gamma$ stands in general for a product of gamma matrices, and the cases of our interest are $\Gamma =\gamma_5$ (pseudoscalar meson) and $\Gamma = \gamma_i$ (vector meson). We measure isospin-triplet meson masses by studying the exponential decay of the correlator:
-
 \begin{equation}
 C_{\Gamma}(t) = \sum_{\vec x} \langle O_{\Gamma}(\vec x,t) O_{\Gamma} (\vec 0, 0)^{\dagger} \rangle \: .
 \label{meson_correlator}
 \end{equation}
 %
 More specifically, we define the effective mass $m^{eff}_{\Gamma}(t)$ via the equation:
-
 \begin{equation}
 \frac{C_{\Gamma}(t-1)}{C_{\Gamma}(t)} = \frac{e^{-m^{eff}_{\Gamma}(t)(T-(t-1))} + e^{-m^{eff}_{\Gamma}(t)(t-1)}}{e^{-m^{eff}_{\Gamma}(t)(T-t)} + e^{-m^{eff}_{\Gamma}(t)t}} \: ,
 \label{eff_mass_mesons}
@@ -561,7 +557,6 @@ and we find the meson mass as the large-t limit of $m^{eff}_{\Gamma}(t)$.
 
 In this thesis we will also measure the fermion mass via the Partially Conserved Axial Current (PCAC) relation.
 The PCAC relation, or axial Ward identity, is a consequence of the transformation properties of the fermion action under chiral rotations in flavour space. In order to derive it, we consider the partition function \ref{partition_function}, and a field redefinition:
-
 \begin{equation}
 \begin{split}
 & \psi^{(i)} \to \psi^{(i)} + \delta \psi^{(i)} \\
@@ -570,7 +565,6 @@ The PCAC relation, or axial Ward identity, is a consequence of the transformatio
 \end{equation}
 %
 The partition function doesn't change under this transformation, and, if the integration measure is also symmetric, it follows that:
-
 \begin{equation}
 \langle \delta S \rangle = 0 \: ,
 \label{Ward_id}
@@ -579,13 +573,11 @@ The partition function doesn't change under this transformation, and, if the int
 where $\delta S$ is the infinitesimal shift in the action.
 
 We now consider the continuum fermion action for a two-flavour theory:
-
 \begin{equation}
 S_{\mathrm{cont}}[\psi, \bar \psi] =  \int \dx  \: \bar \psi(x)(\gamma_{\mu} D_{\mu} + M \id) \psi(x) \: ,
 \end{equation}
 %
 where $\psi = (u \; d)^T$, $M$ is the two-by-two diagonal mass matrix and $\id$ the identity in Dirac space. As in the previous section, we denote the two fermion fields by $u$ and $d$. We consider the following infinitesimal transformation in flavour space:
-
 \begin{equation}
 \begin{split}
 & \psi(x) \to \psi(x) + i \epsilon(x) \gamma_5 \sigma^a \psi(x) \\
@@ -594,21 +586,18 @@ where $\psi = (u \; d)^T$, $M$ is the two-by-two diagonal mass matrix and $\id$ 
 \end{equation}
 %
 where $\sigma^a$ are the Pauli matrices, with $a=1,2,3$, and $\epsilon(x)$ is a generic smooth function, which is nonzero only inside a bounded region. For this specific transformation, equation \ref{Ward_id} reads:
-
 \begin{equation}
 \langle \partial_{\mu} \bigl(\bar \psi(x) \gamma_{\mu} \gamma_5 \sigma^a \psi(x)\bigr) \rangle = \langle \bar\psi(x) \qty \big{M,\sigma^a} \gamma_5 \psi(x) \rangle \: .
 \label{axial_WI_general}
 \end{equation}
 
 If the two fermions have equal masses, $m_u = m_d = m$, equation \ref{axial_WI_general} becomes:
-
 \begin{equation}
 \langle \partial_{\mu} A^a_{\mu} (x) \rangle = 2 m \langle P^a(x) \rangle \: ,
 \label{PCAC}
 \end{equation}
 %
 where we have defined the axial vector current as $A^a_{\mu} = 1/2 \: \bar \psi \gamma_{\mu} \gamma_5 \sigma^a \psi$, and the pseudoscalar interpolator as $P^a = 1/2 \: \bar\psi \gamma_5 \sigma^a \psi$. $P^a$ is related to the $O_{\pi^{\pm,0}}$ operators of the previous section by:
-
 \begin{equation}
 \begin{split}
 & P^1 - iP^2 = \bar d \gamma_5 u = O_{\pi^+} \\
@@ -620,7 +609,6 @@ where we have defined the axial vector current as $A^a_{\mu} = 1/2 \: \bar \psi 
 Equation \ref{PCAC} is known as PCAC relation, and it implies that, when $m=0$, the axial vector current is conserved, due to the symmetry of the action under chiral flavour rotations. On the lattice however, the Wilson fermion action is not chirally symmetric even when the fermion mass is zero, and the analogue of the PCAC relation involves additional terms.  
 
 The PCAC relation can be used to measure the fermion mass on the lattice by studying the long-distance behaviour of the following ratio of correlators:
-
 \begin{equation}
 \frac{1}{2} \frac{\sum_{\vec x} \langle \partial_t A^-_{0}(\vec x,t)^{\dagger} O_{\pi^-}(0) \rangle}{\sum_{\vec x} \langle O_{\pi^-}(\vec x,t)^{\dagger} O_{\pi^-}(0) \rangle} \underset{t \to \infty}{\sim} m_{PCAC} \: ,
 \end{equation}
@@ -639,28 +627,24 @@ In order to illustrate this, we consider the mass of some physical state, measur
 When we say that $M = \hat M /a$ is the physical value of the mass, we are implicitly assuming that we can express the lattice spacing $a$ in physical units, say in fm. This information is not contained in the lattice theory itself, and it must be deduced by using some external input. For example, if we are studying lattice QCD, we can pick any observable, such as the mass of a bound state, and set its experimental value to be equal to the value measured on the lattice. From this equality we can extract the value of the lattice spacing measured in physical units. 
 
 Once we have a measure for the lattice spacing, the goal is to extrapolate continuum physics out of the lattice results by moving to smaller and smaller values of the lattice spacing. As pointed out earlier, in order to have finite values for the observables in the continuum limit, we have to change the bare lattice couplings as functions of $a$, in such a way that when $a$ goes to zero we move towards a critical point where correlation lengths diverge. In particular, in a pure gauge theory the gauge coupling $g$ must change as a function of $a$ in such a way that:
-
 \begin{equation}
 O(a,g(a)) \underset{a \to 0}{\longrightarrow} O_{ph} \: ,
 \label{cont_limit}
 \end{equation}
 %
 where $O$ is a generic observable and $O_{ph}$ is its physical value. The functional form of $g(a)$ may depend on the specific observable if $a$ is not small enough. However, when we get close to the continuum limit, there must be a unique function $g(a)$ that ensures the finiteness of any observable. We can obtain information on $g(a)$ by using the renormalisation group equation:
-
 \begin{equation}
 \biggl[ a\pder{\:}{a} - \beta(g) \pder{\:}{g} \biggr] O(a,g(a)) = 0 \: ,
 \label{reng_eq}
 \end{equation}
 %
 where $\beta(a) = - a \: \partial g/ \partial a$. We obtain this equation by assuming to be close enough to the continuum limit, so that equation \ref{cont_limit} can be rewritten as an equality, and by deriving with respect to $a$ the right- and left-hand-side. The beta function $\beta(g)$ can be computed perturbatively by expanding $O(a,g)$ in powers of $g$, and by inserting the expansion in equation \ref{reng_eq}. The result up to $\mathcal O(g^3)$ is the same for any observable $O$, and it is given by:
-
 \begin{equation}
  \beta(g) = - \frac{11 N}{3} \frac{g^3}{(4 \pi)^2} + \mathcal O (g^5) \: ,
 \label{lattice_beta_function}
 \end{equation}
 %
 where we assumed the gauge group to be SU(N). With the help of equation \ref{lattice_beta_function}, we can solve the differential equation $\beta(a) = - a \: \partial g/ \partial a$ and express $a$ as a function of $g$:
-
 \begin{equation}
 a = \frac{1}{\Lambda_L} e^{-\frac{(4\pi)^2}{2 \beta_0 g^2}} \: ,
 \label{a_g}
