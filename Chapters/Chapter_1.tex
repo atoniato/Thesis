@@ -1,12 +1,12 @@
 \chapter{Lattice study of a gauge-fermion-scalar theory}
 
-The Standard Model electroweak theory is very successful in describing experimental results. However, some theoretical concerns suggest that a more consistent theory should be found. Specifically, the search for an alternative mechanism for the generation of masses is an active research field.
+The Standard Model electroweak theory is very successful in describing experimental results. However, some theoretical problems suggest that a more consistent theory should be found. Specifically, the search for an alternative mechanism for the generation of masses is an active research field.
 Composite Higgs models belong to this branch of Beyond the Standard Model (BSM) research.
 
 In this chapter we discuss the lattice study of an SU(2) gauge theory coupled to fermions and scalars. This theory is intended as a minimal scenario for composite Higgs models, in which the problem of the generation of fermion masses is addressed via the fundamental partial compositeness mechanism \cite{Sannino:2016sfx}. 
 
 The chapter is organised as follows. We start by exposing some of the reasons why the Standard Model Higgs mechanism turns out to be theoretically unappealing. Then we introduce composite Higgs models, and we explain what makes the generation of fermion masses a bit problematic in this setup. We then describe the mechanism of fundamental partial compositeness.
-After setting these theoretical motivations, we move to the description of the specific theory under analysis, starting with some continuum aspects and then moving to the lattice setup. Finally,  we present the results obtained on the spectrum and phase space of the lattice theory. Some of these results have been published in \cite{Hansen:2017mrt}, while others are reported here for the first time.
+After these theoretical motivations, we move to the description of the specific theory under analysis, starting with some continuum aspects and then moving to the lattice setup. Finally,  we present the results obtained on the spectrum and phase space of the lattice theory. Some of these results have been published in \cite{Hansen:2017mrt}, while others are reported here for the first time.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,8 +41,9 @@ Elementary scalars may also be affected by the triviality problem \cite{Callaway
  \label{trivial_running}
  \end{equation}
  %
- where $\lambda_R$ is the renormalised coupling at the scale $p = \mu$. If $\lambda_R \neq 0$, there exists a finite momentum scale at which the renormalised coupling diverges, thus making the theory inconsistent. It seems that the only consistent theory is the noninteracting one, characterised by $\lambda_R = 0$. Should this be the case also for the SM Higgs field, the Higgs mechanism would be invalidated, since it is strongly based on the existence of the scalar self-interactions. 
- This argument however does not directly apply to the SM Higgs scalar, since gauge and Yukawa interactions must be also taken into account in order to compute the running of $\lambda$. The quartic coupling of the SM Higgs actually becomes negative at high energies, thus leading to problems related to the stability of the SM vacuum \cite{Degrassi:2012ry}. A scalar field theory is trivial whenever an ultraviolet fixed point for the quartic coupling is absent. In this case, the theory is ill-defined at high energies, unless the renormalised coupling is set to zero, thus eliminating scalar self-interactions. This supports the interpretation of the SM as an effective field theory, defined up to an ultraviolet cutoff, and discourages the introduction of elementary scalars in a UV-complete theory.
+ where $\lambda_R$ is the renormalised coupling at the scale $p = \mu$. If $\lambda_R \neq 0$, there exists a finite momentum scale at which the renormalised coupling diverges, thus making the theory inconsistent. It seems that the only consistent theory is the noninteracting one, characterised by $\lambda_R = 0$. All indications from non-pertubative studies, including the ones on the lattice, seem to confirm this triviality scenario. 
+ Should this be the case also for the SM Higgs field, the Higgs mechanism would be invalidated, since it is strongly based on the existence of the scalar self-interactions. 
+ This argument however does not directly apply to the SM Higgs scalar, since gauge and Yukawa interactions must be also taken into account in order to compute the running of $\lambda$. The quartic coupling of the SM Higgs actually becomes negative at high energies, thus leading to problems related to the stability of the SM vacuum \cite{Degrassi:2012ry,Antipin:2013sga}. A scalar field theory is trivial whenever an ultraviolet fixed point for the quartic coupling is absent. In this case, the theory is ill-defined at high energies, unless the renormalised coupling is set to zero, thus eliminating scalar self-interactions. This supports the interpretation of the SM as an effective field theory, defined up to an ultraviolet cutoff, and discourages the introduction of elementary scalars in a UV-complete theory.
  
 
 
@@ -50,7 +51,7 @@ Elementary scalars may also be affected by the triviality problem \cite{Callaway
 
 Composite Higgs models constitute an alternative to the Higgs mechanism for the generation of masses, in which no elementary scalars are included. The first inspiration for composite Higgs models came from the fact that the Higgs vacuum expectation value is not the only source of electroweak symmetry breaking in the Standard Model. In fact, QCD pions contribute to the mass of the $W$ and $Z$ gauge bosons. This is due to the fact that electroweak symmetry is embedded in the chiral SU(2)$_L\times$SU(2)$_R$ symmetry of QCD, which is spontaneously broken by the strong dynamics.
 
-It is shown in \cite{Susskind:1978ms} that, in a theory with the SM gauge symmetry SU(2)$_L\times$U(1)$_Y\times$SU(3)$_C$, containing one family of massless quarks and no Higgs doublet, the electroweak gauge bosons become massive.
+It was shown in \cite{Susskind:1978ms} that, in a model with SU(2)$_L\times$U(1)$_Y\times$SU(3)$_C$ gauge symmetry, containing one family of massless quarks and no Higgs doublet, the electroweak gauge bosons become massive.
 Specifically, the $W^{\pm}$ bosons acquire a mass $M_{W} = (g/2) f_{\pi} \simeq 30 \: \mathrm{MeV}$, where $g$ is the \suEW gauge coupling, and $f_{\pi}$ the pion decay constant. Moreover, the photon is massless and the ratio of the $W$ and $Z$ masses is the same as in the SM. In order to obtain these results, the gauge couplings are assumed to run in the same way as in the SM. In particular, the SU(3)$_C$ gauge coupling becomes $\sim 1$ at 1 GeV, and the electroweak sector is treated as a small perturbation. The value of $g/2$ can be deduced from the relation between the Fermi constant $G_F$ and the $W$ boson mass:
 
 \begin{equation}
@@ -59,9 +60,13 @@ Specifically, the $W^{\pm}$ bosons acquire a mass $M_{W} = (g/2) f_{\pi} \simeq 
 %
 while the pion decay constant is given by $f_{\pi} = 93 \: \mathrm{MeV}$ \cite{Peskin:1995ev}.
 
-The $W$ boson mass thus generated is clearly too small with respect to the experimental value of 80 GeV, and indeed in the SM the almost unique source of electroweak symmetry breaking is the Higgs vacuum expectation value. However, one may imagine a "scaled-up" version of QCD, where the pion decay constant is big enough to provide a realistic mass for $W$ and $Z$ bosons. This is the idea behind Technicolor (TC) models \cite{Weinberg:1975gm,Susskind:1978ms}. In these models, all the SM particles are included except for the Higgs doublet, and on top of that a new strongly interacting sector is added. The new sector contains fermionic matter, which we will refer to as TC-fermions, and a new non-Abelian gauge interaction. The TC sector in isolation is symmetric under a global flavour symmetry, which is assumed to be spontaneously broken by the formation of the TC-fermion condensate. The flavour symmetry is required to have an SU(2)$\times$U(1) subgroup, so as to allow the embedding of electroweak interactions. Specifically, the SU(2)$_L\times$U(1)$_Y$ generators are identified with some of the broken generators of the TC flavour symmetry. As a consequence, the $W$ and $Z$ bosons acquire a mass proportional to the TC-pion decay constant. In these models the Higgs boson is identified with the lightest scalar resonance of the TC-sector. In general it is not automatic to obtain both a Higgs mass and $W$ and $Z$ masses in good agreement with experimental values. In particular, unless some care is taken, the Higgs boson will end up being heavier than the measured 125 GeV. Walking Technicolor models \cite{Holdom:1981rm,Yamawaki:1985zg,Dietrich:2005jn,Appelquist:2010gy} address this kind of issue.
+The $W$ boson mass thus generated is clearly too small with respect to the experimental value of 80 GeV, and indeed in the SM the almost unique source of electroweak symmetry breaking is the Higgs vacuum expectation value. However, one may imagine a "scaled-up" version of QCD, where the pion decay constant is big enough to provide a realistic mass for $W$ and $Z$ bosons. This is the idea behind Technicolor (TC) models \cite{Weinberg:1975gm,Susskind:1978ms}. 
+In these models, all the SM particles are included except for the Higgs doublet, and on top of that a new strongly interacting sector is added. The new sector contains fermionic matter, which we will refer to as TC-fermions, and a new non-Abelian gauge interaction. 
+The TC sector in isolation is symmetric under a global flavour symmetry, which is assumed to be spontaneously broken by the formation of the TC-fermion condensate. 
+The flavour symmetry is required to have an SU(2)$\times$U(1) subgroup, so as to allow the embedding of electroweak interactions. Specifically, the SU(2)$_L\times$U(1)$_Y$ generators are identified with some of the broken generators of the TC flavour symmetry. As a consequence, the $W$ and $Z$ bosons acquire a mass proportional to the TC-pion decay constant. 
+In these models the Higgs boson is identified with the lightest scalar resonance of the TC-sector. In general it is difficult to obtain both a Higgs mass and $W$ and $Z$ masses in good agreement with experimental values. In particular, unless some care is taken, the Higgs boson will end up being heavier than the measured 125 GeV. Walking Technicolor models \cite{Holdom:1981rm,Yamawaki:1985zg,Dietrich:2005jn,Appelquist:2010gy} try to address this problem.
 
-Another composite Higgs scenario is the one of composite Goldstone Higgs models \cite{Kaplan:1983sm,Kaplan:1983fs}. In these models a new strongly interacting sector analogous to the TC one is introduced (we will continue to call it TC sector), but the embedding of electroweak symmetry is substantially different. In fact, the SU(2)$_L\times$U(1)$_Y$ generators are identified with some of the unbroken generators of the TC flavour symmetry, so that $W$ and $Z$ bosons remain massless. The Higgs is identified with one of the Goldstone bosons of the broken flavour symmetry. Unless some explicit breaking of this symmetry is introduced, the Goldstone-Higgs is a massless particle. In order to generate the correct Higgs mass and to give masses to $W$ and $Z$, some new interactions are introduced, which explicitly break the TC flavour symmetry. The explicit form of possible symmetry-breaking interactions will be discussed in the next section, in the case of a specific model. In the setup of composite Goldstone Higgs models, the Higgs boson is naturally light and a large separation occurs between the electroweak scale and the scale at which the TC gauge coupling becomes strong. Therefore the masses of non-Goldstone TC-hadrons are expected to be large with respect to the electroweak scale, and possibly beyond the range explored so far in accelerator experiments.
+An alternative composite Higgs scenario is the one of composite Goldstone Higgs models \cite{Kaplan:1983sm,Kaplan:1983fs}. In these models a new strongly interacting sector analogous to the TC one is introduced (we will continue to call it TC sector, although in the literature is also known as ``hypercolor''), but the embedding of electroweak symmetry is substantially different. In fact, the SU(2)$_L\times$U(1)$_Y$ generators are identified with some of the unbroken generators of the TC flavour symmetry, so that $W$ and $Z$ bosons remain massless. The Higgs is identified with one of the Goldstone bosons of the broken flavour symmetry. Unless some explicit breaking of this symmetry is introduced, the Goldstone-Higgs is a massless particle. In order to generate the correct Higgs mass and to give masses to $W$ and $Z$, some new interactions are introduced, which explicitly break the TC flavour symmetry. The explicit form of possible symmetry-breaking interactions will be discussed in the next section, in the case of a specific model. In the setup of composite Goldstone Higgs models, the Higgs boson is naturally light and a large separation occurs between the electroweak scale and the scale at which the TC gauge coupling becomes strong. Therefore the masses of non-Goldstone TC-hadrons are expected to be large with respect to the electroweak scale, and possibly beyond the range explored so far in accelerator experiments.
 
 To conclude, we remark that in composite Higgs models electroweak symmetry is broken as a consequence of the dynamics of the theory. In this respect, these models are more theoretically satisfactory than the SM, where electroweak symmetry breaking is simply modelled and no dynamical reason is given for its occurrence. In the next section we analyse in some more detail the SU(2) gauge theory with two fermions in the fundamental representation, which can serve as setup for both Technicolor and composite Goldstone Higgs scenarios \cite{Cacciapaglia:2014uja}.
 
@@ -72,14 +77,13 @@ To conclude, we remark that in composite Higgs models electroweak symmetry is br
 In this section, following the lines of \cite{Cacciapaglia:2014uja}, we discuss a specific model: the SU(2) gauge theory with two fermions in the fundamental representation. This is a good candidate for being the TC sector in both a Technicolor and a composite Goldstone Higgs scenario.
 
 The Lagrangian of this model is given by:
-
 \begin{equation}
 \Lag = - \frac{1}{4} F_{\mu\nu}^a F^{a\mu\nu}  + \bar u (i \slashed D - m) u + \bar d (i \slashed D - m) d \: ,
 \label{SU2_Lagrangian}
 \end{equation}
 %
 where $u$ and $d$ are the two TC-fermion fields with equal mass $m$, $F_{\mu\nu}^a$ is the non-Abelian field strength tensor and $D_{\mu}$ is the covariant derivative. In the case $m=0$, this Lagrangian has a larger flavour symmetry than the SU(2)$_L \times$SU(2)$_R$ generally expected for an SU(N) gauge theory with two fundamental fermions. This is due to the fact that the fundamental representation of SU(2) is pseudo-real, i.e. there is a relation between a matrix of SU(2) and its complex conjugate:
-
+%
 \begin{equation}
 U = (-i \sigma^2) U^* (i \sigma^2) \: , \quad U \in\mathrm{ SU}(2) \: ,
 \label{pseudoreal}
@@ -87,7 +91,6 @@ U = (-i \sigma^2) U^* (i \sigma^2) \: , \quad U \in\mathrm{ SU}(2) \: ,
 %
 where $\sigma^2$ is the second Pauli matrix.
 Due to this property, we can define an enlarged flavour multiplet of left-handed fields transforming under the fundamental representation of SU(2):
-
 \begin{equation}
 Q = 
 \begin{pmatrix}
@@ -99,20 +102,18 @@ d_L \\
 \end{equation}
 %
 where the left- and right-handed spinors are defined by: 
-
 \begin{equation}
 u_L = \frac{\id - \gamma_5}{2}u \: ,  \quad u_R = \frac{\id + \gamma_5}{2}u \: , \quad  d_L = \frac{\id - \gamma_5}{2}d \: ,  \quad d_R = \frac{\id + \gamma_5}{2}d \: ,
 \end{equation}
 %
 and we have defined some new left-handed fields $\tilde u_L$ and $\tilde d_L$ as:
-
+%
 \begin{equation}
 \tilde u_L = -i \sigma^2 C \bar u_R^T \: , \quad \tilde d_L = -i \sigma^2 C \bar d_R^T \: .
 \label{ud_tilde}
 \end{equation}
 %
 In equation \ref{ud_tilde}, the matrix $-i \sigma^2$ acts on the colour indices of the spinors, while $C$ is the charge conjugation operator, acting on Dirac indices (see appendix \ref{gamma_matrices}). As a consequence of equation \ref{pseudoreal}, $\tilde u_L$ and $\tilde d_L$ transform under the fundamental representation of the TC group SU(2):
-
 \begin{center}
 \begin{tikzcd}
 u_R \to u'_R = Uu_R, \quad U \in \mathrm{SU}(2)   \arrow[d,Rightarrow] \\ 
@@ -121,14 +122,12 @@ u_R \to u'_R = Uu_R, \quad U \in \mathrm{SU}(2)   \arrow[d,Rightarrow] \\
 \end{center}
 
 The Lagrangian \ref{SU2_Lagrangian}  can be rewritten in terms of $Q$ as follows:
-
 \begin{equation}
 \Lag = - \frac{1}{4} F_{\mu\nu}^a F^{a\mu\nu}  + i \bar Q \slashed D Q  + \frac{m}{2} Q^T (-i \sigma^2) C E Q +  \frac{m}{2} (Q^T (-i \sigma^2) C E Q)^{\dagger} \: ,
 \label{SU2_Lagrangian2}
 \end{equation}
 %
 where
-
 \begin{equation}
 E =
 \begin{pmatrix}
@@ -138,9 +137,8 @@ E =
  0 & -1 & 0 & 0
 \end{pmatrix} \: .
 \end{equation}
-%
-If $m=0$, this Lagrangian is symmetric under global SU(4) transformations of the multiplet $Q$, while if $m \neq 0$ the symmetry is reduced to the subgroup Sp(4), defined as being the group of transformations such that the following condition is verified:
 
+If $m=0$, this Lagrangian is symmetric under global SU(4) transformations of the multiplet $Q$, while if $m \neq 0$ the symmetry is reduced to the subgroup Sp(4), defined as being the group of transformations such that the following condition is satisfied:
 \begin{equation}
 E T_n + T_n^T E = 0\: ,
 \end{equation}
@@ -148,16 +146,13 @@ E T_n + T_n^T E = 0\: ,
 where $T_n$ are the fifteen generators of the fundamental representation of SU(4).
 
 After defining the  TC sector in isolation, we  embed electroweak symmetry by assigning the following transformation properties:
-
 \begin{itemize}
-\item $Q_L = (u_L,d_L)^T$ is an SU(2)$_L$ doublet with zero hypercharge
+\item $Q_L = (u_L,d_L)^T$ is an SU(2)$_L$ doublet with zero hypercharge;
 \item $\tilde u_L$  and $\tilde d_L$ are two SU(2)$_L$ singlets with hypercharges -1/2 and +1/2 respectively. 
 \end{itemize}
 %
 With these assignments, we can identify the electroweak generators among the generators of flavour symmetry. First of all, we list the generators of SU(4), and, for future purposes, we split them into two groups, denoted by $S^i$, $i = 1, \dots , 10$, and $X^j$, $j = 1, \dots, 5$:
-
-
- \begin{equation}
+\begin{equation}
 \begin{split}
 & S^ {1,2,3} = \frac{1}{2}
 \begin{pmatrix}
@@ -182,8 +177,7 @@ S^{10} = \frac{1}{2 \sqrt 2}
 \end{split} 
 \label{S}
 \end{equation}
-
- \begin{equation}
+\begin{equation}
 \begin{split}
 X^1 = \frac{1}{2 \sqrt 2}
 & \begin{pmatrix}
@@ -217,27 +211,23 @@ X^5 = \frac{1}{2 \sqrt 2}
 where, as usual, $\sigma^i$,  $i = 1,2,3$, are the Pauli matrices. Due to the transformation properties of $Q_L$, $\tilde u_L$ and $\tilde d_L$ under the electroweak gauge group, $S^{1,2,3}$ are identified with the generators of SU(2)$_L$, while $S^6$ is the generator of U(1)$_Y$.
 
 We now assume that the TC sector in isolation, in the SU(4)-symmetric case $m=0$, undergoes spontaneous flavour symmetry breaking due to the formation of the TC-fermion condensate:
-
 \begin{equation}
 \langle Q^T(-i \sigma^2) C \Sigma_0 Q + (Q^T(-i \sigma^2) C \Sigma_0 Q)^{\dagger} \rangle \neq 0 \: .
 \end{equation}
 %
 The SU(4) flavour symmetry is broken down to the subgroup spanned by the  unbroken generators, which fulfil the following condition:
-
 \begin{equation}
  \Sigma_0 T_n + T_n^T \Sigma_0  = 0 \: .
 \end{equation}
 %
 $\Sigma_0$ is a yet unspecified matrix in flavour space, whose alignment with respect to the electroweak generators will be determined by minimising the effective potential of the theory in interaction with the electroweak group, taking into account also possible symmetry-breaking perturbations. 
 
- We rewrite $\Sigma_0$ as  the superposition:
-
+We rewrite $\Sigma_0$ as  the superposition:
 \begin{equation}
 \Sigma_0 = \cos \theta \:  \Sigma_B + \sin \theta \: \Sigma_H \: ,
 \end{equation}
 %
 where 
-
 \begin{equation}
 \Sigma_B =
 \begin{pmatrix}
@@ -252,13 +242,11 @@ i \sigma^2 & 0 \\
 \end{equation}
 %
 If $\Sigma_0 = \Sigma_B$, the unbroken generators are the $S^i$'s defined in equation \ref{S}, while the broken generators are the $ X ^j$'s of equation \ref{X}. In particular,  electroweak symmetry is preserved.  If $\Sigma_0 = \Sigma_H$, the unbroken generators are:
-
 \begin{equation}
 S^1 + S^4 \: , \quad S^2 + S^5 \: , \quad S^3 + S^6 \: , \quad S^{7,9,10} \: , \quad X^{1, 2 ,3, 5} \: ,
 \end{equation}
 %
 and the broken ones:
-
 \begin{equation}
 S^1 - S^4 \: , \quad S^2 - S^5 \: , \quad S^3 - S^6 \: , \quad S^8 \: , \quad  X^4  \: .
 \end{equation}
@@ -266,7 +254,6 @@ S^1 - S^4 \: , \quad S^2 - S^5 \: , \quad S^3 - S^6 \: , \quad S^8 \: , \quad  X
 In this case electroweak symmetry is broken. Moreover, we will see in  the following that, for $\theta = \pi/2$, the mass of the $W^{\pm}$ bosons is directly determined by the Goldstone-boson decay constant and the SU(2)$_L$ coupling constant, as in Technicolor models. It follows that a model with $\theta = \pi/2$ is a good candidate for Technicolor, while a model with $\theta \sim 0$ could work as composite Goldstone Higgs scenario.
 
 For a generic alignment $\theta$, the broken generators are given by the following combinations: 
-
 \begin{equation}
 \begin{split}
 Y^1 = c_{\theta} X^1 - s_{\theta} \frac{S^1-S^4}{\sqrt  2} \: , & \quad Y^2 = c_{\theta} X^2 + s_{\theta} \frac{S^2-S^5}{\sqrt  2} \: , \quad Y^3 = c_{\theta} X^3 + s_{\theta} \frac{S^3-S^6}{\sqrt  2} \: , \quad \\
@@ -276,25 +263,21 @@ Y^1 = c_{\theta} X^1 - s_{\theta} \frac{S^1-S^4}{\sqrt  2} \: , & \quad Y^2 = c_
 %
 where $c _{\theta} = \cos \theta$ and $s _{\theta} = \sin \theta$. 
 In order to study the phenomenology of the low-energy excitations of this model, the effective Lagrangian approach can be used. We define the Goldstone matrix as:
-
 \begin{equation}
 \Sigma = e^{i \frac{\phi^a}{f} Y^a} \Sigma_0 \: ,
 \end{equation}
 %
 where $\phi^a(x)$, $a = 1, \dots , 5$, are the Goldstone boson fields and $f$ the Goldstone boson decay constant.
 The kinetic term of the effective Lagrangian, where the electroweak interactions are introduced via the covariant derivative $D_{\mu}$, is given by:
-
 \begin{equation}
 f^2 \tr [(D_{\mu} \Sigma)^{\dagger} D^{\mu} \Sigma ] \: ,
 \label{eff_lagrangian}
 \end{equation}
 %
 where
-
 \begin{equation}
 D_{\mu} \Sigma = \partial_{\mu} \Sigma -i (G_{\mu}^T \Sigma + \Sigma G_{\mu}) \: ,
 \end{equation}
-
 \begin{equation}
 G_{\mu} = g W^i_{\mu} S^i + g' B_{\mu} S^6 \: , \quad i = 1,2,3 \: .
 \end{equation}
@@ -302,44 +285,35 @@ G_{\mu} = g W^i_{\mu} S^i + g' B_{\mu} S^6 \: , \quad i = 1,2,3 \: .
 In the previous equation, $g$ is the SU(2)$_L$ coupling, $g'$ the U(1)$_Y$ coupling and $W^i_{\mu}$, $B_{\mu}$ their respective gauge boson fields.
 
 In \cite{Cacciapaglia:2014uja}, computations are carried on in the unitary gauge, i.e. by fixing to zero the Goldstone boson fields which provide the longitudinal degrees of freedom of $W$ and $Z$. In our case this means: $\phi^{1,2,3} = 0$. The remaining Goldstone bosons are renamed as: $\phi^4 \equiv h$, $\phi^5 \equiv \eta$. The Goldstone matrix in the unitary gauge reads:
-
 \begin{equation}
 \Sigma = e^{\frac{i}{f} (h Y^4 + \eta Y^5)} \Sigma_0 \: .
 \label{Gold_matrix_ug}
 \end{equation}
 %
-By inserting \ref{Gold_matrix_ug} in \ref{eff_lagrangian}, and expanding in powers of $\eta/f$, $h/f$, one finds the masses and couplings of the fields $W^{\pm}$, $Z$, $h$ and $\eta$. $W^i$ and $B$ are expressed in terms of $W^{\pm}$, $A$ and $Z$ as in equations (\emph{must be added in the introduction}). The resulting gauge boson masses are:
-
+By inserting \ref{Gold_matrix_ug} in \ref{eff_lagrangian}, and expanding in powers of $\eta/f$, $h/f$, one finds the masses and couplings of the fields $W^{\pm}$, $Z$, $h$ and $\eta$. $W^i$ and $B$ are expressed in terms of $W^{\pm}$, $A$ and $Z$ as in equations (\emph{\color{red}must be added}). The resulting gauge boson masses are:
 \begin{equation}
 m^2_{W} = 2 g^2 f^2 s_{\theta}^2 \: ,
 \end{equation}
-
 \begin{equation}
 m^2_Z = 2 (g^2 + {g'}^2) f^2 s_{\theta}^2 = \frac{m_W^2}{\cos^2\theta_W} \: ,
 \end{equation}
 %
 where $\theta_W$ is the Weinberg angle. The Goldstone bosons $h$ and $\eta$ are massless (at tree level), and their couplings to the electroweak gauge bosons are given by:
-
 \begin{equation}
 g_{hWW} = \sqrt 2 g^2 f s_{\theta} c_{\theta} = g m_W c_{\theta} = g^{SM}_{hWW} c_{\theta} \: ,
 \end{equation}
-
 \begin{equation}
 g_{hZZ} = \sqrt 2 (g^2 + {g'}^2) f s_{\theta} c_{\theta} = \sqrt{g^2 + {g'}^2} m_Z c_{\theta} = g^{SM}_{hZZ} c_{\theta} \: ,
 \end{equation}
-
 \begin{equation}
 g_{hhWW} = \frac{1}{4} g^2 c_{2 \theta} = g_{hhWW}^{SM} c_{2 \theta} \; ,
 \end{equation}
-
 \begin{equation}
 g_{hhZZ} = \frac{g_{hhWW}}{2 \cos^2 \theta_W}  = g_{hhZZ}^{SM} c_{2 \theta} \; ,
 \end{equation}
-
 \begin{equation}
 g_{\eta \eta WW} = - \frac{1}{4} g^2 s_{\theta}^2 \; ,
 \end{equation} 
-
 \begin{equation}
 g_{\eta \eta ZZ} = \frac{g_{\eta \eta WW}}{2 \cos^2 \theta_W}  \; .
 \end{equation}
@@ -367,29 +341,25 @@ The construction made until now is based on the assumption that the spontaneous 
 \label{partial_comp}
 
 The setup of composite Higgs models must be extended in order to include massive fermion states. This is usually done by introducing in the Lagrangian operators which couple the SM fermions to the TC-fermions. The couplings can involve SM fermion bilinears, as in extended Technicolor \cite{Dimopoulos:1979es,Eichten:1979ah}:
-
 \begin{equation}
 \frac{\lambda_t}{\Lambda_{UV}^{d-1}} \bar q_L \mathcal O t_R + \mathrm{h.c.} \: ,
 \label{ETC}
 \end{equation}
 %
 or can be linear in the SM fermions, as in partial compositeness \cite{Kaplan:1991dc}:
-
 \begin{equation}
 \frac{\lambda_t}{\Lambda_{UV}^{d_L - 5/2}} \bar q_L \mathcal O^L + \frac{\bar \lambda_t}{\Lambda_{UV}^{d_R - 5/2}} \bar t_R  \mathcal O^R + \mathrm{h.c.} \: .
 \label{partial_compositeness}
 \end{equation}
 %
-In the previous equations we only listed the operators participating in the generation of the top quark mass. $q_L = (t_L \: b_L)$ represents the SM third quark family left-handed doublet, $t_R$ the right-handed top quark and $\mathcal O$, $\mathcal O^L$, $\mathcal O^R$ composite operators of the TC sector. Generally the operators of equations \ref{ETC}, \ref{partial_compositeness} are non-renormalisable, and the theory must be extended with new interactions at energies larger than $\Lambda_{UV}$. The operators \ref{ETC}, \ref{partial_compositeness} thus arise as low-energy effective operators, accompanied by a power of $\Lambda_{UV}$ dictated by the scaling dimension of $\mathcal O$, $\mathcal O^L$, $\mathcal O^R$ ($d$, $d_L$, $d_R$). The particle content of the TC sector must be chosen in such a way that the composite operators can have the correct quantum numbers for coupling with SM fermions. In particular the operator $\mathcal O$ of equation \ref{ETC} must have the same quantum numbers as the SM Higgs, while $\mathcal O^L$ and $\mathcal O^R$ of equation \ref{partial_compositeness} must have spin $1/2$ and, on top of the electroweak quantum numbers, must also carry SU(3)$_C$ charge. This means that, in the partial compositeness setup, the SU(3)$_C$ symmetry must be embedded in the TC-fermion flavour symmetry, in such a way that it is not broken by the TC-fermion condensate.
+In the previous equations we only listed the operators participating in the generation of the top quark mass. Here $q_L = (t_L \: b_L)$ represents the SM third quark family left-handed doublet, $t_R$ the right-handed top quark and $\mathcal O$, $\mathcal O^L$, $\mathcal O^R$ composite operators of the TC sector. Generally the operators of equations \ref{ETC}, \ref{partial_compositeness} are non-renormalisable, and the theory must be extended with new interactions at energies larger than $\Lambda_{UV}$. The operators \ref{ETC}, \ref{partial_compositeness} thus arise as low-energy effective operators, accompanied by a power of $\Lambda_{UV}$ dictated by the scaling dimension of $\mathcal O$, $\mathcal O^L$, $\mathcal O^R$ ($d$, $d_L$, $d_R$). The particle content of the TC sector must be chosen in such a way that the composite operators can have the correct quantum numbers for coupling with SM fermions. In particular the operator $\mathcal O$ of equation \ref{ETC} must have the same quantum numbers as the SM Higgs, while $\mathcal O^L$ and $\mathcal O^R$ of equation \ref{partial_compositeness} must have spin $1/2$ and, on top of the electroweak quantum numbers, must also carry SU(3)$_C$ charge. This means that, in the partial compositeness setup, the SU(3)$_C$ symmetry must be embedded in the TC-fermion flavour symmetry, in such a way that it is not broken by the TC-fermion condensate.
 
 We now discuss the partial compositeness mechanism in some more detail, since it is relevant for the study done in this thesis. In this scenario, fermion masses are generated via mixing between SM fermions and fermionic composite states of the TC sector. We denote by $\Lambda_{TC} < \Lambda_{UV} $ the scale at which the TC gauge coupling becomes strong, and we consider the effective theory arising when the ultraviolet cutoff is fixed to $\Lambda_{TC}$. In the model considered in \cite{Kaplan:1991dc}, the operators $\mathcal O^L$, $\mathcal O^R$ mediate the coupling of the top quark to the same fermionic resonance $B$. The interactions in the effective Lagrangian look like:
-
 \begin{equation}
 \Lag_{eff}^{int} = c \Lambda_{TC}  \bigl( \lambda_t(\Lambda_{TC}) \bar t_L B_R + \bar \lambda_t(\Lambda_{TC}) \bar t_R B_L \bigr) - m_B \bar B_L B_R + \mathrm{h.c.} \; ,
 \end{equation}
 %
 where $c$ is an unknown coefficient and $\lambda_t(\Lambda_{TC})$, $\bar \lambda_t(\Lambda_{TC})$ are the coefficients appearing in equation \ref{partial_compositeness} evolved down to the scale $\Lambda_{TC}$. Under the assumption $(c \Lambda_ {TC})^2  \lambda_t(\Lambda_{TC}) \bar \lambda_t(\Lambda_{TC})/m_B^2 \ll 1$, the mass matrix has one light eigenvalue with mass
-
 \begin{equation}
 m_t \sim \frac{\lambda_t(\Lambda_{TC}) \bar \lambda_t(\Lambda_{TC})}{m_B} (c \Lambda_{TC})^2 \; ,
 \end{equation}
@@ -399,19 +369,16 @@ and one heavier eigenvalue with mass $\sim m_B$. The physical top quark is ident
 In the context of partial compositeness (and extended Technicolor as well), it is difficult to generate a realistic top quark mass, without at the same time introducing flavour changing neutral currents (FCNC) incompatible with experimental constraints. In fact, the microscopic interactions that generate the operators \ref{partial_compositeness}, \ref{ETC}  in general generate also couplings among four SM fermions, which may lead to large FCNC. For this reason, it is desirable to have a very large scale for the new microscopic interactions $\Lambda_{UV}  \gtrsim 1000 \: \mathrm{TeV}$, thus suppressing the contribution from unwanted FCNC. However, this constraint suppresses the value of the top mass as well. 
 
 This problem can be solved by assuming "walking" dynamics for the TC gauge coupling, in combination with large anomalous dimensions for the composite operators. The walking dynamics is realised when the TC gauge coupling has an approximate fixed point, so that is stays approximately constant between $\Lambda_{UV}$ and $\Lambda_{TC}$ (this point will be discussed in more detail in section \ref{ conformal_window}). This implies:
-
 \begin{equation}
 \frac{\lambda_t}{\Lambda_{UV}^{d_L - 5/2}}  = \frac{\lambda_t(\Lambda_{TC})}{\Lambda_{TC}^{d_L - 5/2}} \; , \quad \frac{\bar \lambda_t}{\Lambda_{UV}^{d_R - 5/2}}  = \frac{\bar \lambda_t(\Lambda_{TC})}{\Lambda_{TC}^{d_R - 5/2}} \: .
 \end{equation}
 %
 It follows that the couplings relevant for the generation of the top quark mass are suppressed by a power of $\Lambda_{TC}/\Lambda_{UV}$:
-
 \begin{equation}
 \lambda_t (\Lambda_{TC}) =  \lambda_t \biggl( \frac{\Lambda_{TC}}{\Lambda_{UV}} \biggr)^{d_L - \frac{5}{2}} \; , \quad \bar \lambda_t (\Lambda_{TC}) =  \bar \lambda_t \biggl( \frac{\Lambda_{TC}}{\Lambda_{UV}} \biggr)^{d_R - \frac{5}{2}} \; .
 \end{equation}
 %
 One may obtain results compatible with experiments if the scaling dimensions of $\mathcal O^L$ and $\mathcal O^R$ are such that $d_L , d_R \sim 5/2$. We consider for example a model in which the fermionic operators $\mathcal O^L$, $\mathcal O^R$ are given by the product of three TC-fermion fields. In this case:
-
 \begin{equation}
 d_L = \frac{9}{2} - \gamma_L \; , \quad d_R = \frac{9}{2} - \gamma_R   \; ,
 \end{equation}
@@ -425,7 +392,6 @@ Recent studies indicate that the required large anomalous dimensions are hard to
 \label{fundamental_partial_compositeness}
 
 In order to overcome the difficulties related to the generation of fermion masses in composite Higgs scenarios, models of fundamental partial compositeness have recently been introduced \cite{Sannino:2016sfx}. In these models, the TC sector contains as matter fields not only fermions but also scalars. The Lagrangian can be written schematically as follows:
-
 \begin{equation}
 \Lag = \Lag_{SM}^{H=0} + \Lag_{TC}^{kin} + \Lag_Y -V_S \; ,
 \end{equation}
@@ -451,13 +417,11 @@ The object of our lattice analysis is the SU(2) theory with two fundamental ferm
 
 For these first considerations, we analyse a more general model, with SU($N$) gauge group, and $N_f$ fermions and $N_S$ scalars in the fundamental representation.
 We organise the scalar and fermion fields into matrices carrying a colour index $\alpha$ and a flavour index $i$: $S_{\alpha i}$, $Q_{\alpha i}$, and we write the Lagrangian as:
-
 \begin{equation}
 \Lag = -\frac{1}{4} F_{\mu\nu}^a F^{a \mu\nu} + \tr \bigl[ \bar Q i \slashed D Q\bigr] + \tr \bigl[ (D_{\mu}S)^{\dagger} D^{\mu} S\bigr] - V_S \: ,
 \end{equation}
 %
 where $V_S$ is the scalar quartic potential. The most general quartic operators invariant under both SU($N$) and a global SU($N_S$) flavour symmetry are:
-
 \begin{equation}
 \bigl( \tr \bigl[ S^{\dagger} S \bigr] \bigr)^2 = S^*_{i \alpha} S_{\alpha i} S^*_{j \beta} S_{\beta j} \: , \quad 
 \tr \bigl[ S^{\dagger} S S^{\dagger} S \bigr] = S^*_{i \alpha} S_{\alpha j} S^*_{j \beta} S_{\beta i} \: .
@@ -465,7 +429,6 @@ where $V_S$ is the scalar quartic potential. The most general quartic operators 
 \end{equation}
 %
 It follows that the scalar quartic potential, respecting colour and flavour symmetries, is given by:
-
 \begin{equation}
 V_S = \lambda_1 \bigl( \tr \bigl[ S^{\dagger} S \bigr] \bigr)^2 + \lambda_2 \tr \bigl[ S^{\dagger} S S^{\dagger} S \bigr]  \: .
 \label{quartic_potential}
@@ -474,7 +437,6 @@ V_S = \lambda_1 \bigl( \tr \bigl[ S^{\dagger} S \bigr] \bigr)^2 + \lambda_2 \tr 
 If $N_S =1$, the two operators of equation \ref{quartic_operators} are equal, and one single scalar quartic coupling $\lambda = \lambda_1 + \lambda_2$ is present in the Lagrangian. Since it is of interest for the model studied in this thesis, we specialise the following considerations to the case $N_S = 1$. A complete analysis with generic $N_S$ has been carried out in \cite{Hansen:2017pwe}.
 
 The one-loop beta functions of the gauge coupling $g$ and the scalar quartic coupling $\lambda$ are given by \cite{Sannino:2016sfx}:
-
 \begin{equation}
 \begin{split}
  & (4 \pi)^2 \beta_g = - \biggl( \frac{11}{3} N - \frac{2}{3} N_f - \frac{1}{6} \biggr) g^3 \: ,\\
@@ -484,7 +446,6 @@ The one-loop beta functions of the gauge coupling $g$ and the scalar quartic cou
 \end{equation}
 %
 The running of $g$ and $\lambda$ as functions of the energy scale $\mu$ is determined by solving the renormalisation group equations:
-
 \begin{equation}
 \frac{\mathrm d g}{\mathrm d \ln \mu} = \beta_g (g) \: ,  \quad \frac{\mathrm d \lambda}{\mathrm d \ln \mu} = \beta_{\lambda} (\lambda,g) \: .
 \end{equation}
@@ -545,19 +506,16 @@ For our lattice study, we generated gauge and scalar field configurations with t
 \subsection{Action}
 
 For the gauge and fermion action we use the Wilson discretisation, as defined in equation \ref{lattice_action_psf}. For simplicity, we fix the lattice spacing to one, and we use the standard notation $\beta = 2 N/ g^2 = 4/g^2$. As for the scalar field $S$, we consider the Euclidean continuum action:
-
 \begin{equation}
 S_S^{cont} [A,S^{\dagger},S]= \int d^4x \biggl( (D_{\mu} S)^{\dagger} D_{\mu}S + m_S^2 |S|^ 2 + \lambda |S|^4 \biggr) \; ,
 \end{equation}
 %
 and we discretise it by assigning 
-
 \begin{equation}
 \int \dx (D_{\mu} S)^{\dagger} D_{\mu}S \to - \sum_{x,\mu} S^{\dagger} \nabla_{\mu}^* \nabla_{\mu} S \; ,
 \end{equation}
 %
 where
-
 \begin{equation}
 \begin{split}
 &\nabla_{\mu} S(x) = U_{\mu}(x)S(x + \hat\mu) - S(x)  \\
@@ -566,7 +524,6 @@ where
 \end{equation}
 %
 The resulting discretised action is: 
-
 \begin{equation}
 \begin{split}
 S_S[U,S^{\dagger},S] = & \sum_x \biggl[ - \sum_{\mu} \biggl( S^{\dagger}(x) U_{\mu}(x) S(x+\hat\mu) + S^{\dagger}(x) U_{\mu}(x-\hat\mu)^{\dagger} S(x-\hat\mu) \biggr) +  \\
@@ -576,20 +533,17 @@ S_S[U,S^{\dagger},S] = & \sum_x \biggl[ - \sum_{\mu} \biggl( S^{\dagger}(x) U_{\
 \end{equation}
 %
 where $M^2=m_S^2+8$. For future purposes, we write the action of our lattice model as:
-
 \begin{equation}
 S[U,\phi^{\dagger},\phi,S^{\dagger},S] = S_G[U] + S_F[U,\phi^{\dagger},\phi] + S_S[U,S^{\dagger},S] \: ,
 \label{action}
 \end{equation}
 %
 where $S_S$ is the scalar contribution given by equation \ref{scalar_lattice_action}, $S_G$ is the gauge contribution:
-
 \begin{equation}
 S_G[U] =  \beta \sum_{x \in \Lambda}  \sum_{\mu < \nu} \biggr[  1 - \frac{1}{\mathrm{N}} \re \tr  [U_{\mu \nu}] \biggl ] \: ,
 \end{equation}
 %
 and $S_F$ the pseudofermion contribution (for two mass-degenerate fermion flavours):
-
 \begin{equation}
 S_F[U,\phi^{\dagger},\phi]  = \sum_{x,y \in \Lambda} \phi^{\dagger}(x) Q^{-2}(x \vert y)\phi(y) \equiv \phi^{\dagger} Q^{-2} \phi \: ,
 \end{equation}
@@ -601,15 +555,12 @@ where we introduced a short-hand notation that will be useful in the following.
 \label{Forces}
 
 In order to implement the Hybrid Monte Carlo algorithm, we introduce the Hamiltonian:
-
 \begin{equation}
 H = \frac{1}{2} T_R\sum_{x,\mu}\sum_{a=1}^{N^2-1} \pi_a (x, \mu)^2 + \sum_x \sum_{i=1}^N P_i(x)P^*_i(x) + S[U,\phi^{\dagger},\phi,S^{\dagger},S] \: ,
 \end{equation}
 %
 where $\pi_a(x,\mu)$ and $P_i(x)$ are the momenta associated to the gauge and scalar fields, and $S$ is the action \ref{action}. Here, to be more general, we are referring to an SU(N) gauge group. $T_R$ is the normalisation of the SU(N) generators in the representation $R$, defined by: $\mathrm{tr} (T^aT^b) = T_R \delta^{ab}$.
 In this setup, only gauge and scalar fields evolve dynamically along the molecular dynamics trajectory. The pseudofermions are updated before starting every new trajectory according to the following rule: a field $\chi$ is extracted out of a Gaussian distribution, with probability $P[\chi] \propto \exp [-\chi^{\dagger} \chi]$, and then the pseudofermion field is defined as: $\phi = D \chi$, where $D$ is the Wilson-Dirac operator \ref{Wilson-Dirac}. The field $\phi$ defined in this way is correctly distributed according to:
-
-
 \begin{equation}
 \det[Q^2] = \det[D]^2 = \det[DD^{\dagger}] = \pi^{-N} \int \prod_{x \in \Lambda} \mathrm{d} \phi(x) \mathrm{d} \phi^{\dagger}(x) \exp \bigl[ 
 -\phi^{\dagger}(DD^{\dagger})^{-1}  \phi \bigr] \: .
@@ -621,7 +572,6 @@ U_{\mu}(x)=\exp [\frac{i}{T_R} q_a(x,\mu) T^a] \: ,
 \end{equation}
 %
 and we assign the conjugate momenta as follows:
-
 \begin{equation}
 \begin{split}
 & q_a(x,\mu) \to \pi_a(x,\mu) \\
@@ -630,7 +580,6 @@ and we assign the conjugate momenta as follows:
 \end{equation}
 %
 Hamilton's equations are given by:
-
 \begin{equation}
 \begin{split}
 & \dot{q}_a(x,\mu) = \frac{\partial H}{\partial \pi_a(x,\mu)}  =T_R \pi_a(x,\mu) \\
@@ -643,43 +592,30 @@ Hamilton's equations are given by:
 %
 where the dot indicates the derivative with respect to molecular dynamics time. For brevity we omitted the equations for $\dot S^*$ and $\dot P^*$, which are simply given by the complex conjugate of the last two lines in \ref{hamilton}.
 The first line of \ref{hamilton} can be rewritten in terms of the link variables as follows:
-
-
 \begin{equation}
 \dot{U_{\mu}}(x)= i \pi_a(x,\mu)T^a U_{\mu}(x) \; .
 \end{equation}
 %
 The driving forces are given by:
-
 \begin{equation}
-\bullet \qquad \frac{\partial S_G}{\partial q_a(x,\mu)} = - \frac{\beta}{N} \frac{1}{T_R} \mathrm{Re \; tr} \biggl[ i T^a U_{\mu}(x) V^{\dagger}_{\mu} (x) \biggr]
+\frac{\partial S_G}{\partial q_a(x,\mu)} = - \frac{\beta}{N} \frac{1}{T_R} \mathrm{Re \; tr} \biggl[ i T^a U_{\mu}(x) V^{\dagger}_{\mu} (x) \biggr]\: ,
 \end{equation}
 %
 where $V_{\mu}(x) = \sum_{\nu \neq \mu} \bigl[ U_{\nu}(x) U_{\mu}(x+\hat\nu) U_{\nu}^{\dagger}(x+\hat\mu) + 
 U_{\nu}^{\dagger}(x - \hat\nu) U_{\mu}(x - \hat\nu) U_{\nu}(x-\hat\nu+\hat\mu)\bigr]$ is the sum of the staples around the link $U_{\mu}(x)$,
-
-
 \begin{equation}
-\bullet \qquad\frac{\partial S_F}{\partial q_a(x,\mu)} =   -\biggl[ \phi^{\dagger} Q^{-2}\frac{\partial Q}{\partial q_a(x,\mu)} Q^{-1} \phi + \phi^{\dagger} Q^{-1} \frac{\partial Q}{\partial q_a(x,\mu)} Q^{-2} \phi \biggr] 
+\frac{\partial S_F}{\partial q_a(x,\mu)} =   -\biggl[ \phi^{\dagger} Q^{-2}\frac{\partial Q}{\partial q_a(x,\mu)} Q^{-1} \phi + \phi^{\dagger} Q^{-1} \frac{\partial Q}{\partial q_a(x,\mu)} Q^{-2} \phi \biggr] \: ,
 \end{equation}
 %
 where
-
 \begin{equation}
 \frac{\partial Q(x \vert y)}{\partial q_a(z,\mu)} = \gamma_5 \biggl( -\frac{i}{2T_R} (\id - \gamma_{\mu}) T^a U_{\mu}(z) \delta_{y,z+\hat\mu} \delta_{x,z} +\frac{i}{2T_R}(\id + \gamma_{\mu}) U_{\mu}^{\dagger}(z) T^a \delta_{y,z} \delta_{x-a\hat\mu,z} \biggr) \: ,
 \end{equation}
-
-
 \begin{equation}
-\bullet \qquad
-\frac{\partial S_S}{\partial q_a(x,\mu)} = - \frac{2}{T_R} \; \mathrm{Re} \biggl[ S^{\dagger}(x) i T^a U_{\mu}(x) S(x+\hat\mu) \biggr] 
+\frac{\partial S_S}{\partial q_a(x,\mu)} = - \frac{2}{T_R} \; \mathrm{Re} \biggl[ S^{\dagger}(x) i T^a U_{\mu}(x) S(x+\hat\mu) \biggr] \: ,
 \end{equation}
-
-
-
 \begin{equation}
 \begin{split}
-\bullet \qquad
 \frac{\partial S_S}{\partial S_i(x)} = & - \sum_{\mu} \biggl( S^*_k(x-\hat \mu) U_{\mu}(x-\hat\mu)_{ki} + S^*_k(x+\hat\mu) U_{\mu}(x)^{\dagger}_{ki} \biggr) +  \\
 & + M^2 S_i^*(x) + 2 \lambda S_k^*(x) S_k(x) S_i^*(x) \: .
 \end{split}
@@ -698,23 +634,67 @@ Hamilton's equations \ref{hamilton} are to be solved numerically, thus generatin
 \label{meson_spectrum}
 
 In this section, we present our results on the meson spectrum of the SU(2) gauge theory with two fundamental fermions and one fundamental scalar. We measured the mass of the isospin-triplet pseudoscalar ($m_{PS}$) and vector ($m_V$) mesons. The interpolating operators for these observables are defined in section \ref{meson_masses}. We also measured the fermion mass $m_{PCAC}$ via the PCAC relation, as described in section \ref{measure_PCAC}. Moreover, we measured the Goldstone boson decay constant $f_{PS}$. This observable (once renormalised) can be used to express the lattice spacing in physical units. In fact, as discussed in section \ref{SU2_composite_Higgs}, the $W$ boson mass is given by\footnote{Here we use a different normalisation for the Goldstone boson decay constant with respect to section \ref{SU2_composite_Higgs}. The two conventions are related by: $f = f_{PS}/(2 \sqrt 2)$.}:
-
 \begin{equation}
 m_W = \frac{g_{EW}}{2} (f_{PS})^{ren}_0 \sin \theta \: ,
 \end{equation}
 %
 where $g_{EW}$ is the SU(2)$_L$ electroweak gauge coupling and $\theta$ the alignment angle. $(f_{PS})^{ren}_0$ denotes the renormalised Goldstone boson decay constant in the chiral limit ($m_{PCAC} \to 0$). It follows that the experimental value of $m_W$ is recovered by fixing $(f_{PS})^{ren}_0 \sin \theta = v$, $v = 246 \: \mathrm{GeV}$ being the Higgs vacuum expectation value. $f_{PS}$ is computed as:
-
 \begin{equation}
 f_{PS} = \frac{2 m_{PCAC}}{m_{PS}^2} G_{PS} \: ,
 \end{equation}
 %
 where $G_{PS}$ is obtained from the large-t behaviour of the correlator $C_{\gamma_5}(t)$, defined in section \ref{meson_masses}:
-
 \begin{equation}
 C_{\gamma_5}(t) \underset{t \to \infty}{\sim} -\frac{G^2_{PS}}{m_{PS}} e^{-m_{PS} t} \: .
 \end{equation}
 
+\begin{table}
+  \begin{adjustwidth}{-4em}{-4em}
+  \begin{tabular}{l  l l l l l l l l l l}
+  \toprule
+  $m_f$ & $\lambda$ & $m_S^2$ & $L$ & $T$ & $m_{PCAC}$ & $m_{PS}$ & $f_{PS}$ & $m_V$ & $\mathcal Q_L$ & $\mathcal Q_C$ \\ 
+  \hhline{===========}
+  -0.94 & 0 & 25 & 16 & 32 & 0.0435(2) & 0.449(1) & 0.0860(6) & 0.600(3) \\
+  -0.94 & 0 & 6.25 & 16 & 32 & 0.0439(2) & 0.450(1) & 0.0868(7) & 0.602(2) & 2.03(3) $\times 10^{-6}$ & 0.1626(7)\\
+  -0.94 & 0 & 1 & 16 & 32 & 0.0415(3) & 0.440(2) & 0.084(1) & 0.595(5)\\
+  -0.94 & 0 & 0.25 & 16 & 32 & 0.0392(3) & 0.425(2) & 0.082(1) & 0.584(5) \\
+  -0.94 & 0 & 0.0625 & 16 & 32 & 0.0385(4) & 0.420(3) & 0.082(1) & 0.571(8) & 1.15(2) $\times 10^{-5}$ & 0.174(2)\\
+  -0.94 & 0 & 0.0625 & 24 & 48 & 0.0387(3) & 0.419(2) & 0.083(1) & 0.57(1) &  2.24(5) $\times 10^{-6}$ & 0.0729(3)\\
+  -0.94 & 0 & 0 & 16 & 32 & 0.0378(6) & 0.418(4) & 0.081(2) & 0.578(8)\\
+  -0.94 & 0 & -0.25 & 16 & 32 & 0.0361(5) & 0.407(3) & 0.080(1) & 0.56(1)\\
+  -0.94 & 0 & -0.5 & 16 & 32 & 0.0342(6) & 0.396(5) & 0.078(2) & 0.56(1)\\
+  -0.94 & 0 & -0.75 & 16 & 32 & 0.0291(5) & 0.367(4) & 0.073(2) & 0.53(1)\\
+  -0.94 & 0 & -1 & 16 & 32 & 0.0174(6) & 0.290(5) & 0.059(4) & 0.47(2) & 1.01(4) $\times 10^{-4}$ & 0.233(2)\\
+  -0.94 & 0 & -1 & 24 & 48 & 0.0150(6) & 0.255(5) & 0.058(2) & 0.43(4) & 2.0(1) $\times 10^{-5}$ & 0.117(1)\\
+  \midrule
+  -0.94 & 2 & 25 & 16 & 32 & 0.0441(5) & 0.452(3) & 0.087(1) & 0.604(8)\\
+  -0.94 & 2 & 6.25 & 16 & 32 & 0.0435(3) & 0.449(2) & 0.086(1) & 0.604(6)\\
+  -0.94 & 2 & 1 & 16 & 32 & 0.0431(4) & 0.446(3) & 0.086(1) & 0.595(7)\\
+  -0.94 & 2 & 0.25 & 16 & 32 & 0.0419(5) & 0.441(3) & 0.085(1) & 0.60(1) \\
+  -0.94 & 2 & -0.5 & 16 & 32 & 0.0400(5) & 0.430(4) & 0.082(2) & 0.59(1)\\
+  -0.94 & 2 & -1 & 16 & 32 & 0.0398(5) & 0.431(3) & 0.082(2) & 0.59(1)\\
+  -0.94 & 2 & -1.2 & 16 & 32 & 0.0399(4) & 0.428(3) & 0.083(1) & 0.583(8)\\
+  -0.94 & 2 & -2 & 16 & 32 & 0.0363(4) & 0.408(3) & 0.080(1) & 0.565(8)\\
+  -0.94 & 2 & -3 & 16 & 32 & 0.0207(6) & 0.315(5) & 0.063(2) & 0.50(1)\\
+  -0.94 & 2 & -3.1 & 16 & 32 & 0.017(1) & 0.298(8) & 0.056(3) & 0.49(3) & 1.02(3) $\times 10^{-4}$ & 0.233(4)\\
+  -0.94 & 2 & -3.2 & 16 & 32 & -0.003(6) & 0.25(3) & -0.01(2) & 0.5(1) & 3.8(7) $\times 10^{-4}$ & 0.34(2)\\
+  -0.94 & 2 & -3.6 & 16 & 32 & -0.28(2) & 1.04(4) & -0.2(1) & 1.10(3) & 0.2166(1) & 1.0965(3)\\
+  \midrule
+  -0.952 & 2 & 25 & 32 & 32 & 0.0203(5) & 0.301(5) & 0.066(2) & 0.48(2) & 7.1(2) $\times 10^{-8}$ & 0.0472(3)\\
+  -0.952 & 2 & 4 & 32 & 32 & 0.0203(5) & 0.302(4) & 0.066(1) & 0.48(1) & 3.07(5) $\times 10^{-7}$ & 0.0466(3)\\
+  -0.952 & 2 & 1 & 32 & 32 & 0.0184(6) & 0.286(6) & 0.064(2) & 0.47(2) & 5.4(1) $\times 10^{-7}$ & 0.0486(3)\\
+  -0.952 & 2 & 0.5 & 32 & 32 & 0.0190(6) & 0.292(5) & 0.065(2) & 0.47(2) & 6.1(1) $\times 10^{-7}$ & 0.0480(3) \\
+  -0.952 & 2 & 0 & 32 & 32 & 0.0182(7) & 0.287(5) & 0.064(2) & 0.47(2) &  7.1(2) $\times 10^{-7}$ & 0.0486(4)\\
+  -0.952 & 2 & -0.5 & 32 & 32 & 0.0175(6) & 0.280(5) & 0.063(2) & 0.46(3) & 8.9(2) $\times 10^{-7}$ & 0.0501(4)\\
+  -0.952 & 2 & -1 & 32 & 32 & 0.0162(8) & 0.270(8) & 0.061(3) & 0.46(3) & 1.10(3) $\times 10^{-6}$ & 0.0509(6)\\
+  -0.952 & 2 & -2 & 32 & 32  & 0.013(1) & 0.245(8) & 0.058(3) & 0.43(5) & 1.8(2) $\times 10^{-6}$ & 0.0560(7)\\
+  \bottomrule
+  \end{tabular}
+  \end{adjustwidth}
+  \caption{In this table we report our results, obtained at a fixed value of the inverse gauge coupling $\beta = 2$, and different values of $m_f$, $\lambda$ and $m_S^2$. The observables under analysis are: the fermion mass $m_{PCAC}$, the pseudoscalar meson mass $m_{PS}$, the vector meson mass $m_V$, the Goldstone boson decay constant $f_{PS}$ and the gauge-dependent order parameters $\mathcal Q_L$ and $\mathcal Q_C$. The latter have only been measured in some of the ensembles. All the results are expressed in lattice units. The values of $m_{PCAC}$ and $f_{PS}$ are unrenormalised.}
+  \label{data}
+  \end{table}
+  
 
 Renormalisation has not been addressed in our work yet, and the values of $m_{PCAC}$ and $f_{PS}$ that we quote are unrenormalised. Moreover, all our results, listed in table \ref{data}, are expressed in lattice units. For our measurements, we chose values of the inverse gauge coupling $\beta$ and of the bare fermion mass $m_f$ that have already been studied in the SU(2) gauge theory with two fundamental fermions \cite{Arthur:2016dir}. In particular, at the current status of our analysis, we considered one single value of $\beta$ ($\beta = 2$) and two values of the bare fermion mass: $m_f = -0.94, -0.952$. For each choice of $m_f$, we simulated several values of the squared scalar mass $m_S^2$, and, in the case of $m_f = -0.94$, we repeated the analysis for two different values of the scalar quartic coupling $\lambda$. In a few cases, we repeated the measurements with the same bare parameters at two different lattice volumes. We consider lattices with the same extent in all spacial directions $L_1 = L_2 = L_3 \equiv L$, and we denote the lattice time extent by $T \equiv L_0$. 
 
@@ -723,7 +703,7 @@ In figure \ref{mesons_mS}, we plot the PCAC mass, the meson masses and the Golds
 
 
 
-\begin{figure}[thb] 
+\begin{figure}[b!] 
 \begin{adjustwidth}{-4em}{-4em}
   \includegraphics[width=9cm,clip]{pics/mesons_094} ~\includegraphics[width=9cm,clip]{pics/mesons_0952} 
   \end{adjustwidth}
@@ -732,19 +712,16 @@ In figure \ref{mesons_mS}, we plot the PCAC mass, the meson masses and the Golds
 \end{figure}
 
 In figure \ref{mesons_094_PCAC}, we plot $m_{PS}$, $m_V$ and $f_{PS}$ as functions of $m_{PCAC}$, for $m_f = -0.94$. In the left panel we report all our data points, while in the right panel we omit two points, corresponding to ($\lambda$, $m_S^2$) = (2, -3.6), (2, -3.2). Together with our data, we report fits to the data of the SU(2)-2F model. The forms of the fitting functions for $m_{PS}$ and $f_{PS}$ are motivated by chiral perturbation theory, and are given by:
-
 \begin{equation}
 \frac{m_{PS}^2}{m_{PCAC}} = M_0 \bigl[ 1 + M_1 m_{PCAC} \log (m_{PCAC}) + M_2 m_{PCAC} \bigr] \: ,
 \label{fit_PS}
 \end{equation}
-
 \begin{equation}
 f_{PS} = F_0 \bigl[ 1+ F_1 m_{PCAC} \log (m_{PCAC}) + F_2 m_{PCAC} \bigr] \: ,
 \label{fit_fPS}
 \end{equation}
 %
 while for $m_V$ the following polynomial ansatz is used:
-
 \begin{equation}
 m_V = V_0 + V_1 m_{PCAC} + V_2 m_{PCAC}^2 \: .
 \label{fit_V}
@@ -765,7 +742,7 @@ It can be observed that, once the points ($\lambda$, $m_S^2$) = (2, -3.6), (2, -
 In figure \ref{mesons_l2_PCAC} we plot $m_{PS}$, $m_V$ and $f_{PS}$ as functions of $m_{PCAC}$, for $\lambda = 2$ and the two available values of $m_f$. The points ($m_f$, $\lambda$, $m_S^2$) = (-0.94, 2, -3.6), (-0.94, 2, -3.2) are excluded. The curves are the same as in figure \ref{mesons_094_PCAC}. We again observe an impressive agreement with the data of the SU(2)-2F model. As the PCAC mass becomes lighter, the data at $m_f = -0.94$ start to show small deviations with respect to the curves, as the presumed phase transition approaches, while the $m_f = -0.952$ data are still in very good agreement with the curves. We presume that the phase transition will occur also in the case $m_f = -0.952$, $\lambda = 2$, even though we have not yet reached the critical value of $m_S^2$ in our analysis.
 
 
-\begin{figure}[thb] 
+\begin{figure}[t!] 
 \begin{center}
  \includegraphics[width=11cm,clip]{pics/mesons_l2_PCAC_fit}
   \end{center}
@@ -778,52 +755,6 @@ To conclude, our somewhat preliminary analysis of the meson spectrum of the SU(2
 Another interesting result is the impressive agreement between our results and the results  of the SU(2) theory with two fundamental fermions \cite{Arthur:2016dir}, once the meson masses and Goldstone boson decay constant are expressed as functions of $m_{PCAC}$. In particular, our data fall pretty accurately on top of the curves obtained by fitting the data of the SU(2)-2F model, provided we exclude some of the data which presumably belong to a different phase. This seems to indicate that the main influence of the scalar field on the meson observables is due to a shift of the PCAC mass. The last interesting observation, for which we have no explanation at the moment, is the occurrence of large finite volume effects in $m_{PCAC}$ and $m_{PS}$ at ($m_f$, $\lambda$, $m_S^2$) = (-0.94, 0, -1).
 
 
-\begin{table}
-\begin{adjustwidth}{-4em}{-4em}
-\begin{tabular}{l  l l l l l l l l l l}
-\toprule
-$m_f$ & $\lambda$ & $m_S^2$ & $L$ & $T$ & $m_{PCAC}$ & $m_{PS}$ & $f_{PS}$ & $m_V$ & $\mathcal Q_L$ & $\mathcal Q_C$ \\ 
-\hhline{===========}
--0.94 & 0 & 25 & 16 & 32 & 0.0435(2) & 0.449(1) & 0.0860(6) & 0.600(3) \\
--0.94 & 0 & 6.25 & 16 & 32 & 0.0439(2) & 0.450(1) & 0.0868(7) & 0.602(2) & 2.03(3) $\times 10^{-6}$ & 0.1626(7)\\
--0.94 & 0 & 1 & 16 & 32 & 0.0415(3) & 0.440(2) & 0.084(1) & 0.595(5)\\
--0.94 & 0 & 0.25 & 16 & 32 & 0.0392(3) & 0.425(2) & 0.082(1) & 0.584(5) \\
--0.94 & 0 & 0.0625 & 16 & 32 & 0.0385(4) & 0.420(3) & 0.082(1) & 0.571(8) & 1.15(2) $\times 10^{-5}$ & 0.174(2)\\
--0.94 & 0 & 0.0625 & 24 & 48 & 0.0387(3) & 0.419(2) & 0.083(1) & 0.57(1) &  2.24(5) $\times 10^{-6}$ & 0.0729(3)\\
--0.94 & 0 & 0 & 16 & 32 & 0.0378(6) & 0.418(4) & 0.081(2) & 0.578(8)\\
--0.94 & 0 & -0.25 & 16 & 32 & 0.0361(5) & 0.407(3) & 0.080(1) & 0.56(1)\\
--0.94 & 0 & -0.5 & 16 & 32 & 0.0342(6) & 0.396(5) & 0.078(2) & 0.56(1)\\
--0.94 & 0 & -0.75 & 16 & 32 & 0.0291(5) & 0.367(4) & 0.073(2) & 0.53(1)\\
--0.94 & 0 & -1 & 16 & 32 & 0.0174(6) & 0.290(5) & 0.059(4) & 0.47(2) & 1.01(4) $\times 10^{-4}$ & 0.233(2)\\
--0.94 & 0 & -1 & 24 & 48 & 0.0150(6) & 0.255(5) & 0.058(2) & 0.43(4) & 2.0(1) $\times 10^{-5}$ & 0.117(1)\\
-\midrule
--0.94 & 2 & 25 & 16 & 32 & 0.0441(5) & 0.452(3) & 0.087(1) & 0.604(8)\\
--0.94 & 2 & 6.25 & 16 & 32 & 0.0435(3) & 0.449(2) & 0.086(1) & 0.604(6)\\
--0.94 & 2 & 1 & 16 & 32 & 0.0431(4) & 0.446(3) & 0.086(1) & 0.595(7)\\
--0.94 & 2 & 0.25 & 16 & 32 & 0.0419(5) & 0.441(3) & 0.085(1) & 0.60(1) \\
--0.94 & 2 & -0.5 & 16 & 32 & 0.0400(5) & 0.430(4) & 0.082(2) & 0.59(1)\\
--0.94 & 2 & -1 & 16 & 32 & 0.0398(5) & 0.431(3) & 0.082(2) & 0.59(1)\\
--0.94 & 2 & -1.2 & 16 & 32 & 0.0399(4) & 0.428(3) & 0.083(1) & 0.583(8)\\
--0.94 & 2 & -2 & 16 & 32 & 0.0363(4) & 0.408(3) & 0.080(1) & 0.565(8)\\
--0.94 & 2 & -3 & 16 & 32 & 0.0207(6) & 0.315(5) & 0.063(2) & 0.50(1)\\
--0.94 & 2 & -3.1 & 16 & 32 & 0.017(1) & 0.298(8) & 0.056(3) & 0.49(3) & 1.02(3) $\times 10^{-4}$ & 0.233(4)\\
--0.94 & 2 & -3.2 & 16 & 32 & -0.003(6) & 0.25(3) & -0.01(2) & 0.5(1) & 3.8(7) $\times 10^{-4}$ & 0.34(2)\\
--0.94 & 2 & -3.6 & 16 & 32 & -0.28(2) & 1.04(4) & -0.2(1) & 1.10(3) & 0.2166(1) & 1.0965(3)\\
-\midrule
--0.952 & 2 & 25 & 32 & 32 & 0.0203(5) & 0.301(5) & 0.066(2) & 0.48(2) & 7.1(2) $\times 10^{-8}$ & 0.0472(3)\\
--0.952 & 2 & 4 & 32 & 32 & 0.0203(5) & 0.302(4) & 0.066(1) & 0.48(1) & 3.07(5) $\times 10^{-7}$ & 0.0466(3)\\
--0.952 & 2 & 1 & 32 & 32 & 0.0184(6) & 0.286(6) & 0.064(2) & 0.47(2) & 5.4(1) $\times 10^{-7}$ & 0.0486(3)\\
--0.952 & 2 & 0.5 & 32 & 32 & 0.0190(6) & 0.292(5) & 0.065(2) & 0.47(2) & 6.1(1) $\times 10^{-7}$ & 0.0480(3) \\
--0.952 & 2 & 0 & 32 & 32 & 0.0182(7) & 0.287(5) & 0.064(2) & 0.47(2) &  7.1(2) $\times 10^{-7}$ & 0.0486(4)\\
--0.952 & 2 & -0.5 & 32 & 32 & 0.0175(6) & 0.280(5) & 0.063(2) & 0.46(3) & 8.9(2) $\times 10^{-7}$ & 0.0501(4)\\
--0.952 & 2 & -1 & 32 & 32 & 0.0162(8) & 0.270(8) & 0.061(3) & 0.46(3) & 1.10(3) $\times 10^{-6}$ & 0.0509(6)\\
--0.952 & 2 & -2 & 32 & 32  & 0.013(1) & 0.245(8) & 0.058(3) & 0.43(5) & 1.8(2) $\times 10^{-6}$ & 0.0560(7)\\
-\bottomrule
-\end{tabular}
-\end{adjustwidth}
-\caption{In this table we report our results, obtained at a fixed value of the inverse gauge coupling $\beta = 2$, and different values of $m_f$, $\lambda$ and $m_S^2$. The observables under analysis are: the fermion mass $m_{PCAC}$, the pseudoscalar meson mass $m_{PS}$, the vector meson mass $m_V$, the Goldstone boson decay constant $f_{PS}$ and the gauge-dependent order parameters $\mathcal Q_L$ and $\mathcal Q_C$. The latter have only been measured in some of the ensembles. All the results are expressed in lattice units. The values of $m_{PCAC}$ and $f_{PS}$ are unrenormalised.}
-\label{data}
-\end{table}
 
 
 
@@ -832,14 +763,12 @@ $m_f$ & $\lambda$ & $m_S^2$ & $L$ & $T$ & $m_{PCAC}$ & $m_{PS}$ & $f_{PS}$ & $m_
 In fundamental partial compositeness models, as discussed in section \ref{fundamental_partial_compositeness}, fermionic bound states made by one fermion and one scalar are involved in the generation of Standard Model fermion masses, and it is therefore very interesting to measure their mass spectrum. In this section, we report our very preliminary analysis of the spectrum of bound states involving the scalar field. Our analysis did not lead to any results yet, and we will need to apply more refined techniques in order to measure this part of the spectrum.  
 
 To measure the mass of spin-zero states formed by a scalar-antiscalar pair, we consider the correlator:
-
 \begin{equation}
 C(t) = \frac{1}{T} \sum_{\tau=0}^{T-1} \sum_{\vec x,\vec y} \langle S^{\dagger}(\vec x,\tau + t) S(\vec x, \tau + t) S^{\dagger}(\vec y,\tau) S(\vec y,\tau) \rangle \; .
 \label{scalar_correlator}
 \end{equation}
 %
 In order to subtract the contributions from disconnected diagrams, we study $C(t)-C(t+1)$ as a function of $t$, as shown  in figure \ref{spectrum_scalar}. We observe that the decay with increasing $t$ is very fast, which suggests that no light states are present in this channel. The data are very noisy, and do not allow us to extract the coefficient of the exponential decay at large $t$.
-
 \begin{figure}[thb] 
 \begin{center}
   \includegraphics[width=9.5cm,clip]{pics/spectrum_scalar}  
@@ -850,26 +779,21 @@ In order to subtract the contributions from disconnected diagrams, we study $C(t
 
 
 To study fermionic bound states made by one fermion and one scalar, we consider two kinds of correlators:
-
 \begin{equation}
 C_F(t) =  \frac{1}{L^3} \sum_{\vec x,\vec y} \langle S^{\dagger}(\vec x, t) \psi_i(\vec x, t) \bar\psi_i(\vec y,0) S(\vec y,0) \rangle \: ,
 \label{corr_trace}
 \end{equation}
-
-
 \begin{equation}
 C^{\pm}_F(t) = \frac{1}{L^3} \sum_{\vec x,\vec y}\langle (\id \pm\gamma_0)_{ij} S^{\dagger}(\vec x,t) \psi_j(\vec x,t)\bar\psi_k(\vec y,0)S(\vec y,0) (\id \pm \gamma_0)_{ki} \rangle \: ,
 \label{corr_pm}
 \end{equation}
 %
 where all the repeated spin indices $i$, $j$, $k$ are summed over. The correlator $C^{\pm}_F$ is built by using the parity-eigenstate operators $O^{\pm}_i(x) = (\id \pm \gamma_0)_{ij} S^{\dagger}(x) \psi_j (x)$. In figures \ref{spectrum_trace}, \ref{spectrum_parity_plus}, \ref{spectrum_parity_minus}, we report our cleanest results for these correlators. The decay is again very fast, indicating the absence of light states. For the computation of the term $\sum_{\vec y}\langle \psi_i(x) \bar \psi_j(\vec y, 0)  \rangle S(\vec y,0) = \sum_{\vec y}D^{-1}(x \vert \vec y,0)_{ij} S(\vec y, 0)$, we use the scalar field as a source in the inversion of the Dirac operator, i.e. we invert the equation:
-
 \begin{equation}
 \sum_{y,\vec z} \sum_{b,c,\beta, \gamma} D(x \vert y)_{a b}^{\alpha \beta}D^{-1}(y \vert \vec z, 0)_{b c}^{\beta \gamma} S_c(\vec z,0) \delta^{\gamma \gamma_0} = S_a(\vec x,0)\delta^{\alpha \gamma_0} \: ,
 \end{equation}
 %
 where $D(x \vert y)$ is the Wilson-Dirac operator \ref{Wilson-Dirac}, $a$, $b$ and $c$ are colour indices and $\alpha$, $\beta$ and $\gamma$ are spin indices.
-
 \begin{figure}[thb] 
 \begin{adjustwidth}{-4em}{-4em}
   \includegraphics[width=9cm,clip]{pics/spectrum_trace}\includegraphics[width=9cm,clip]{pics/spectrum_trace_log}
@@ -896,21 +820,21 @@ where $D(x \vert y)$ is the Wilson-Dirac operator \ref{Wilson-Dirac}, $a$, $b$ a
 \end{figure}
 
 
-The results of our very preliminary analysis of the spectrum of bound states of the scalar field can be summarised by saying that no light states have been observed, and more refined techniques must be used to obtain quantitative results. In particular, we may need to consider a larger operator basis and to introduce some smearing of the operators. Probably larger statistics would also help. For example, in \cite{Wurtz:2013ova} the spectrum of the SU(2)-Higgs theory is computed on an ensemble of 20000 configurations, while we used ensembles of $\sim 2000$ configurations for our measurements. 
+The results of our very preliminary analysis of the spectrum of bound states of the scalar field can be summarised by saying that no light states have been observed, and more refined techniques must be used to obtain quantitative results. In particular, we may need to consider a larger operator basis and to introduce some smearing of the operators. Probably larger statistics would also help. For example, in \cite{Wurtz:2013ova} the spectrum of the SU(2)-Higgs theory is computed on an ensemble of 20000 configurations, while we used ensembles of $\sim 2000$ configurations for our measurements.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Higgs phase}
 
 In this section, we address the question of whether the scalar field can induce spontaneous gauge symmetry breaking in the SU(2) gauge theory with two fundamental fermions and one fundamental scalar. We take inspiration from \cite{Caudy:2007sf}, where the phase diagram of the SU(2)-Higgs model is analysed in relation to the question of spontaneous gauge symmetry breaking. In studies of the SU(2)-Higgs model, the scalar field action is usually expressed as:
-
-\begin{equation}
-S_S =  \sum_x \biggl[ S^{\dagger}(x) S(x) + \tilde \lambda \bigl( S^{\dagger}(x) S(x) - 1 \bigr)^2 
- - \gamma\sum_{\mu}   \biggl( S^{\dagger}(x) U_{\mu}(x) S(x+\hat\mu) +  S^{\dagger}(x) U_{\mu}(x-\hat\mu)^{\dagger} S(x-\hat\mu)\biggr)  \biggr] \; ,
-\end{equation}
+\begin{eqnarray}
+\begin{split}
+  S_S =  \sum_x &\biggl[ S^{\dagger}(x) S(x) + \tilde \lambda \bigl( S^{\dagger}(x) S(x) - 1 \bigr)^2 - \\ 
+ &- \gamma\sum_{\mu}   \biggl( S^{\dagger}(x) U_{\mu}(x) S(x+\hat\mu) +  S^{\dagger}(x) U_{\mu}(x-\hat\mu)^{\dagger} S(x-\hat\mu)\biggr)  \biggr]\; ,
+\end{split}
+\end{eqnarray}
 %
 where the coefficients $\tilde \lambda$ and $\gamma$ are related to our $\lambda$ and $m_S^2$ by the following equations:
-
 \begin{equation}
 \begin{cases}
 \lambda = \tilde \lambda/\gamma^2\\
@@ -930,34 +854,28 @@ A schematic picture of the phase diagram of the SU(2)-Higgs model, in the infini
 \end{figure}
 
 The authors of \cite{Caudy:2007sf} address the question of whether the concept of gauge symmetry breaking can be used to distinguish between the Higgs and the confinement phase, i.e. whether the phase diagram of the SU(2)-Higgs model can be unambiguously separated in a symmetric region and a broken-symmetry region. The first thing that they point out, is that gauge symmetries cannot be spontaneously broken, due to the Elitzur theorem \cite{Elitzur:1975im}. As a consequence, unless the gauge is fixed, the vacuum expectation value of the scalar field is always zero. Only global subgroups of the gauge symmetry group can be spontaneously broken. "Global" refers to transformations depending on a finite number of parameters, which is independent of the volume. As a contrast, local transformations depend on a number of parameters which grows with the lattice volume. The breaking of some global subgroup can be studied by fixing a gauge which leaves the desired global subgroup unfixed, and then measuring an order parameter which transforms nontrivially under the remnant symmetry. In \cite{Caudy:2007sf}, the Landau and Coulomb gauges are considered. The Landau gauge is defined by:
-
 \begin{equation}
 \partial_{\mu} A_{\mu} = 0 \:  \rightarrow \sum_{\mu =0}^3 \bigl( A_{\mu}(x) - A_{\mu}(x - \hat\mu) \bigr) = 0 \: ,
 \end{equation}
 %
 and the Coulomb gauge by:
-
 \begin{equation}
 \partial_i A_i = 0 \: \rightarrow \sum_{i =1}^3 \bigl( A_i (x) - A_i(x - \hat i) \bigr) = 0 \: ,
 \end{equation}
 %
 where we reported both the continuum and the discretised forms of the gauge conditions (and the lattice spacing is fixed to one). When the Landau gauge is fixed, there is a remnant symmetry under transformations constant in space: $\Omega (x) \equiv \Omega$. An order parameter $\mathcal Q_L$ can be defined as follows: 
-
 \begin{equation}
 \bar S = \frac{1}{V} \sum_{x} S(x) \: ,
 \end{equation}
-
 \begin{equation}
 \mathcal Q_L = \langle \bar S^{\dagger} \bar S \rangle \: .
 \end{equation}
 %
 The average scalar $\bar S$ transforms nontrivially under constant gauge transformations, and the scaling of $\mathcal Q_L$ with the lattice volume indicates whether the symmetry is broken or not. When the symmetry is broken, $\mathcal Q_L$ goes to a finite constant in the infinite-volume limit $V = TL^3 \to \infty$, while in the symmetric phase $\mathcal Q_L \to 0$ as $V \to \infty$.
 When the Coulomb gauge is fixed, on top of constant gauge transformations there is a larger remnant global symmetry, corresponding to transformations constant in space but not in time: $\Omega (x) \equiv \Omega (t)$. An order parameter $\mathcal Q_C$ for the breaking of this global subgroup is given by:
-
 \begin{equation}
 \tilde U(t) = \frac{1}{L^3} \sum_{\vec x} U_{0}(\vec x,t) \: ,
 \end{equation}
-
 \begin{equation}
 \mathcal Q_C = \frac{1}{T} \sum_{t=0}^{T-1} \langle \tr [\tilde U(t) \tilde U(t)^{\dagger}] \rangle \: .
 \end{equation}
@@ -981,13 +899,11 @@ We thought it interesting to analyse the behaviour of the gauge-dependent order 
 \subsection{SU(2)-Higgs model}
 
 As a first step, we considered the SU(2)-Higgs model at $\beta = 2$ and the two different values of $\lambda$ analysed in our study of SU(2) with two fermions and one scalar ($\lambda = 0, 2$). In order to locate the symmetry-breaking transition in parameter space, we simulated different values of the squared scalar mass $m_S^2$, gaugefixed the gauge and scalar configurations in both the Landau and Coulomb gauge, and measured the order parameters $\mathcal Q_L$ and $\mathcal Q_C$. In each ensemble, we also measured the scalar condensate $S^{\dagger} S$:
-
 \begin{equation}
 S^{\dagger} S = \frac{1}{V} \sum_x S^{\dagger}(x) S(x) \: ,
 \end{equation}
 %
 and the plaquette:
-
 \begin{equation}
 U =  \frac{1}{6V} \sum_x \sum_{\mu < \nu} \frac{1}{2} \mathrm{Re} \tr[U_{\mu\nu}(x)] \: .
 \end{equation}

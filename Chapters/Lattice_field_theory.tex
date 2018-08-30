@@ -12,14 +12,12 @@
 We can build a non-perturbative tool for quantum field theory by exploiting the strong similarity between quantum field theory and statistical mechanics. This gives us the possibility of applying Monte Carlo simulations, an intrinsically non-perturbative method, to quantum field theory.
 
 In the path-integral formulation of quantum field theory, the generating functional of correlation functions is defined as:
-
 \begin{equation}
 Z[J] = \int \D \phi \exp \biggl[ i \int \dx \: \bigl( \Lag[\phi] + J(x)\phi(x) \bigr) \biggr] \: ,
 \label{QFT_generator}
 \end{equation}
 %
 where $\phi$ generically represents the field content of the theory, $\Lag$ is the Lagrangian and $J(x)$ is an external source field. $n$-point functions are obtained by applying the functional derivative $\delta / \delta J(x)$ to $Z[J]$ as follows:
-
 \begin{equation}
 \begin{split}
 \bra{0} \mathrm T \phi(x_1) \dots \phi(x_n) \ket{0} = & \frac{1}{Z[0]} \prod_{i=1}^n \biggl( -i \frac{\delta}{\delta J(x_i)} \biggr) Z[J] \biggr\vert_{J=0} = \\
@@ -32,20 +30,17 @@ where $\ket{0}$ represents the vacuum state and T the time-ordered product.
 By performing a Wick rotation, we can make the generating functional \ref{QFT_generator} to be formally equal to the partition function of a statistical mechanical model.
 
 As a concrete example, we consider a complex scalar field theory, with action:
-
 \begin{equation}
 S[\phi,\phi^*] = \int \dx \: \Lag[\phi,\phi^*] = \int \dx \bigl( \partial_{\mu} \phi^* \partial^{\mu} \phi - m^2 \abs{\phi}^2 -\lambda \abs{\phi}^4 \bigr) \; ,
 \end{equation}
 %
 and generating functional:
-
 \begin{equation}
-Z[J,J^*] = \int \D \phi \D \phi^* \exp \biggl[ i S[\phi,\phi^*] + i \int \dx \: J^*(x) \phi(x) + i \int \dx \: \phi^*(x) J(x) \biggr] \; .
+Z[J,J^*] = \int \D \phi \D \phi^* \exp \biggl[ i S[\phi,\phi^*] + i \int \dx \: J^*(x) \phi(x) + \phi^*(x) J(x) \biggr] \; .
 \label{scalar_gen_functional}
 \end{equation}
 %
 After performing a Wick rotation ($x^0 = -i x^0_E$, $x^i = x^i_E$), the following changes occur:
-
 \begin{equation}
 \begin{split}
 & i\dx =  \dx_E \\
@@ -54,15 +49,13 @@ After performing a Wick rotation ($x^0 = -i x^0_E$, $x^i = x^i_E$), the followin
 \end{equation}
 %
 We define the Euclidean action as:
-
 \begin{equation}
 S_E[\phi,\phi^*] = \int \dx_E \bigl( \delta_{\mu\nu} \partial^{\mu}_E \phi^* \partial^{\nu}_E \phi + m^2 \abs{\phi}^2 + \lambda \abs{\phi}^4  \bigr) \; ,
 \end{equation}
 %
 and we find that the generating functional
-
 \begin{equation}
-Z[J,J^*] = \int \D \phi \D \phi^* \exp \biggl[ - \biggl( S_E[\phi,\phi^*] - \int \dx_E J(x_E) \phi(x_E) - \int \dx_E J^*(x_E) \phi^*(x_E) \biggr) \biggr] 
+Z[J,J^*] = \int \D \phi \D \phi^* \exp \biggl[ - \biggl( S_E[\phi,\phi^*] - \int \dx_E J(x_E) \phi(x_E) - J^*(x_E) \phi^*(x_E) \biggr) \biggr] 
 \end{equation}
 %
 is now formally equal to the partition function of a statistical mechanical system.
@@ -72,7 +65,6 @@ is now formally equal to the partition function of a statistical mechanical syst
 \section{Monte Carlo simulations}
 
 In statistical mechanics, the probability for a system in thermal equilibrium to be found in the microscopical configuration $\phi$ is given by:
-
 \begin{equation}
 P[\phi] = \frac{e^{-H[\phi]/k_B T}}{Z} \; ,
 \end{equation}
@@ -81,13 +73,11 @@ $Z=\sum_{\phi} \exp[-H[\phi]/k_B T]$ being the partition function, $H[\phi]$ the
 
 In the previous section, we argued that a quantum field theory, defined by the action $
 S[\phi]$, is equivalent to a statistical mechanical model with partition function
-
 \begin{equation}
 Z = \int \D \phi \: e^{- S_E[\phi]}
 \end{equation}
 %
 (here for simplicity we consider the case of zero external source). We can apply the Monte Carlo method for generating configurations distributed according to:
-
 \begin{equation}
 P[\phi] = \frac{e^{-S_E[\phi]}}{Z} \: .
 \label{Boltz_dist}
@@ -95,7 +85,6 @@ P[\phi] = \frac{e^{-S_E[\phi]}}{Z} \: .
 
 
 Once we have an ensemble of such configurations, $n$-point functions are calculated by averaging products of fields over the configurations:
-
 \begin{equation}
 \frac{1}{Z} \int \D \phi \: \phi(x_1) \dots \phi(x_n) e^{ -S_E[\phi]} \longrightarrow \frac{1}{N}\sum_{i=1}^N \phi_i(x_1) \dots \phi_i(x_n) \; ,
 \label{n_point_f}
@@ -105,20 +94,18 @@ where $\phi_i(x_j)$ is the value of the field $\phi$ at the space-time point $x_
 
 
 In order to construct a Monte Carlo simulation, we consider a stochastic process generating a sequence of configurations.  We start from an initial configuration $\phi_0$ at "Monte-Carlo time" (MC-time) $t = 0$, and move to a new configuration $\phi_1$ with transition probability $W(\phi_0 \to \phi_1)$. The following normalisation condition holds for the transition probability $W$:
-
 \begin{equation}
 \sum_{\phi'} W(\phi \to \phi') = 1 \; .
 \label{prob_norm}
 \end{equation}
 %
 We repeat this procedure many times, thus generating a sequence of configurations. The probability $P[\phi; t]$ of being in the configuration $\phi$ at MC-time $t$ fulfils the following condition:
-
 \begin{equation}
 P[\phi; t] = \sum_{\phi'} P[\phi'; t-1] W(\phi' \to \phi) \; .
 \label{prob_evolution}
 \end{equation}
 
-We want the stochastic process to have the Boltzmann distribution $P_B[\phi] = \exp[-S_E[\phi]]/Z$ as an attractive fixed point. This means that, after some thermalisation time $t_T$, the probability distribution stops changing with MC-time, and it equals the Boltzmann distribution: $P[\phi; t>t_T] = P_B[\phi]$. If we are able to build such a stochastic process, then we can obtain an ensemble of Boltzmann-distributed configurations on which we can apply equation \ref{n_point_f} for calculating $n$-point functions.
+We want the stochastic process to have the Boltzmann distribution $P_B[\phi] = \exp[-S_E[\phi]]/Z$ as an attractive fixed point. This means that the probability distribution $P[\phi; t]$ approaches $P_B[\phi]$ in the limit of large $t$. In practical simulations, after some thermalisation time $t_T$, the probability distribution stops changing with MC-time, and it equals the Boltzmann distribution: $P[\phi; t>t_T] = P_B[\phi]$. If we are able to build such a stochastic process, then we can obtain an ensemble of Boltzmann-distributed configurations on which we can apply equation \ref{n_point_f} for calculating $n$-point functions.
 
 It follows from equation \ref{prob_evolution} that, if $P_B$ is a fixed point of the stochastic process, then:
 
