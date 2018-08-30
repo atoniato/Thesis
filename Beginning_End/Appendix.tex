@@ -250,7 +250,7 @@ The probability to evolve from a scalar field configuration $\phi$ to $\phi'$ in
 
 \begin{equation}
 W(\phi \to \phi') = \int \prod_{x} \mathrm{d} \pi(x) \mathrm{d} \pi'(x)  W_M(\pi,\phi \to \pi',\phi') W_{\mathrm{md}}(\pi,\phi \to \pi',\phi') e^{-\sum_x \pi(x)^2 /2} \: .
-\label{proof1}
+\label{proofP}
 \end{equation}
 %
 We rewrite Metropolis transition probability as follows:
@@ -263,7 +263,7 @@ W_M(\pi,\phi \to \pi',\phi') & = \min \biggl[ 1, \frac{e^{-H[\pi',\phi']}}{e^{-H
 \end{split}
 \end{equation}
 %
-and we insert this expression in equation \ref{proof1}:
+and we insert this expression in equation \ref{proofP}:
 
 \begin{equation}
 \begin{split}
@@ -280,10 +280,10 @@ W(\phi \to \phi') = & \exp \bigl[ - S[\phi'] + S[\phi] \bigr] \int \prod_{x} \ma
 & W_{\mathrm{md}}(-\pi',\phi' \to -\pi,\phi) \exp \bigl[ -\sum_x \pi'(x)^2 /2 \bigr] = \\
 = &  \exp \bigl[ - S[\phi'] + S[\phi] \bigr] W(\phi' \to \phi) \: ,
 \end{split}
-\label{proof2}
+\label{proofP2}
 \end{equation}
 %
-where in the last step we used the fact that the integration measure $ \int \prod_{x} \mathrm{d} \pi(x) \mathrm{d} \pi'(x)$ and the factor $\exp \bigl[ -\sum_x \pi'(x)^2 /2 \bigr]$ are invariant under a change of sign of $\pi$ and $\pi'$. The detailed balance relation follows directly from equation \ref{proof2}:
+where in the last step we used the fact that the integration measure $ \int \prod_{x} \mathrm{d} \pi(x) \mathrm{d} \pi'(x)$ and the factor $\exp \bigl[ -\sum_x \pi'(x)^2 /2 \bigr]$ are invariant under a change of sign of $\pi$ and $\pi'$. The detailed balance relation follows directly from equation \ref{proofP2}:
 
 \begin{equation}
 \exp \bigl[ -  S[\phi] \bigr]W(\phi \to \phi') =\exp \bigl[ - S[\phi'] \bigr] W(\phi' \to \phi) \: .
@@ -401,7 +401,7 @@ The possible terms which are quartic in the field $\phi$ and symmetric under col
 \end{equation}
 %
 The last two terms in \ref{quartic} can be shown to be equal to the first ones by applying equation \ref{constraint}:
-
+ 
 \begin{equation}
 \begin{split}
 \bigl( \mathrm{Tr} \bigl[ S^T \epsilon S E \bigr] \bigr)^2  &=   \bigl( \mathrm{Tr} \bigl[ S^T (-S^*) \bigr] \bigr)^2 =  \bigl( - \mathrm{Tr} \bigl[ (S^{\dagger} S)^* \bigr] \bigr)^2 \\
