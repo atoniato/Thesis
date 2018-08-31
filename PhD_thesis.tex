@@ -26,6 +26,7 @@
 \usepackage{hhline}
 \usepackage{chngpage}
 \usepackage{xcolor}
+\usepackage{enumitem}
 
 \usepackage[%dvips,
   bookmarks]{hyperref}
@@ -35,6 +36,8 @@
     citecolor={blue!50!black},
     urlcolor={blue!80!black}
 }
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -71,16 +74,91 @@
 \def\Fund#1#2{\vcenter{\vbox{\drawbox{#1}{#2}}}}
 \def\fund{\Fund{6.4}{0.3}}
 
+%HORIZONTAL LINE
+\newcommand{\HRule}{\rule{\linewidth}{0.3mm}} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagestyle{plain}
 
+
 \begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\begin{center}
+\begin{minipage}{0.99\linewidth}
+    \centering
+%University logo
+    \includegraphics[width=0.4\linewidth]{pics/logo-SDU.png} \\
+    %\rule{0.4\linewidth}{0.15\linewidth}\par
+    \vspace{3cm}
+%Thesis title
+
+    {\uppercase{\Large \textbf{perturbative and non-perturbative aspects of non-abelian gauge theories beyond the standard model} \par}}
+
+    \vspace{5cm}
+%Author's name
+    {\Large Arianna Toniato\par}
+    \vspace{3cm}
+    
+    %Degree
+    { Doctoral thesis \par}
+    \vspace{3cm}
+%Date
+
+\end{minipage}
+\end{center}
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\begin{center}
+\begin{minipage}{0.99\linewidth}
+    \centering
+%University logo
+    \includegraphics[width=0.2\linewidth]{pics/logo-SDU.png} \\
+    %\rule{0.4\linewidth}{0.15\linewidth}\par
+    \vspace{2cm}
+
+
+{ Doctoral thesis \par}
+\HRule \\[0.3cm]
+
+    {\uppercase{\Large perturbative and non-perturbative aspects of non-abelian gauge theories beyond the standard model \par}}
+\HRule \\[0.3cm]
+    \vspace{1cm}
+%Author's name
+    { Arianna Toniato\par}
+    \vspace{2.5cm}
+    
+    {Advisors: \par}
+    \vspace{0.1cm}
+    {Francesco Sannino \\Claudio Pica \par}
+    
+   \vspace{4cm}
+   
+   {CP$^3$-Origins \\ University of Southern Denmark}
+   
+   \vspace{0.1cm}
+   
+   {August 2018 \par}
+
+\end{minipage}
+\end{center}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \frontmatter
 
+\input{Beginning_End/aknowledgements}
 \input{Beginning_End/abstract}
+\input{Beginning_End/danish}
+\input{Beginning_End/publications}
 \input{Beginning_End/index}
 \input{Chapters/Introduction}
 
