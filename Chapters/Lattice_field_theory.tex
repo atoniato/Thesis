@@ -1,9 +1,10 @@
 \chapter{Lattice field theory}
+\label{LFT}
 
-In an interacting quantum field theory, controllable analytical computation can only be performed in perturbation theory, i.e. the coupling constants are assumed to be small, so that the interactions represent just a small perturbation of the free-field Lagrangian. A large class of non-Abelian gauge theories (among which QCD) is strongly coupled at low energies. This implies that the large-distance properties of these theories cannot be computed in perturbation theory. 
+In an interacting quantum field theory, controllable analytical computations can only be performed in perturbation theory, i.e. the coupling constants are assumed to be small, so that the interactions represent a small perturbation of the free-field Lagrangian. A large class of non-Abelian gauge theories (among which QCD) is strongly coupled at low energies. This implies that the large-distance properties of these theories cannot be computed in perturbation theory. 
 
 Lattice field theory is a non-perturbative tool for studying quantum field theories, and it is therefore very valuable in the context of strongly coupled theories. In this chapter, we give a general introduction to lattice field theory, focusing mainly on the tools needed for the lattice study described in this thesis. The chapter is organised as follows: we start by introducing Monte Carlo simulations, a numerical tool of statistical mechanics, which can be applied to quantum field theories defined in Euclidean space. 
-We then discuss the lattice discretisation of the action of a gauge theory coupled to fermions. We continue by describing the Hybrid Monte Carlo algorithm, which is used to obtain the lattice measurements presented in this thesis. Then we give a short introduction to the topic of mass measurements on the lattice, and we conclude by discussing the continuum limit of the lattice theory.
+We then discuss the lattice discretisation of the action of a gauge theory coupled to fermions. We continue by describing the Hybrid Monte Carlo algorithm, which is used for the lattice analysis presented in this thesis. Then we give a short introduction to the topic of mass measurements on the lattice, and we conclude by discussing the continuum limit of lattice theories.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -171,13 +172,32 @@ where $\phi_x$ is the value of the field $\phi$ at the lattice point $x$.
 
 \subsection{Gauge action}
 
-We consider a theory with SU(N) gauge symmetry, whose continuum action is defined in equations {\color{red}(?)(?)}.  In order to define a discretised version of this theory, we assign to each link on the lattice $\Lambda$ an element of the gauge group:
+We consider a theory with SU(N) gauge symmetry, whose continuum action in Euclidean space is defined by:
+%
+\begin{equation}
+S_{YM}^E [A] = \frac{1}{4} \int \dx \bigl(F_{\mu \nu}^a(x)\bigr)^2 \: ,
+\label{Yang-Mills-E}
+\end{equation}
+%
+where $A_{\mu}^a$ is the gauge field, and the field strength tensor $F_{\mu\nu}^a$ is defined as follows:
+\begin{equation}
+F_{\mu\nu}^a = \partial_{\mu} A^a_{\nu} - \partial_{\nu} A^a_{\mu} + g f^{abc} A_{\mu}^b A_{\nu}^c \: .
+\end{equation}
+%
+In this equation, $g$ represents the gauge coupling and $f^{abc}$ the structure constants, defined by:
+\begin{equation}
+[T^a,T^b] = -i f^{abc} T^c \: ,
+\end{equation}
+%
+where $T^a$, $a \in  [1, \dots, \mathrm{N}^2 -1]$, are the generators of the fundamental representation  of  SU(N).
+In equation \ref{Yang-Mills-E}, the indices $\mu$, $\nu$, $a$ are summed over.
+In order to define a discretised version of this theory, we assign to each link on the lattice $\Lambda$ an element of the gauge group:
 \begin{equation}
 U_ {\mu}(x) = \exp\biggl[i a  g A^b_{\mu}(x) T^b \biggr] \in \mathrm{SU(N)} \; ,
 \label{link_var}
 \end{equation}
 %
-where $T^b$, $b \in  [1, \dots, \mathrm{N}^2 -1]$, are the generators of the fundamental representation  of  SU(N) and $g$ is the gauge coupling. The following relation holds for the link variables $U_{\mu}$:
+where $g$ is again the gauge coupling. The following relation holds for the link variables $U_{\mu}$:
 \begin{equation}
 U_{-\mu}(x)  = U_{\mu}(x - a\hat\mu)^{\dagger} \; .
 \end{equation}
@@ -217,7 +237,7 @@ We find:
 S_W[U] = \frac{a^4}{2} \sum_{x \in \Lambda} \sum_{\mu, \nu} \tr [F_{\mu \nu}(x)^2]  + \mathcal O(a^2) \underset{a \to 0, V \to \infty}{\longrightarrow} \frac{1}{4} \int \dx \: (F_{\mu \nu}^a)^2 = S_{YM}^E[A]\; ,
 \end{equation}
 %
-where $V = \prod_{\mu = 0}^3L_{\mu}$ is the total number of lattice points, $\mu$ and $\nu$ are Euclidean indices, and $F_{\mu \nu}$ is the field strength tensor, as defined in equation {\color{red}(?)}.
+where $V = \prod_{\mu = 0}^3L_{\mu}$ is the total number of lattice points, and $F_{\mu\nu} = F^a_{\mu\nu} T^a$.
 
 It must be noticed that, as we discretise the Yang-Mills action, the Poincaré symmetry of the continuum theory is reduced to the smaller group of symmetries of an hypercubic lattice. However, the discretised action that we defined has the remarkable property of being exactly gauge invariant even at finite lattice spacing.
 
